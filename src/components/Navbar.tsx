@@ -25,7 +25,6 @@ export const Navbar: React.FC<NavbarProps> = ({
     { label: language === 'en' ? 'Academics' : 'শিক্ষা কার্যক্রম', id: 'academics' },
     { label: language === 'en' ? 'Admissions' : 'ভর্তি তথ্য', id: 'admissions' },
     { label: language === 'en' ? 'Notices & Calendar' : 'নোটিশ ও বর্ষপঞ্জি', id: 'notices' },
-    { label: language === 'en' ? 'Faculty' : 'শিক্ষকমণ্ডলী', id: 'faculty' },
     { label: language === 'en' ? 'Campus Facilities' : 'ক্যাম্পাস', id: 'facilities' },
     { label: language === 'en' ? 'Achievements' : 'কৃতিত্ব ও ফলাফল', id: 'results' },
     { label: language === 'en' ? 'Contact' : 'যোগাযোগ', id: 'contact' },

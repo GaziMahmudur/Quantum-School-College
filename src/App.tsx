@@ -121,12 +121,6 @@ export default function App() {
           onApplyForClass={handleApplyForClass}
         />
 
-        {/* Campus Facilities & Laboratories */}
-        <CampusFacilities language={language} />
-
-        {/* Board Results & Honors */}
-        <Achievements language={language} />
-
         {/* Interactive 6-Step Admission Wizard */}
         <AdmissionWizard
           language={language}
@@ -139,6 +133,12 @@ export default function App() {
           language={language}
           onViewNotice={handleViewNotice}
         />
+
+        {/* Campus Facilities & Laboratories */}
+        <CampusFacilities language={language} />
+
+        {/* Board Results & Honors */}
+        <Achievements language={language} />
 
         {/* Testimonials & Community Voices */}
         <Testimonials language={language} />
