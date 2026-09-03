@@ -98,8 +98,12 @@ export const Footer: React.FC<FooterProps> = ({
           {/* Brand Col */}
           <div className="lg:col-span-2 space-y-6">
             <div className="flex items-center gap-3.5">
-              <div className="w-11 h-11 rounded-2xl bg-gradient-to-tr from-[#00a896] to-teal-400 text-white flex items-center justify-center font-extrabold text-xl shadow-md">
-                Q
+              <div className="w-11 h-11 rounded-xl bg-[#0b2545] text-white flex items-center justify-center shadow-md relative overflow-hidden border border-cyan-500/30 shrink-0">
+                <div className="absolute inset-0 bg-gradient-to-tr from-cyan-600/30 to-transparent"></div>
+                <div className="relative font-display font-extrabold text-xl tracking-tight text-white flex items-center">
+                  <span className="text-cyan-400">Q</span>
+                  <span className="text-xs text-amber-300 font-bold ml-0.5">SC</span>
+                </div>
               </div>
               <div>
                 <span className="font-display font-black text-xl sm:text-2xl text-white tracking-tight block">
