@@ -49,6 +49,12 @@ export const AdmissionWizard: React.FC<AdmissionWizardProps> = ({
   const [generatedAppId, setGeneratedAppId] = useState<string>('QSC-2025-84920');
 
   const classesList = [
+    'Play & Nursery',
+    'Kindergarten (KG)',
+    'Class 1',
+    'Class 2',
+    'Class 3',
+    'Class 4',
     'Class 5',
     'Class 6',
     'Class 7',
@@ -60,7 +66,7 @@ export const AdmissionWizard: React.FC<AdmissionWizardProps> = ({
   ];
 
   const stepsHeader = [
-    { num: '01', title: 'Choose Class', desc: 'Pick Class 5, 6, 7, 8, 9, 10, 11, or 12.' },
+    { num: '01', title: 'Choose Class', desc: 'Pick from Play, Nursery, up to Class 12.' },
     { num: '02', title: 'Choose Group', desc: 'Science, Business, or Humanities (Class 9-12).' },
     { num: '03', title: 'Fill Details', desc: 'Student name, birth date, and guardian phone.' },
     { num: '04', title: 'Upload Files', desc: 'Student photo and birth certificate copy.' },
