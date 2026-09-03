@@ -1,0 +1,6 @@
+{
+  "name": "Quantum School & College",
+  "description": "Official portal and website for Quantum School & College, Uttara, Dhaka with online admissions, academic programs, notices, and ERP student portal.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
