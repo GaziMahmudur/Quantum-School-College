@@ -42,7 +42,9 @@ export default function App() {
   const scrollToSection = (id: string) => {
     const el = document.getElementById(id);
     if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
+      // Calculate position with offset for the sticky header
+      const y = el.getBoundingClientRect().top + window.scrollY - 120;
+      window.scrollTo({ top: y, behavior: 'smooth' });
     }
   };
 
