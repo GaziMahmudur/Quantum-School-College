@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Download, Globe, LogIn, Menu, X, ShieldCheck, PhoneCall } from 'lucide-react';
+import { Download, Globe, LogIn, Menu, X, ShieldCheck, PhoneCall, ChevronDown } from 'lucide-react';
 import { Language } from '../types';
 
 interface NavbarProps {
@@ -23,10 +23,17 @@ export const Navbar: React.FC<NavbarProps> = ({
     { label: language === 'en' ? 'Home' : 'হোম', id: 'home' },
     { label: language === 'en' ? 'About Us' : 'আমাদের পরিচিতি', id: 'about' },
     { label: language === 'en' ? 'Academics' : 'শিক্ষা কার্যক্রম', id: 'academics' },
-    { label: language === 'en' ? 'Admissions' : 'ভর্তি তথ্য', id: 'admissions' },
-    { label: language === 'en' ? 'Notices & Calendar' : 'নোটিশ ও বর্ষপঞ্জি', id: 'notices' },
-    { label: language === 'en' ? 'Campus Facilities' : 'ক্যাম্পাস', id: 'facilities' },
-    { label: language === 'en' ? 'Achievements' : 'কৃতিত্ব ও ফলাফল', id: 'results' },
+    { 
+      label: language === 'en' ? 'Admissions' : 'ভর্তি তথ্য', 
+      id: 'admissions_group',
+      subItems: [
+        { label: language === 'en' ? 'Step-by-Step Process' : 'ভর্তি প্রক্রিয়া', id: 'process' },
+        { label: language === 'en' ? 'Apply Now (Form)' : 'অনলাইন আবেদন', id: 'admissions' }
+      ]
+    },
+    { label: language === 'en' ? 'Notices' : 'নোটিশ', id: 'notices' },
+    { label: language === 'en' ? 'Facilities' : 'ক্যাম্পাস', id: 'facilities' },
+    { label: language === 'en' ? 'Achievements' : 'ফলাফল', id: 'results' },
     { label: language === 'en' ? 'Contact' : 'যোগাযোগ', id: 'contact' },
   ];
 
@@ -66,15 +73,36 @@ export const Navbar: React.FC<NavbarProps> = ({
           </button>
 
           {/* Desktop Nav Links */}
-          <nav className="hidden xl:flex items-center space-x-1 lg:space-x-2 text-[13.5px] font-medium text-slate-700">
+          <nav className="hidden xl:flex items-center space-x-0.5 lg:space-x-1 text-[13.5px] font-medium text-slate-700">
             {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => handleNavClick(item.id)}
-                className="hover:text-[#0b2545] hover:bg-slate-100/80 px-3 py-2 rounded-lg transition-colors cursor-pointer"
-              >
-                {item.label}
-              </button>
+              item.subItems ? (
+                <div key={item.id} className="relative group">
+                  <button className="flex items-center gap-1 hover:text-[#0b2545] hover:bg-slate-100/80 px-2 lg:px-3 py-2 rounded-lg transition-colors cursor-pointer outline-none">
+                    {item.label}
+                    <ChevronDown className="w-3.5 h-3.5 text-slate-400 group-hover:rotate-180 transition-transform" />
+                  </button>
+                  {/* Dropdown Menu */}
+                  <div className="absolute top-full left-0 mt-2 w-52 bg-white border border-slate-200 rounded-xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.1)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 flex flex-col p-1.5 z-50 translate-y-2 group-hover:translate-y-0">
+                    {item.subItems.map(subItem => (
+                      <button
+                        key={subItem.id}
+                        onClick={() => handleNavClick(subItem.id)}
+                        className="text-left w-full hover:text-cyan-700 hover:bg-cyan-50/50 px-3.5 py-2.5 rounded-lg text-[13px] font-semibold transition-colors cursor-pointer"
+                      >
+                        {subItem.label}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <button
+                  key={item.id}
+                  onClick={() => handleNavClick(item.id)}
+                  className="hover:text-[#0b2545] hover:bg-slate-100/80 px-2 lg:px-3 py-2 rounded-lg transition-colors cursor-pointer outline-none"
+                >
+                  {item.label}
+                </button>
+              )
             ))}
           </nav>
 
@@ -119,13 +147,33 @@ export const Navbar: React.FC<NavbarProps> = ({
       {mobileMenuOpen && (
         <div className="absolute top-full left-0 right-0 xl:hidden bg-white border-t border-slate-200 px-4 pt-2 pb-4 space-y-1 shadow-lg animate-in fade-in slide-in-from-top-2">
           {navItems.map((item) => (
-            <button
-              key={item.id}
-              onClick={() => handleNavClick(item.id)}
-              className="block w-full text-left px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50 hover:text-[#0b2545] rounded-md cursor-pointer"
-            >
-              {item.label}
-            </button>
+            item.subItems ? (
+              <div key={item.id} className="w-full">
+                <div className="px-3 py-2.5 text-sm font-semibold text-slate-800 bg-slate-50/50 flex items-center justify-between">
+                  {item.label}
+                  <ChevronDown className="w-4 h-4 text-slate-400" />
+                </div>
+                <div className="pl-2 pr-2 py-1 space-y-1">
+                  {item.subItems.map(subItem => (
+                    <button
+                      key={subItem.id}
+                      onClick={() => handleNavClick(subItem.id)}
+                      className="block w-full text-left pl-4 pr-3 py-2 text-[13px] font-semibold text-cyan-700 hover:bg-slate-50 rounded-md cursor-pointer"
+                    >
+                      • {subItem.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            ) : (
+              <button
+                key={item.id}
+                onClick={() => handleNavClick(item.id)}
+                className="block w-full text-left px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50 hover:text-[#0b2545] rounded-md cursor-pointer"
+              >
+                {item.label}
+              </button>
+            )
           ))}
 
         </div>

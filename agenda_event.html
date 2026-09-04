@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevSummit 2025 — The Web Dev Event of the Year</title>
+    <meta name="description" content="Join the ultimate virtual developer summit. The future of web development, edge computing, AI, and design systems.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ─── NAVBAR ─── -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo"><span>⚡</span> DevSummit</a>
+            
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#speakers">Speakers</a></li>
+                <li><a href="#agenda">Agenda</a></li>
+                <li><a href="#sponsors">Sponsors</a></li>
+            </ul>
+
+            <button class="nav-cta register-trigger">Register Free →</button>
+
+            <button class="mobile-toggle" id="mobile-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ─── HERO SECTION ─── -->
+    <section class="hero" id="about">
+        <div class="badge">
+            <span class="dot"></span> 🔴 LIVE EVENT — June 28, 2025
+        </div>
+        
+        <h1 class="hero-headline">
+            The Future of 
+            <span class="gradient-text">Web Development</span>
+        </h1>
+
+        <p class="hero-subheading">
+            Join 5,000+ engineers for the ultimate virtual summit exploring the next decade of web architecture, edge computing, and AI-driven design.
+        </p>
+
+        <div class="meta-row">
+            <div class="meta-pill">📅 June 28, 2025</div>
+            <div class="meta-pill">🕐 9:00 AM–6:00 PM EST</div>
+            <div class="meta-pill">🌐 Online · Free to Attend</div>
+        </div>
+
+        <div class="hero-ctas">
+            <button class="btn btn-primary register-trigger">Reserve My Spot →</button>
+            <a href="#agenda" class="btn btn-secondary">View Agenda ↓</a>
+        </div>
+
+        <div class="social-proof">
+            <div class="avatars">
+                <div class="avatar-circle" style="background: linear-gradient(135deg, #6366f1, #a855f7)">JS</div>
+                <div class="avatar-circle" style="background: linear-gradient(135deg, #22d3ee, #0ea5e9)">RK</div>
+                <div class="avatar-circle" style="background: linear-gradient(135deg, #f59e0b, #ef4444)">ML</div>
+                <div class="avatar-circle" style="background: linear-gradient(135deg, #22c55e, #10b981)">AM</div>
+                <div class="avatar-circle" style="background: linear-gradient(135deg, #ec4899, #8b5cf6)">TN</div>
+            </div>
+            <span class="proof-text">Already registered: 1,847 people</span>
+        </div>
+
+        <div class="countdown-container">
+            <span class="countdown-label">Event starts in</span>
+            <div class="countdown-grid" id="countdown">
+                <div class="countdown-box">
+                    <span class="countdown-number" id="days">00</span>
+                    <span class="countdown-unit">Days</span>
+                </div>
+                <div class="countdown-box">
+                    <span class="countdown-number" id="hours">00</span>
+                    <span class="countdown-unit">Hours</span>
+                </div>
+                <div class="countdown-box">
+                    <span class="countdown-number" id="minutes">00</span>
+                    <span class="countdown-unit">Minutes</span>
+                </div>
+                <div class="countdown-box">
+                    <span class="countdown-number" id="seconds">00</span>
+                    <span class="countdown-unit">Seconds</span>
+                </div>
+            </div>
+            <div class="live-now" id="live-status">🔴 This Event is LIVE NOW!</div>
+        </div>
+    </section>
+
+    <!-- ─── DETAILS STRIP ─── -->
+    <div class="details-strip">
+        <div class="container details-grid">
+            <div class="detail-item">
+                <span class="detail-label">Date</span>
+                <span class="detail-value">📅 June 28, 2025</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">Starts At</span>
+                <span class="detail-value">🕐 9:00 AM EST</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">Location</span>
+                <span class="detail-value">🌐 Zoom + Replay</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">Availability</span>
+                <span class="detail-value amber">🎟 Only 38 Spots Left</span>
+                <div class="progress-container">
+                    <div class="progress-bar"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ─── SPEAKERS ─── -->
+    <section id="speakers">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title">Meet the Speakers</h2>
+                <p class="section-subtitle">Industry leaders at the forefront of innovation.</p>
+            </div>
+
+            <div class="speakers-grid">
+                <!-- Speaker 1 -->
+                <div class="speaker-card reveal">
+                    <div class="speaker-avatar" style="background: linear-gradient(135deg, #6366f1, #22d3ee)">SC</div>
+                    <h3 class="speaker-name">Sarah Chen</h3>
+                    <span class="speaker-title-pill">Head of Engineering, Vercel</span>
+                    <p class="speaker-talk">🎤 "The Future of Edge Computing"</p>
+                    <div class="speaker-socials">
+                        <a href="#" class="social-icon">Twitter</a>
+                        <a href="#" class="social-icon">LinkedIn</a>
+                    </div>
+                    <div class="speaker-bio-overlay">
+                        <p class="bio-text">Sarah lead the infrastructure team at Vercel. She's a pioneer in serverless architecture.</p>
+                        <a href="#" class="bio-link">See Full Bio →</a>
+                    </div>
+                </div>
+                <!-- Speaker 2 -->
+                <div class="speaker-card reveal">
+                    <div class="speaker-avatar" style="background: linear-gradient(135deg, #8b5cf6, #ec4899)">MW</div>
+                    <h3 class="speaker-name">Marcus Webb</h3>
+                    <span class="speaker-title-pill">Design Advocate, Figma</span>
+                    <p class="speaker-talk">🎤 "Design Systems at Scale"</p>
+                    <div class="speaker-socials">
+                        <a href="#" class="social-icon">Twitter</a>
+                        <a href="#" class="social-icon">LinkedIn</a>
+                    </div>
+                    <div class="speaker-bio-overlay">
+                        <p class="bio-text">Marcus helps the world's largest teams build scalable design languages at Figma.</p>
+                        <a href="#" class="bio-link">See Full Bio →</a>
+                    </div>
+                </div>
+                <!-- Speaker 3 -->
+                <div class="speaker-card reveal">
+                    <div class="speaker-avatar" style="background: linear-gradient(135deg, #14b8a6, #22c55e)">PS</div>
+                    <h3 class="speaker-name">Priya Sharma</h3>
+                    <span class="speaker-title-pill">AI Product Lead, Anthropic</span>
+                    <p class="speaker-talk">🎤 "Building with LLMs in Production"</p>
+                    <div class="speaker-socials">
+                        <a href="#" class="social-icon">Twitter</a>
+                        <a href="#" class="social-icon">LinkedIn</a>
+                    </div>
+                    <div class="speaker-bio-overlay">
+                        <p class="bio-text">Priya focuses on making large language models more useful and safe for developers.</p>
+                        <a href="#" class="bio-link">See Full Bio →</a>
+                    </div>
+                </div>
+                <!-- Speaker 4 -->
+                <div class="speaker-card reveal">
+                    <div class="speaker-avatar" style="background: linear-gradient(135deg, #f59e0b, #ef4444)">DR</div>
+                    <h3 class="speaker-name">Diego Ruiz</h3>
+                    <span class="speaker-title-pill">Founder, DevTools.io</span>
+                    <p class="speaker-talk">🎤 "From Side Project to $1M ARR"</p>
+                    <div class="speaker-socials">
+                        <a href="#" class="social-icon">Twitter</a>
+                        <a href="#" class="social-icon">LinkedIn</a>
+                    </div>
+                    <div class="speaker-bio-overlay">
+                        <p class="bio-text">Diego is a serial entrepreneur who has built multiple successful developer tools.</p>
+                        <a href="#" class="bio-link">See Full Bio →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── AGENDA ─── -->
+    <section id="agenda" style="background: #0b0e22;">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title">Full Day Agenda</h2>
+                <p class="section-subtitle">Packed schedule. Zero filler.</p>
+            </div>
+
+            <div class="agenda-container">
+                <div class="timeline-line"></div>
+                
+                <div class="agenda-item left">
+                    <div class="timeline-dot"></div>
+                    <div class="agenda-card">
+                        <div class="agenda-time">09:00 AM</div>
+                        <h4 class="agenda-session-title">Opening Keynote: State of the Web</h4>
+                        <p class="agenda-speaker">Sarah Chen</p>
+                        <span class="agenda-badge badge-keynote">🟣 Keynote</span>
+                    </div>
+                </div>
+
+                <div class="agenda-item right">
+                    <div class="timeline-dot"></div>
+                    <div class="agenda-card">
+                        <div class="agenda-time">10:00 AM</div>
+                        <h4 class="agenda-session-title">Design Systems That Don't Break</h4>
+                        <p class="agenda-speaker">Marcus Webb</p>
+                        <span class="agenda-badge badge-workshop">🔵 Workshop</span>
+                    </div>
+                </div>
+
+                <div class="agenda-item left">
+                    <div class="timeline-dot"></div>
+                    <div class="agenda-card">
+                        <div class="agenda-time">11:00 AM</div>
+                        <h4 class="agenda-session-title">Live Coding: Edge Functions in 30 Min</h4>
+                        <p class="agenda-speaker">Diego Ruiz</p>
+                        <span class="agenda-badge badge-workshop">🔵 Workshop</span>
+                    </div>
+                </div>
+
+                <div class="agenda-item right">
+                    <div class="timeline-dot"></div>
+                    <div class="agenda-card">
+                        <div class="agenda-time">12:00 PM</div>
+                        <h4 class="agenda-session-title">Lunch Break + Networking Lounge</h4>
+                        <p class="agenda-speaker">Main Hall</p>
+                        <span class="agenda-badge badge-break">⬜ Break</span>
+                    </div>
+                </div>
+
+                <div class="agenda-item left">
+                    <div class="timeline-dot"></div>
+                    <div class="agenda-card">
+                        <div class="agenda-time">01:00 PM</div>
+                        <h4 class="agenda-session-title">LLMs in Production: What Nobody Tells You</h4>
+                        <p class="agenda-speaker">Priya Sharma</p>
+                        <span class="agenda-badge badge-keynote">🟣 Keynote</span>
+                    </div>
+                </div>
+
+                <div class="agenda-item right">
+                    <div class="timeline-dot"></div>
+                    <div class="agenda-card">
+                        <div class="agenda-time">02:30 PM</div>
+                        <h4 class="agenda-session-title">Panel: The Future of Frontend</h4>
+                        <p class="agenda-speaker">All Speakers</p>
+                        <span class="agenda-badge badge-panel">🟢 Panel</span>
+                    </div>
+                </div>
+
+                <div class="agenda-item left">
+                    <div class="timeline-dot"></div>
+                    <div class="agenda-card">
+                        <div class="agenda-time">04:00 PM</div>
+                        <h4 class="agenda-session-title">Open Q&A + AMA Session</h4>
+                        <p class="agenda-speaker">All Speakers</p>
+                        <span class="agenda-badge badge-qa">🔴 Live Q&A</span>
+                    </div>
+                </div>
+
+                <div class="agenda-item right">
+                    <div class="timeline-dot"></div>
+                    <div class="agenda-card">
+                        <div class="agenda-time">05:30 PM</div>
+                        <h4 class="agenda-session-title">Closing + Announcements</h4>
+                        <p class="agenda-speaker">Team DevSummit</p>
+                        <span class="agenda-badge badge-break">⬜ Closing</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── SPONSORS ─── -->
+    <section id="sponsors">
+        <div class="container">
+            <p class="sponsors-label">Proudly Supported By</p>
+            <div class="marquee-container">
+                <div class="marquee-content">
+                    <span class="marquee-item">STRIPE</span>
+                    <span class="marquee-item">VERCEL</span>
+                    <span class="marquee-item">GITHUB</span>
+                    <span class="marquee-item">NOTION</span>
+                    <span class="marquee-item">FIGMA</span>
+                    <span class="marquee-item">CLOUDFLARE</span>
+                    <span class="marquee-item">DIGITALOCEAN</span>
+                    <span class="marquee-item">SUPABASE</span>
+                    <!-- Duplicate for loop -->
+                    <span class="marquee-item">STRIPE</span>
+                    <span class="marquee-item">VERCEL</span>
+                    <span class="marquee-item">GITHUB</span>
+                    <span class="marquee-item">NOTION</span>
+                    <span class="marquee-item">FIGMA</span>
+                    <span class="marquee-item">CLOUDFLARE</span>
+                    <span class="marquee-item">DIGITALOCEAN</span>
+                    <span class="marquee-item">SUPABASE</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── FAQ ─── -->
+    <section id="faq">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <p class="section-subtitle">Everything you need to know before joining.</p>
+            </div>
+
+            <div class="faq-container">
+                <div class="faq-item reveal">
+                    <button class="faq-question">
+                        Is this event really free?
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes! The main conference is 100% free to attend live. We believe in making high-quality developer education accessible to everyone.</p>
+                    </div>
+                </div>
+                <div class="faq-item reveal">
+                    <button class="faq-question">
+                        Will sessions be recorded?
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes, all sessions will be recorded. VIP ticket holders get immediate access to recordings, while free attendees will get access 3 months after the event.</p>
+                    </div>
+                </div>
+                <div class="faq-item reveal">
+                    <button class="faq-question">
+                        What timezone is the event in?
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>The event runs from 9:00 AM to 6:00 PM Eastern Standard Time (EST). You can convert this to your local time in the agenda section.</p>
+                    </div>
+                </div>
+                <div class="faq-item reveal">
+                    <button class="faq-question">
+                        Can I attend with my team?
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Absolutely! We have special Team tickets that include dedicated Q&A slots and group networking rooms for teams of up to 5 people.</p>
+                    </div>
+                </div>
+                <div class="faq-item reveal">
+                    <button class="faq-question">
+                        How do I get VIP replay access?
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>You can upgrade to a VIP ticket during registration or anytime before the event starts to unlock instant replays and our private Slack community.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── FINAL CTA ─── -->
+    <section class="container">
+        <div class="final-cta reveal">
+            <h2>Don't miss your spot.</h2>
+            <p>1,847 people registered. Seats fill fast.</p>
+            <span class="urgency">⚡ 38 seats remaining</span>
+            <button class="btn btn-white register-trigger">Register Free Now →</button>
+        </div>
+    </section>
+
+    <!-- ─── FOOTER ─── -->
+    <footer>
+        <div class="container footer-container">
+            <div class="logo"><span>⚡</span> DevSummit</div>
+            <div class="footer-copy">© 2025 DevSummit. All rights reserved. Built for developers.</div>
+            <div class="footer-socials">
+                <a href="#">TW</a>
+                <a href="#">LI</a>
+                <a href="#">YT</a>
+                <a href="#">GH</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ─── REGISTER MODAL ─── -->
+    <div class="modal-overlay" id="register-modal">
+        <div class="modal-card">
+            <button class="modal-close" id="modal-close">&times;</button>
+            
+            <div id="registration-form-content">
+                <div class="modal-header">
+                    <h3 class="modal-title">🎟 Reserve Your Free Spot</h3>
+                    <p class="modal-subtitle">June 28 · Online · Free</p>
+                </div>
+
+                <form id="registration-form">
+                    <div class="form-group">
+                        <label class="form-label">Full Name</label>
+                        <input type="text" class="form-input" placeholder="Jane Doe" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Work Email</label>
+                        <input type="email" class="form-input" placeholder="jane@company.com" required>
+                    </div>
+                    <div class="grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                        <div class="form-group">
+                            <label class="form-label">Job Title</label>
+                            <input type="text" class="form-input" placeholder="Senior Developer" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Company</label>
+                            <input type="text" class="form-input" placeholder="Acme Inc." required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Role</label>
+                        <select class="form-input" required>
+                            <option value="">Select your role</option>
+                            <option value="developer">Developer</option>
+                            <option value="designer">Designer</option>
+                            <option value="pm">Product Manager</option>
+                            <option value="founder">Founder</option>
+                            <option value="student">Student</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="ticket-grid">
+                        <div class="ticket-option selected" data-ticket="free">
+                            <span class="ticket-name">🎟 Free</span>
+                            <span class="ticket-desc">Live stream access</span>
+                            <span class="ticket-price">$0</span>
+                        </div>
+                        <div class="ticket-option" data-ticket="vip">
+                            <span class="ticket-name">⭐ VIP</span>
+                            <span class="ticket-desc">Live + Replays</span>
+                            <span class="ticket-price">$29</span>
+                        </div>
+                        <div class="ticket-option" data-ticket="team">
+                            <span class="ticket-name">🏢 Team</span>
+                            <span class="ticket-desc">5 seats + Q&A</span>
+                            <span class="ticket-price">$99</span>
+                        </div>
+                    </div>
+
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="reminders" checked>
+                        <label for="reminders">Send me event reminders</label>
+                    </div>
+
+                    <button type="submit" class="submit-btn" id="submit-btn">Confirm Registration →</button>
+                </form>
+            </div>
+
+            <!-- Success State -->
+            <div class="success-state" id="success-state">
+                <svg class="checkmark-svg" viewBox="0 0 52 52">
+                    <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
+                    <path class="checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+                </svg>
+                <h3 class="success-title">You're in! 🎉</h3>
+                <p class="success-text">Check your email for your confirmation ticket. See you June 28th.</p>
+                <div class="success-actions">
+                    <button class="btn btn-secondary" style="width: 100%;">📅 Add to Calendar</button>
+                    <div style="display: flex; gap: 12px;">
+                        <button class="btn btn-secondary" style="flex: 1; padding: 12px;">Share on Twitter</button>
+                        <button class="btn btn-secondary" style="flex: 1; padding: 12px;">Share on LinkedIn</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- External JS -->
+    <script src="script.js"></script>
+</body>
+</html>

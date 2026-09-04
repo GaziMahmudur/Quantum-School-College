@@ -98,7 +98,7 @@ export const Hero: React.FC<HeroProps> = ({
             <div className="pt-2 flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 sm:gap-4">
               <button
                 onClick={onApplyClick}
-                className="w-full sm:w-auto inline-flex justify-center items-center gap-2.5 px-6 sm:px-7 py-3.5 sm:py-4 rounded-xl font-semibold text-sm sm:text-base text-white bg-[#007A6E] hover:bg-[#008c7d] shadow-lg shadow-teal-900/40 transition-all hover:scale-[1.02] cursor-pointer text-center"
+                className="w-full sm:w-auto inline-flex justify-center items-center gap-2.5 px-6 sm:px-7 py-3.5 sm:py-4 rounded-xl font-semibold text-sm sm:text-base text-white bg-[#007A6E] hover:bg-[#008c7d] shadow-lg shadow-teal-900/40 transition-colors cursor-pointer text-center"
               >
                 <span>{language === 'en' ? 'Apply Now (Simple 6 Steps)' : 'অনলাইন ভর্তি আবেদন (৬ ধাপ)'}</span>
                 <ArrowRight className="w-4 h-4 shrink-0" />
@@ -195,30 +195,33 @@ export const Hero: React.FC<HeroProps> = ({
         </div>
       </div>
 
-      {/* Hero Bottom Feature Strip */}
-      <div className="mt-16 sm:mt-24 bg-[#00221e] border-t border-teal-900/60 text-teal-100 text-xs sm:text-sm font-medium py-6 sm:py-8">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 min-[450px]:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 items-start sm:items-center text-left">
-            <div className="flex items-center justify-center sm:justify-start gap-3">
-              <ShieldCheck className="w-5 h-5 text-teal-400 shrink-0" />
-              <span>Safe &amp; Caring Environment</span>
-            </div>
+      {/* Hero Bottom Feature Strip (Marquee) */}
+      <div className="mt-16 sm:mt-24 bg-[#00221e] border-y border-teal-900/60 text-teal-100 text-xs sm:text-sm font-medium py-5 sm:py-6 overflow-hidden flex w-full relative">
+        {/* Left/Right fading gradients for a premium scrolling effect */}
+        <div className="absolute inset-y-0 left-0 w-12 sm:w-24 bg-gradient-to-r from-[#00221e] to-transparent z-10 pointer-events-none"></div>
+        <div className="absolute inset-y-0 right-0 w-12 sm:w-24 bg-gradient-to-l from-[#00221e] to-transparent z-10 pointer-events-none"></div>
 
-            <div className="flex items-center justify-center sm:justify-start gap-3">
-              <Bot className="w-5 h-5 text-teal-400 shrink-0" />
-              <span>Robotics, Coding &amp; Science Labs</span>
+        <div className="flex items-center shrink-0 animate-marquee min-w-full">
+          {[...Array(4)].map((_, arrayIdx) => (
+            <div key={arrayIdx} className="flex items-center gap-12 sm:gap-16 px-6 sm:px-8">
+              <div className="flex items-center gap-3 whitespace-nowrap shrink-0">
+                <ShieldCheck className="w-5 h-5 text-teal-400 shrink-0" />
+                <span>Safe &amp; Caring Environment</span>
+              </div>
+              <div className="flex items-center gap-3 whitespace-nowrap shrink-0">
+                <Bot className="w-5 h-5 text-teal-400 shrink-0" />
+                <span>Robotics, Coding &amp; Science Labs</span>
+              </div>
+              <div className="flex items-center gap-3 whitespace-nowrap shrink-0">
+                <Trees className="w-5 h-5 text-teal-400 shrink-0" />
+                <span>Large Green Sports Ground</span>
+              </div>
+              <div className="flex items-center gap-3 whitespace-nowrap shrink-0">
+                <Bus className="w-5 h-5 text-teal-400 shrink-0" />
+                <span>Safe AC Bus Service across Dhaka</span>
+              </div>
             </div>
-
-            <div className="flex items-center justify-center sm:justify-start gap-3">
-              <Trees className="w-5 h-5 text-teal-400 shrink-0" />
-              <span>Large Green Sports Ground</span>
-            </div>
-
-            <div className="flex items-center justify-center sm:justify-start gap-3">
-              <Bus className="w-5 h-5 text-teal-400 shrink-0" />
-              <span>Safe AC Bus Service across Dhaka</span>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>

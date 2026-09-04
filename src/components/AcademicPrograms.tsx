@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Smile, FlaskConical, GraduationCap, CheckCircle, ArrowRight, X, BookOpen, Clock, Award } from 'lucide-react';
 import { ACADEMIC_PROGRAMS } from '../data/schoolData';
 import { AcademicProgram, Language } from '../types';
+import { ScrollReveal } from './ScrollReveal';
 
 interface AcademicProgramsProps {
   language: Language;
@@ -29,32 +30,34 @@ export const AcademicPrograms: React.FC<AcademicProgramsProps> = ({ language, on
     <section id="academics" className="py-24 sm:py-32 lg:py-36 bg-white border-b border-slate-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16 lg:mb-20">
-          <div>
-            <span className="text-xs font-bold tracking-wider text-[#007A6E] uppercase bg-teal-50 px-3 py-1 rounded-full border border-teal-200/60">
-              {language === 'en' ? 'What We Teach' : 'আমাদের পাঠ্যক্রম'}
-            </span>
-            <h2 className="font-display font-extrabold text-2xl sm:text-3xl lg:text-4xl text-[#0b2545] tracking-tight mt-4">
-              {language === 'en' ? 'Our Classes & Academic Programs' : 'শ্রেণী ও শিক্ষামূলক বিভাগসমূহ'}
-            </h2>
+        <ScrollReveal direction="up" delay={100}>
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16 lg:mb-20">
+            <div>
+              <span className="text-xs font-bold tracking-wider text-[#007A6E] uppercase bg-teal-50 px-3 py-1 rounded-full border border-teal-200/60">
+                {language === 'en' ? 'What We Teach' : 'আমাদের পাঠ্যক্রম'}
+              </span>
+              <h2 className="font-display font-extrabold text-2xl sm:text-3xl lg:text-4xl text-[#0b2545] tracking-tight mt-4">
+                {language === 'en' ? 'Our Classes & Academic Programs' : 'শ্রেণী ও শিক্ষামূলক বিভাগসমূহ'}
+              </h2>
+            </div>
+            <p className="text-sm sm:text-base text-slate-600 max-w-xl leading-relaxed sm:leading-loose">
+              {language === 'en'
+                ? 'From Play to Class 12, our teachers guide every student patiently so they can learn concepts with joy and score high marks in board exams.'
+                : 'প্লে-গ্রুপ থেকে ১২শ শ্রেণী পর্যন্ত অভিজ্ঞ শিক্ষকগণ শিক্ষার্থীদের আনন্দ ও যত্নসহকারে পাঠদান করেন যেন তারা বোর্ড পরীক্ষায় অনন্য ফলাফল অর্জন করতে পারে।'}
+            </p>
           </div>
-          <p className="text-sm sm:text-base text-slate-600 max-w-xl leading-relaxed sm:leading-loose">
-            {language === 'en'
-              ? 'From Play to Class 12, our teachers guide every student patiently so they can learn concepts with joy and score high marks in board exams.'
-              : 'প্লে-গ্রুপ থেকে ১২শ শ্রেণী পর্যন্ত অভিজ্ঞ শিক্ষকগণ শিক্ষার্থীদের আনন্দ ও যত্নসহকারে পাঠদান করেন যেন তারা বোর্ড পরীক্ষায় অনন্য ফলাফল অর্জন করতে পারে।'}
-          </p>
-        </div>
+        </ScrollReveal>
 
         {/* 4-Column Program Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8 lg:gap-10">
-          {ACADEMIC_PROGRAMS.map((program) => (
-            <div
-              key={program.id}
-              className="bg-[#faf8ff] rounded-2xl border border-slate-200/90 p-8 sm:p-9 flex flex-col justify-between hover:shadow-xl hover:border-slate-300 transition-all duration-300 group"
-            >
-              <div>
-                {/* Badge and Icon */}
-                <div className="flex items-center justify-between mb-6">
+          {ACADEMIC_PROGRAMS.map((program, idx) => (
+            <ScrollReveal direction="up" delay={200 + idx * 100} key={program.id}>
+              <div
+                className="bg-[#faf8ff] rounded-2xl border border-slate-200/90 p-8 sm:p-9 flex flex-col justify-between hover:shadow-xl hover:border-slate-300 transition-all duration-300 group h-full"
+              >
+                <div>
+                  {/* Badge and Icon */}
+                  <div className="flex items-center justify-between mb-6">
                   <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-200/60">
                     {program.badge}
                   </span>
@@ -102,8 +105,9 @@ export const AcademicPrograms: React.FC<AcademicProgramsProps> = ({ language, on
                 </button>
               </div>
             </div>
-          ))}
-        </div>
+          </ScrollReveal>
+        ))}
+      </div>
       </div>
 
       {/* Program Details Modal */}

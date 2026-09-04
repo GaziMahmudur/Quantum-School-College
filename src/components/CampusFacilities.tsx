@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { CAMPUS_FACILITIES } from '../data/schoolData';
 import { Language } from '../types';
 import { CheckCircle2, ChevronRight, Sparkles, Building2 } from 'lucide-react';
+import { ScrollReveal } from './ScrollReveal';
 
 interface CampusFacilitiesProps {
   language: Language;
@@ -14,23 +15,26 @@ export const CampusFacilities: React.FC<CampusFacilitiesProps> = ({ language }) 
     <section id="facilities" className="py-24 sm:py-32 lg:py-36 bg-white border-b border-slate-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16 lg:mb-20">
-          <div>
-            <span className="text-xs font-bold tracking-wider text-[#007A6E] uppercase bg-teal-50 px-3 py-1 rounded-full border border-teal-200/60">
-              {language === 'en' ? 'Modern Infrastructure' : 'উন্নত অবকাঠামো'}
-            </span>
-            <h2 className="font-display font-extrabold text-2xl sm:text-3xl lg:text-4xl text-[#0b2545] tracking-tight mt-4">
-              {language === 'en' ? 'Campus Facilities & Learning Spaces' : 'শিক্ষাবান্ধব ক্যাম্পাস ও আধুনিক সুবিধাসমূহ'}
-            </h2>
+        <ScrollReveal direction="up" delay={100}>
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16 lg:mb-20">
+            <div>
+              <span className="text-xs font-bold tracking-wider text-[#007A6E] uppercase bg-teal-50 px-3 py-1 rounded-full border border-teal-200/60">
+                {language === 'en' ? 'Modern Infrastructure' : 'উন্নত অবকাঠামো'}
+              </span>
+              <h2 className="font-display font-extrabold text-2xl sm:text-3xl lg:text-4xl text-[#0b2545] tracking-tight mt-4">
+                {language === 'en' ? 'Campus Facilities & Learning Spaces' : 'শিক্ষাবান্ধব ক্যাম্পাস ও আধুনিক সুবিধাসমূহ'}
+              </h2>
+            </div>
+            <p className="text-sm sm:text-base text-slate-600 max-w-xl leading-relaxed sm:leading-loose">
+              {language === 'en'
+                ? 'We provide world-class amenities ensuring students learn in a safe, healthy, and highly motivating environment equipped with modern digital tools.'
+                : 'আমাদের ক্যাম্পাস অত্যন্ত নিরাপদ, আধুনিক ও শিক্ষার্থীবান্ধব; যেখানে ডিজিটাল ল্যাব, বিশাল মাঠ এবং স্বাস্থ্যসম্মত পরিবেশ নিশ্চিত করা হয়েছে।'}
+            </p>
           </div>
-          <p className="text-sm sm:text-base text-slate-600 max-w-xl leading-relaxed sm:leading-loose">
-            {language === 'en'
-              ? 'Our 2.5-acre campus in Uttara, Dhaka provides state-of-the-art laboratories, high-tech robotics studios, expansive playgrounds, and an air-conditioned bus fleet.'
-              : 'উত্তরায় অবস্থিত আমাদের ক্যাম্পাসটিতে রয়েছে আধুনিক বিজ্ঞানাগার, রোবটিক্স স্টুডিও, সুবিশাল খেলার মাঠ এবং সার্বক্ষণিক সিসিটিভি নিয়ন্ত্রিত নিরাপদ পরিবেশ।'}
-          </p>
-        </div>
+        </ScrollReveal>
 
         {/* Featured Grid Layout */}
+        <ScrollReveal direction="up" delay={200}>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10">
           {/* Main Hero Card: Science & Chemistry Labs */}
           <div className="lg:col-span-7 bg-[#0b2545] text-white rounded-3xl overflow-hidden shadow-md flex flex-col justify-between group">
@@ -122,6 +126,7 @@ export const CampusFacilities: React.FC<CampusFacilitiesProps> = ({ language }) 
             </div>
           </div>
         </div>
+        </ScrollReveal>
       </div>
     </section>
   );

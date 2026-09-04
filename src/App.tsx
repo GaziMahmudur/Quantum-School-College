@@ -15,6 +15,7 @@ import { AdmissionWizard } from './components/AdmissionWizard';
 import { NoticesAndEvents } from './components/NoticesAndEvents';
 import { Testimonials } from './components/Testimonials';
 import { Footer } from './components/Footer';
+import { AdmissionProcessTimeline } from './components/AdmissionProcessTimeline';
 import { StudentPortalModal } from './components/StudentPortalModal';
 import { CampusTourModal } from './components/CampusTourModal';
 import { DocumentModal } from './components/DocumentModal';
@@ -104,52 +105,57 @@ export default function App() {
 
       {/* Main Page Sections */}
       <main className="flex-1">
-        {/* Top Notification Strip moved here so it scrolls up normally */}
+        {/* Floating Toast Notice (Alternative to the hated top bar) */}
         {isNoticeVisible && (
-          <div className="bg-[#0b2545] text-white text-xs border-b border-white/10 shadow-sm relative">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-3 flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-3 pr-10 sm:pr-12">
-              <div className="flex items-center gap-3 md:gap-2 text-center md:text-left flex-col sm:flex-row justify-center md:justify-start">
-                <span className="inline-flex items-center px-2 sm:px-2.5 py-1 sm:py-0.5 rounded-full text-[10px] font-bold bg-[#e11d48] text-white tracking-wider uppercase shrink-0">
-                  Notice
-                </span>
-                <span className="text-slate-200 text-xs font-medium leading-relaxed sm:leading-relaxed max-w-2xl px-2 sm:px-0">
-                  {language === 'en'
-                    ? 'Admissions are open for Class 5 to Class 12 (2025–26) • Exam Routine & Model Test Schedule published.'
-                    : '৫ম থেকে ১২শ শ্রেণীতে ভর্তি চলছে (২০২৫-২৬) • মডেল টেস্ট ও পরীক্ষার রুটিন প্রকাশিত হয়েছে।'}
-                </span>
-              </div>
+          <div className="fixed bottom-4 sm:bottom-6 right-4 sm:right-6 left-4 sm:left-auto z-[90] animate-in slide-in-from-bottom-5 fade-in duration-500">
+            <div className="bg-[#001026]/90 backdrop-blur-xl border border-cyan-500/30 shadow-2xl rounded-2xl p-4 sm:p-5 sm:max-w-sm w-full relative">
+              
+              {/* Close Button */}
+              <button
+                onClick={() => setIsNoticeVisible(false)}
+                className="absolute top-2 right-2 p-1.5 text-slate-400 hover:text-white hover:bg-white/10 rounded-full transition-colors cursor-pointer"
+                aria-label="Close Notice"
+              >
+                <X className="w-4 h-4" />
+              </button>
 
-              <div className="flex items-center gap-4 sm:gap-5 text-xs font-medium shrink-0 pt-2 sm:pt-0 border-t sm:border-0 border-slate-700/50 w-full sm:w-auto justify-center sm:justify-end">
-                <button
-                  onClick={handleOpenRoutine}
-                  className="inline-flex items-center gap-1.5 text-cyan-300 hover:text-cyan-200 transition-colors underline-offset-4 hover:underline cursor-pointer py-1"
-                >
-                  <span>{language === 'en' ? 'Download Routine (PDF)' : 'রুটিন ডাউনলোড (PDF)'}</span>
-                  <Download className="w-3.5 h-3.5" />
-                </button>
-                <span className="text-white/20 hidden sm:inline">|</span>
-                <span className="text-slate-300 hidden sm:inline-flex items-center gap-1.5">
-                  <span className="text-slate-400">EIIN:</span> <strong className="text-white">138492</strong>
-                </span>
-                <span className="text-white/20 hidden sm:inline">|</span>
-                <a
-                  href="tel:+88028951010"
-                  className="hidden lg:inline-flex items-center gap-1.5 text-slate-300 hover:text-white transition-colors"
-                >
-                  <PhoneCall className="w-3.5 h-3.5 text-cyan-400" />
-                  <span>+880 2-8951010</span>
-                </a>
+              <div className="flex items-start gap-3">
+                <div className="shrink-0 mt-0.5">
+                  <span className="relative flex h-3 w-3">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-500 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-3 w-3 bg-rose-500"></span>
+                  </span>
+                </div>
+                <div>
+                  <h4 className="text-white text-sm font-bold mb-1">
+                    {language === 'en' ? 'Admission & Updates' : 'ভর্তি ও নোটিশ'}
+                  </h4>
+                  <p className="text-slate-300 text-xs leading-relaxed mb-3 pr-4">
+                    {language === 'en'
+                      ? 'Admissions are now open for Class 5 to Class 12 (2025–26). Model Test Schedule published.'
+                      : '৫ম থেকে ১২শ শ্রেণীতে ভর্তি চলছে (২০২৫-২৬)। মডেল টেস্ট রুটিন প্রকাশিত হয়েছে।'}
+                  </p>
+                  
+                  <div className="flex items-center gap-3">
+                    <button
+                      onClick={handleOpenRoutine}
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-cyan-600 hover:bg-cyan-500 text-white text-xs font-semibold rounded-lg transition-colors cursor-pointer"
+                    >
+                      <Download className="w-3.5 h-3.5" />
+                      <span>{language === 'en' ? 'Exam Routine' : 'রুটিন'}</span>
+                    </button>
+                    
+                    <a
+                      href="tel:+88028951010"
+                      className="inline-flex items-center gap-1.5 text-slate-300 hover:text-white text-xs transition-colors"
+                    >
+                      <PhoneCall className="w-3.5 h-3.5 text-cyan-400" />
+                      <span className="font-medium">+880 2-8951010</span>
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
-            
-            {/* Close Notice Button */}
-            <button
-              onClick={() => setIsNoticeVisible(false)}
-              className="absolute right-2 top-1/2 -translate-y-1/2 p-2 text-slate-400 hover:text-white hover:bg-white/10 rounded-full transition-colors cursor-pointer"
-              aria-label="Close Notice"
-            >
-              <X className="w-4 h-4" />
-            </button>
           </div>
         )}
         {/* Hero Section */}
@@ -168,6 +174,9 @@ export default function App() {
           language={language}
           onApplyForClass={handleApplyForClass}
         />
+
+        {/* The New Staggered Timeline Animation component */}
+        <AdmissionProcessTimeline language={language} />
 
         {/* Interactive 6-Step Admission Wizard */}
         <AdmissionWizard
