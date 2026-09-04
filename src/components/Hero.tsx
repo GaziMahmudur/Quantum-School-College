@@ -31,7 +31,7 @@ export const Hero: React.FC<HeroProps> = ({
   onProspectusClick,
 }) => {
   return (
-    <section id="home" className="relative bg-[#001026] text-white overflow-hidden pt-16 sm:pt-24 lg:pt-28 pb-16 sm:pb-24">
+    <section id="home" className="relative bg-[#001026] text-white overflow-hidden pt-16 sm:pt-24 lg:pt-28">
       {/* Background glow & subtle academic grid accents */}
       <div className="absolute inset-0 opacity-20 pointer-events-none">
         <div className="absolute -top-32 -left-32 w-96 h-96 bg-cyan-600 rounded-full blur-[128px]"></div>
