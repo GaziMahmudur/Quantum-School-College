@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
-import { Download, Globe, LogIn, Menu, X, ShieldCheck, PhoneCall, ChevronDown } from 'lucide-react';
+import React, { useState, useContext } from 'react';
+import { Download, Globe, LogIn, Menu, X, ShieldCheck, PhoneCall, ChevronDown, Play, Pause } from 'lucide-react';
 import { Language } from '../types';
+import { AnimationContext } from '../AnimationContext';
 
 interface NavbarProps {
   language: Language;
@@ -18,6 +19,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onScrollToSection,
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { animationsEnabled, setAnimationsEnabled } = useContext(AnimationContext);
 
   const navItems = [
     { label: language === 'en' ? 'Home' : 'হোম', id: 'home' },
@@ -107,7 +109,23 @@ export const Navbar: React.FC<NavbarProps> = ({
           </nav>
 
           {/* Right Action Buttons */}
-          <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
+          <div className="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
+            {/* Animation Toggle */}
+            <button
+              onClick={() => setAnimationsEnabled(!animationsEnabled)}
+              className={`p-1.5 sm:p-2 sm:px-2.5 rounded-lg border transition-all cursor-pointer flex items-center gap-1.5 shrink-0 ${
+                animationsEnabled 
+                  ? 'bg-amber-50 border-amber-200 text-amber-600 hover:bg-amber-100 hover:border-amber-300' 
+                  : 'bg-slate-100 border-slate-200 text-slate-500 hover:bg-slate-200'
+              }`}
+              title={animationsEnabled ? 'Disable Animations' : 'Enable Animations'}
+            >
+              {animationsEnabled ? <Pause className="w-3.5 h-3.5" /> : <Play className="w-3.5 h-3.5" />}
+              <span className="text-[10px] sm:text-xs font-bold hidden min-[400px]:block">
+                {animationsEnabled ? 'Motion' : 'Static'}
+              </span>
+            </button>
+
             {/* Language Switcher */}
             <button
               onClick={onToggleLanguage}

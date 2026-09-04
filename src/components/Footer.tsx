@@ -15,6 +15,7 @@ import {
   BookOpen,
 } from 'lucide-react';
 import { Language } from '../types';
+import { ScrollReveal } from './ScrollReveal';
 
 interface FooterProps {
   language: Language;
@@ -46,7 +47,7 @@ export const Footer: React.FC<FooterProps> = ({
   return (
     <footer id="contact" className="bg-[#0b2545] text-white border-t border-white/10">
       {/* Quick Help & Contact Bar */}
-      <div className="border-b border-white/10 bg-[#07192f]">
+      <ScrollReveal direction="up" className="border-b border-white/10 bg-[#07192f]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-xs sm:text-sm">
             <div className="flex items-start gap-4">
@@ -90,13 +91,13 @@ export const Footer: React.FC<FooterProps> = ({
             </div>
           </div>
         </div>
-      </div>
+      </ScrollReveal>
 
       {/* Main Footer Links */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-24">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-14">
           {/* Brand Col */}
-          <div className="lg:col-span-2 space-y-6">
+          <ScrollReveal direction="up" delay={50} className="lg:col-span-2 space-y-6">
             <div className="flex items-center gap-3.5">
               <div className="w-11 h-11 rounded-xl bg-[#0b2545] text-white flex items-center justify-center shadow-md relative overflow-hidden border border-cyan-500/30 shrink-0">
                 <div className="absolute inset-0 bg-gradient-to-tr from-cyan-600/30 to-transparent"></div>
@@ -152,10 +153,10 @@ export const Footer: React.FC<FooterProps> = ({
                 <Linkedin className="w-4 h-4" />
               </a>
             </div>
-          </div>
+          </ScrollReveal>
 
           {/* Quick Links */}
-          <div className="space-y-4">
+          <ScrollReveal direction="up" delay={150} className="space-y-4">
             <h2 className="font-display font-bold text-sm text-white uppercase tracking-wider">
               {language === 'en' ? 'Quick Access' : 'জরুরি লিংক'}
             </h2>
@@ -197,10 +198,10 @@ export const Footer: React.FC<FooterProps> = ({
                 </button>
               </li>
             </ul>
-          </div>
+          </ScrollReveal>
 
           {/* Academic Sections */}
-          <div className="space-y-4">
+          <ScrollReveal direction="up" delay={250} className="space-y-4">
             <h2 className="font-display font-bold text-sm text-white uppercase tracking-wider">
               {language === 'en' ? 'Academics' : 'শিক্ষা কার্যক্রম'}
             </h2>
@@ -230,10 +231,10 @@ export const Footer: React.FC<FooterProps> = ({
                 </a>
               </li>
             </ul>
-          </div>
+          </ScrollReveal>
 
           {/* Newsletter / Notifications */}
-          <div className="space-y-4">
+          <ScrollReveal direction="up" delay={350} className="space-y-4">
             <h2 className="font-display font-bold text-sm text-white uppercase tracking-wider">
               {language === 'en' ? 'Circular Alerts' : 'বিজ্ঞপ্তি সাবস্ক্রিপশন'}
             </h2>
@@ -264,11 +265,11 @@ export const Footer: React.FC<FooterProps> = ({
                 </button>
               </form>
             )}
-          </div>
+          </ScrollReveal>
         </div>
 
         {/* Bottom Copyright & Board Accreditation */}
-        <div className="pt-12 mt-16 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+        <ScrollReveal direction="up" delay={400} className="pt-12 mt-16 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
           <div>
             © {new Date().getFullYear()} Quantum School &amp; College. All rights reserved. Registered under Dhaka Board of Intermediate &amp; Secondary Education.
           </div>
@@ -277,7 +278,7 @@ export const Footer: React.FC<FooterProps> = ({
             <span className="hover:text-white transition-colors cursor-pointer">Academic Code</span>
             <span className="hover:text-white transition-colors cursor-pointer">Sitemap</span>
           </div>
-        </div>
+        </ScrollReveal>
       </div>
     </footer>
   );

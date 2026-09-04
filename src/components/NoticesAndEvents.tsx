@@ -12,6 +12,7 @@ import {
 } from 'lucide-react';
 import { CIRCULAR_NOTICES, SCHOOL_EVENTS } from '../data/schoolData';
 import { CircularNotice, Language, SchoolEvent } from '../types';
+import { ScrollReveal } from './ScrollReveal';
 
 interface NoticesAndEventsProps {
   language: Language;
@@ -42,7 +43,7 @@ export const NoticesAndEvents: React.FC<NoticesAndEventsProps> = ({
     <section id="notices" className="py-16 sm:py-24 lg:py-36 bg-white border-b border-slate-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header with Title and Filter Segmented Control */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-16 lg:mb-20">
+        <ScrollReveal direction="up" className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-16 lg:mb-20">
           <div>
             <span className="text-xs font-bold tracking-wider text-[#007A6E] uppercase bg-teal-50 px-3 py-1 rounded-full border border-teal-200/60">
               {language === 'en' ? 'Stay Updated' : 'সর্বশেষ তথ্য'}
@@ -85,12 +86,12 @@ export const NoticesAndEvents: React.FC<NoticesAndEventsProps> = ({
               {language === 'en' ? 'College Section' : 'কলেজ শাখা'}
             </button>
           </div>
-        </div>
+        </ScrollReveal>
 
         {/* 2 Big Cards Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10">
           {/* Left Card: Important Circulars */}
-          <div className="bg-[#faf8ff] rounded-3xl border border-slate-200/90 p-8 sm:p-10 shadow-sm flex flex-col justify-between">
+          <ScrollReveal direction="left" delay={100} className="bg-[#faf8ff] rounded-3xl border border-slate-200/90 p-8 sm:p-10 shadow-sm flex flex-col justify-between">
             <div>
               {/* Card Title */}
               <div className="flex items-center justify-between pb-6 border-b border-slate-200">
@@ -159,10 +160,10 @@ export const NoticesAndEvents: React.FC<NoticesAndEventsProps> = ({
             <div className="pt-6 border-t border-slate-200/80 text-xs text-slate-700 text-center">
               Official BISE Dhaka Board verified circulars and institutional publications.
             </div>
-          </div>
+          </ScrollReveal>
 
           {/* Right Card: Fun Upcoming Events */}
-          <div className="bg-[#faf8ff] rounded-3xl border border-slate-200/90 p-8 sm:p-10 shadow-sm flex flex-col justify-between">
+          <ScrollReveal direction="right" delay={200} className="bg-[#faf8ff] rounded-3xl border border-slate-200/90 p-8 sm:p-10 shadow-sm flex flex-col justify-between">
             <div>
               {/* Card Title */}
               <div className="flex items-center justify-between pb-6 border-b border-slate-200">
@@ -223,7 +224,7 @@ export const NoticesAndEvents: React.FC<NoticesAndEventsProps> = ({
             <div className="pt-6 border-t border-slate-200/80 text-xs text-slate-700 text-center">
               Parents, alumni, and guardians are warmly welcomed to all school gatherings.
             </div>
-          </div>
+          </ScrollReveal>
         </div>
       </div>
 

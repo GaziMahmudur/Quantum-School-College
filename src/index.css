@@ -13,6 +13,26 @@ html {
   scroll-behavior: smooth;
 }
 
+/* --- Global Animation Toggle --- */
+/* --- Global Animation Toggle --- */
+html.animations-disabled {
+  scroll-behavior: auto !important;
+}
+
+.animations-disabled *,
+.animations-disabled *::before,
+.animations-disabled *::after {
+  /* Completely strip CSS animations and transitions */
+  animation: none !important;
+  transition: none !important;
+}
+
+/* Force ScrollReveal elements to always be visible and in position when animations are disabled */
+.animations-disabled .scroll-reveal-el {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
 h1,
 h2,
 h3,

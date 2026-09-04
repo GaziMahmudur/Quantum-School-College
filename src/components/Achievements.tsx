@@ -1,6 +1,7 @@
 import React from 'react';
 import { Award, Trophy, Star, Medal, GraduationCap, TrendingUp, CheckCircle } from 'lucide-react';
 import { Language } from '../types';
+import { ScrollReveal } from './ScrollReveal';
 
 interface AchievementsProps {
   language: Language;
@@ -41,7 +42,7 @@ export const Achievements: React.FC<AchievementsProps> = ({ language }) => {
   return (
     <section id="results" className="py-16 sm:py-24 lg:py-36 bg-[#faf8ff] border-b border-slate-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-16 lg:mb-20">
+        <ScrollReveal direction="up" className="text-center max-w-3xl mx-auto mb-16 lg:mb-20">
           <span className="text-xs font-bold tracking-wider text-[#007A6E] uppercase bg-teal-50 px-3.5 py-1.5 rounded-full border border-teal-200/60">
             {language === 'en' ? 'Track Record of Excellence' : 'কৃতিত্ব ও গৌরবগাঁথা'}
           </span>
@@ -53,12 +54,14 @@ export const Achievements: React.FC<AchievementsProps> = ({ language }) => {
               ? 'Our students consistently shine in SSC & HSC board exams, university admissions, and international scientific olympiads.'
               : 'এসএসসি ও এইচএসসি বোর্ড পরীক্ষা থেকে শুরু করে বুয়েট ও মেডিকেল ভর্তি পরীক্ষায় আমাদের শিক্ষার্থীরা অনন্য কৃতিত্বের স্বাক্ষর রেখে চলেছে।'}
           </p>
-        </div>
+        </ScrollReveal>
 
         {/* 4 Stat Highlights */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 mb-12 sm:mb-16 lg:mb-20">
           {stats.map((stat, idx) => (
-            <div
+            <ScrollReveal
+              direction="up"
+              delay={100 * idx}
               key={idx}
               className="bg-white rounded-2xl border border-slate-200/90 p-7 sm:p-8 text-center shadow-xs hover:border-[#007A6E] hover:shadow-md transition-all"
             >
@@ -71,7 +74,7 @@ export const Achievements: React.FC<AchievementsProps> = ({ language }) => {
               <p className="text-xs text-slate-700 mt-2 leading-relaxed">
                 {stat.desc}
               </p>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
 
@@ -80,7 +83,9 @@ export const Achievements: React.FC<AchievementsProps> = ({ language }) => {
           {highlights.map((item, idx) => {
             const Icon = item.icon;
             return (
-              <div
+              <ScrollReveal
+                direction="up"
+                delay={200 + (100 * idx)}
                 key={idx}
                 className="bg-white rounded-2xl border border-slate-200/90 p-8 sm:p-9 shadow-xs hover:shadow-md hover:border-slate-300 transition-all flex flex-col justify-between"
               >
@@ -111,7 +116,7 @@ export const Achievements: React.FC<AchievementsProps> = ({ language }) => {
                   <CheckCircle className="w-3.5 h-3.5 text-emerald-600" />
                   <span>Verified by Academic Council</span>
                 </div>
-              </div>
+              </ScrollReveal>
             );
           })}
         </div>

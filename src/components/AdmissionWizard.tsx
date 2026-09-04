@@ -16,6 +16,7 @@ import {
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { AdmissionFormData, Language } from '../types';
+import { ScrollReveal } from './ScrollReveal';
 
 interface AdmissionWizardProps {
   language: Language;
@@ -98,7 +99,7 @@ export const AdmissionWizard: React.FC<AdmissionWizardProps> = ({
     <section id="admissions" className="py-24 sm:py-32 lg:py-36 bg-[#faf8ff] border-b border-slate-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 lg:mb-20">
+        <ScrollReveal direction="up" delay={50} className="text-center max-w-3xl mx-auto mb-16 lg:mb-20">
           <span className="text-xs font-bold tracking-wider text-[#007A6E] uppercase bg-teal-50 px-3.5 py-1.5 rounded-full border border-teal-200/60">
             {language === 'en' ? 'Admissions Open (2025–26)' : 'ভর্তি চলছে (২০২৫-২৬)'}
           </span>
@@ -112,10 +113,10 @@ export const AdmissionWizard: React.FC<AdmissionWizardProps> = ({
               ? 'Applying to Quantum School & College is quick and effortless. Parents and students can complete this 6-step online form in less than 5 minutes!'
               : 'কোয়ান্টাম স্কুল অ্যান্ড কলেজে আবেদন প্রক্রিয়া অত্যন্ত সহজ। ঘরে বসেই ৫ মিনিটে সম্পন্ন করুন এই ৬-ধাপের আবেদন ফরম!'}
           </p>
-        </div>
+        </ScrollReveal>
 
         {/* 6-Step Roadmap Badges */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-5 mb-14">
+        <ScrollReveal direction="up" delay={150} className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-5 mb-14">
           {stepsHeader.map((step, idx) => {
             const stepNum = idx + 1;
             const isCompleted = currentStep > stepNum;
@@ -162,10 +163,10 @@ export const AdmissionWizard: React.FC<AdmissionWizardProps> = ({
               </div>
             );
           })}
-        </div>
+        </ScrollReveal>
 
         {/* Interactive Application Card Container */}
-        <div className="max-w-4xl mx-auto bg-white rounded-3xl border border-slate-200/90 shadow-md overflow-hidden">
+        <ScrollReveal direction="up" delay={250} className="max-w-4xl mx-auto bg-white rounded-3xl border border-slate-200/90 shadow-md overflow-hidden">
           {/* Top Wizard Status Bar */}
           <div className="px-8 py-5 bg-slate-50/80 border-b border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div className="flex items-center gap-2">
@@ -711,7 +712,7 @@ export const AdmissionWizard: React.FC<AdmissionWizardProps> = ({
               </div>
             )}
           </div>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );

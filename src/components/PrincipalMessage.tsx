@@ -23,7 +23,7 @@ export const PrincipalMessage: React.FC<PrincipalMessageProps> = ({ language }) 
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
             {/* Left: Principal Photo & Identity */}
-            <ScrollReveal direction="left" className="lg:col-span-4 text-center">
+            <ScrollReveal direction="left" delay={100} className="lg:col-span-4 text-center">
               <div className="inline-block relative">
                 <div className="w-48 h-56 sm:w-56 sm:h-64 rounded-2xl overflow-hidden shadow-md border-4 border-white mx-auto relative bg-slate-100">
                   <img
@@ -49,7 +49,7 @@ export const PrincipalMessage: React.FC<PrincipalMessageProps> = ({ language }) 
             </ScrollReveal>
 
             {/* Right: Message Content */}
-            <ScrollReveal direction="right" className="lg:col-span-8 space-y-6">
+            <ScrollReveal direction="right" delay={200} className="lg:col-span-8 space-y-6">
               {/* Header with Quote Icon */}
               <div className="flex items-center gap-2 text-[#007A6E]">
                 <Quote className="w-5 h-5 fill-[#007A6E]/20" />

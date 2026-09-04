@@ -1,4 +1,5 @@
-import React, { useEffect, useRef, useState, ReactNode } from 'react';
+import React, { useEffect, useRef, useState, ReactNode, useContext } from 'react';
+import { AnimationContext } from '../AnimationContext';
 
 interface ScrollRevealProps {
   children: ReactNode;
@@ -11,6 +12,7 @@ interface ScrollRevealProps {
 export const ScrollReveal: React.FC<ScrollRevealProps> = ({ children, className = '', direction = 'up', delay = 0, once = false }) => {
   const [isVisible, setIsVisible] = useState(false);
   const domRef = useRef<HTMLDivElement>(null);
+  const { animationsEnabled } = useContext(AnimationContext);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -43,7 +45,15 @@ export const ScrollReveal: React.FC<ScrollRevealProps> = ({ children, className 
         observer.unobserve(domRef.current);
       }
     };
-  }, []);
+  }, [once, animationsEnabled]);
+
+  if (!animationsEnabled) {
+    return (
+      <div className={className}>
+        {children}
+      </div>
+    );
+  }
 
   // Determine initial transform based on direction
   let initialTransform = '';
@@ -54,7 +64,7 @@ export const ScrollReveal: React.FC<ScrollRevealProps> = ({ children, className 
   return (
     <div
       ref={domRef}
-      className={`transition-all duration-[800ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${
+      className={`scroll-reveal-el transition-all duration-[800ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${
         isVisible ? 'opacity-100 translate-y-0 translate-x-0' : `opacity-0 ${initialTransform}`
       } ${className}`}
       style={{ transitionDelay: `${delay}ms` }}

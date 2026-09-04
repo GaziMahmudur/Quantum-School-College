@@ -2,6 +2,7 @@ import React from 'react';
 import { Quote, Star } from 'lucide-react';
 import { TESTIMONIALS } from '../data/schoolData';
 import { Language } from '../types';
+import { ScrollReveal } from './ScrollReveal';
 
 interface TestimonialsProps {
   language: Language;
@@ -10,7 +11,7 @@ interface TestimonialsProps {
 export const Testimonials: React.FC<TestimonialsProps> = ({ language }) => {
   return (
     <section className="py-24 sm:py-32 lg:py-36 bg-white border-b border-slate-200/80">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <ScrollReveal direction="up" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16 lg:mb-20">
           <span className="text-xs font-bold tracking-wider text-[#007A6E] uppercase bg-teal-50 px-3.5 py-1.5 rounded-full border border-teal-200/60">
             {language === 'en' ? 'Community Voices' : 'অভিভাবকদের মতামত'}
@@ -61,7 +62,7 @@ export const Testimonials: React.FC<TestimonialsProps> = ({ language }) => {
             </div>
           ))}
         </div>
-      </div>
+      </ScrollReveal>
     </section>
   );
 };

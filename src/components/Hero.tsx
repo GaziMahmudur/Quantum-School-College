@@ -16,6 +16,7 @@ import {
   Bus,
 } from 'lucide-react';
 import { Language } from '../types';
+import { ScrollReveal } from './ScrollReveal';
 
 interface HeroProps {
   language: Language;
@@ -49,7 +50,7 @@ export const Hero: React.FC<HeroProps> = ({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* Left Column: Headlines & Call to Actions */}
-          <div className="lg:col-span-7 space-y-8">
+          <ScrollReveal direction="left" delay={100} className="lg:col-span-7 space-y-8">
             {/* Top pill tags */}
             <div className="flex flex-wrap items-center gap-2.5">
               <span className="inline-flex items-center gap-1.5 px-3 sm:px-3.5 py-1.5 rounded-full text-xs font-semibold bg-[#0b2545] border border-cyan-500/30 text-cyan-300 shadow-2xs max-w-full">
@@ -120,10 +121,10 @@ export const Hero: React.FC<HeroProps> = ({
                 <span>{language === 'en' ? 'See Prospectus' : 'প্রসপেক্টাস দেখুন'}</span>
               </button>
             </div>
-          </div>
+          </ScrollReveal>
 
           {/* Right Column: 2x2 Metric Cards Grid */}
-          <div className="lg:col-span-5 pb-4 lg:pb-0">
+          <ScrollReveal direction="right" delay={200} className="lg:col-span-5 pb-4 lg:pb-0">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
               {/* Metric Card 1: BOARD RESULT */}
               <div className="bg-[#0b2545]/90 backdrop-blur-md rounded-2xl p-5 sm:p-7 border border-white/10 hover:border-cyan-500/40 transition-all">
@@ -191,7 +192,7 @@ export const Hero: React.FC<HeroProps> = ({
                 </p>
               </div>
             </div>
-          </div>
+          </ScrollReveal>
         </div>
       </div>
 
