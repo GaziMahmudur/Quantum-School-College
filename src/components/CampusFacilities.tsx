@@ -16,7 +16,7 @@ export const CampusFacilities: React.FC<CampusFacilitiesProps> = ({ language }) 
         {/* Section Header */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16 lg:mb-20">
           <div>
-            <span className="text-xs font-bold tracking-wider text-[#00a896] uppercase bg-teal-50 px-3 py-1 rounded-full border border-teal-200/60">
+            <span className="text-xs font-bold tracking-wider text-[#007A6E] uppercase bg-teal-50 px-3 py-1 rounded-full border border-teal-200/60">
               {language === 'en' ? 'Modern Infrastructure' : 'উন্নত অবকাঠামো'}
             </span>
             <h2 className="font-display font-extrabold text-2xl sm:text-3xl lg:text-4xl text-[#0b2545] tracking-tight mt-4">
@@ -42,7 +42,7 @@ export const CampusFacilities: React.FC<CampusFacilitiesProps> = ({ language }) 
                 referrerPolicy="no-referrer"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0b2545] via-[#0b2545]/40 to-transparent"></div>
-              <span className="absolute top-6 left-6 px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#00a896] text-white uppercase tracking-wider shadow-sm">
+              <span className="absolute top-6 left-6 px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#007A6E] text-white uppercase tracking-wider shadow-sm">
                 {CAMPUS_FACILITIES[0].badge}
               </span>
             </div>
@@ -68,7 +68,7 @@ export const CampusFacilities: React.FC<CampusFacilitiesProps> = ({ language }) 
           {/* Secondary Stacked Facilities */}
           <div className="lg:col-span-5 flex flex-col gap-8">
             {/* Facility 2: Robotics & Coding */}
-            <div className="bg-[#faf8ff] rounded-3xl border border-slate-200/90 p-8 flex flex-col justify-between flex-1 group hover:border-[#00a896] transition-all">
+            <div className="bg-[#faf8ff] rounded-3xl border border-slate-200/90 p-8 flex flex-col justify-between flex-1 group hover:border-[#007A6E] transition-all">
               <div className="flex gap-5 items-start">
                 <div className="w-28 h-28 rounded-2xl overflow-hidden shrink-0 bg-slate-200 shadow-sm">
                   <img
@@ -82,15 +82,15 @@ export const CampusFacilities: React.FC<CampusFacilitiesProps> = ({ language }) 
                   <span className="text-[10px] font-bold px-2.5 py-1 rounded-full bg-blue-50 text-blue-700 uppercase tracking-wide border border-blue-200">
                     {CAMPUS_FACILITIES[1].badge}
                   </span>
-                  <h4 className="font-display font-bold text-lg text-[#0b2545] pt-1">
+                  <h3 className="font-display font-bold text-lg text-[#0b2545] pt-1">
                     {CAMPUS_FACILITIES[1].title}
-                  </h4>
+                  </h3>
                   <p className="text-xs sm:text-sm text-slate-600 leading-relaxed line-clamp-2">
                     {CAMPUS_FACILITIES[1].description}
                   </p>
                 </div>
               </div>
-              <div className="mt-6 pt-4 border-t border-slate-200/80 flex items-center justify-between text-xs sm:text-sm text-[#00a896] font-semibold">
+              <div className="mt-6 pt-4 border-t border-slate-200/80 flex items-center justify-between text-xs sm:text-sm text-[#007A6E] font-semibold">
                 <span>Arduino, Scratch &amp; Python Ready</span>
                 <ChevronRight className="w-4 h-4" />
               </div>
@@ -111,9 +111,9 @@ export const CampusFacilities: React.FC<CampusFacilitiesProps> = ({ language }) 
                       referrerPolicy="no-referrer"
                     />
                   </div>
-                  <h5 className="font-display font-bold text-xs sm:text-sm text-[#0b2545] truncate">
+                  <h3 className="font-display font-bold text-xs sm:text-sm text-[#0b2545] truncate">
                     {fac.title}
-                  </h5>
+                  </h3>
                   <span className="text-[10px] font-medium text-slate-500 block mt-1">
                     {fac.badge}
                   </span>

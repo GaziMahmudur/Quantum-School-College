@@ -307,7 +307,7 @@ export const CAMPUS_FACILITIES = [
     description:
       "Full green soccer field, basketball courts, and badminton nets with professional athletic physical coaches.",
     image:
-      "https://images.unsplash.com/photo-1529900245534-47fbf8204f6e?auto=format&fit=crop&w=600&q=80",
+      "https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=600&q=80",
   },
   {
     id: "fac-5",

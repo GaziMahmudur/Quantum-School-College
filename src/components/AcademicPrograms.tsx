@@ -31,7 +31,7 @@ export const AcademicPrograms: React.FC<AcademicProgramsProps> = ({ language, on
         {/* Section Header */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16 lg:mb-20">
           <div>
-            <span className="text-xs font-bold tracking-wider text-[#00a896] uppercase bg-teal-50 px-3 py-1 rounded-full border border-teal-200/60">
+            <span className="text-xs font-bold tracking-wider text-[#007A6E] uppercase bg-teal-50 px-3 py-1 rounded-full border border-teal-200/60">
               {language === 'en' ? 'What We Teach' : 'আমাদের পাঠ্যক্রম'}
             </span>
             <h2 className="font-display font-extrabold text-2xl sm:text-3xl lg:text-4xl text-[#0b2545] tracking-tight mt-4">
@@ -77,7 +77,7 @@ export const AcademicPrograms: React.FC<AcademicProgramsProps> = ({ language, on
                 <div className="space-y-3.5 mb-8 pt-6 border-t border-slate-200/80">
                   {program.features.map((feature, idx) => (
                     <div key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700">
-                      <CheckCircle className="w-4 h-4 text-[#00a896] shrink-0 mt-0.5" />
+                      <CheckCircle className="w-4 h-4 text-[#007A6E] shrink-0 mt-0.5" />
                       <span>{feature}</span>
                     </div>
                   ))}
@@ -88,7 +88,7 @@ export const AcademicPrograms: React.FC<AcademicProgramsProps> = ({ language, on
               <div className="pt-6 border-t border-slate-200/80 flex items-center justify-between">
                 <button
                   onClick={() => setSelectedProgram(program)}
-                  className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-[#00a896] hover:text-[#008c7d] transition-colors group-hover:translate-x-1 cursor-pointer"
+                  className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-[#007A6E] hover:text-[#008c7d] transition-colors group-hover:translate-x-1 cursor-pointer"
                 >
                   <span>{program.linkText}</span>
                   <ArrowRight className="w-4 h-4 transition-transform" />
@@ -108,7 +108,7 @@ export const AcademicPrograms: React.FC<AcademicProgramsProps> = ({ language, on
 
       {/* Program Details Modal */}
       {selectedProgram && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs animate-in fade-in">
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs animate-in fade-in">
           <div className="bg-white rounded-xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto border border-slate-200">
             {/* Modal Header */}
             <div className="px-6 py-5 bg-[#0b2545] text-white flex items-center justify-between rounded-t-xl sticky top-0 z-10">
@@ -140,14 +140,14 @@ export const AcademicPrograms: React.FC<AcademicProgramsProps> = ({ language, on
                 <div className="flex items-center gap-2 text-slate-700">
                   <Clock className="w-4 h-4 text-cyan-700 shrink-0" />
                   <div>
-                    <span className="text-slate-400 block font-medium">Shift &amp; Timings:</span>
+                    <span className="text-slate-600 block font-medium">Shift &amp; Timings:</span>
                     <strong className="text-slate-800">{selectedProgram.curriculum.shift}</strong>
                   </div>
                 </div>
                 <div className="flex items-center gap-2 text-slate-700">
                   <BookOpen className="w-4 h-4 text-teal-700 shrink-0" />
                   <div>
-                    <span className="text-slate-400 block font-medium">Duration:</span>
+                    <span className="text-slate-600 block font-medium">Duration:</span>
                     <strong className="text-slate-800">{selectedProgram.curriculum.duration}</strong>
                   </div>
                 </div>
@@ -156,7 +156,7 @@ export const AcademicPrograms: React.FC<AcademicProgramsProps> = ({ language, on
               {/* Core Subjects */}
               <div>
                 <h4 className="font-display font-semibold text-sm text-[#0b2545] mb-2 flex items-center gap-1.5">
-                  <BookOpen className="w-4 h-4 text-[#00a896]" />
+                  <BookOpen className="w-4 h-4 text-[#007A6E]" />
                   <span>Curriculum &amp; Board Subjects</span>
                 </h4>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
@@ -171,7 +171,7 @@ export const AcademicPrograms: React.FC<AcademicProgramsProps> = ({ language, on
               {/* Practical Labs */}
               <div>
                 <h4 className="font-display font-semibold text-sm text-[#0b2545] mb-2 flex items-center gap-1.5">
-                  <FlaskConical className="w-4 h-4 text-[#00a896]" />
+                  <FlaskConical className="w-4 h-4 text-[#007A6E]" />
                   <span>Laboratory Practicals &amp; Experiments</span>
                 </h4>
                 <div className="space-y-1.5 text-xs">
@@ -187,7 +187,7 @@ export const AcademicPrograms: React.FC<AcademicProgramsProps> = ({ language, on
               {/* Co-curricular */}
               <div>
                 <h4 className="font-display font-semibold text-sm text-[#0b2545] mb-2 flex items-center gap-1.5">
-                  <Award className="w-4 h-4 text-[#00a896]" />
+                  <Award className="w-4 h-4 text-[#007A6E]" />
                   <span>Clubs &amp; Olympiad Training</span>
                 </h4>
                 <div className="flex flex-wrap gap-2 text-xs">
@@ -214,7 +214,7 @@ export const AcademicPrograms: React.FC<AcademicProgramsProps> = ({ language, on
                   setSelectedProgram(null);
                   onApplyForClass(targetClass);
                 }}
-                className="px-5 py-2.5 text-xs font-semibold text-white bg-[#00a896] hover:bg-[#008c7d] rounded-lg shadow-xs"
+                className="px-5 py-2.5 text-xs font-semibold text-white bg-[#007A6E] hover:bg-[#008c7d] rounded-lg shadow-xs"
               >
                 Apply for {selectedProgram.badge}
               </button>

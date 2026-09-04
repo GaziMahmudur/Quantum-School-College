@@ -50,7 +50,7 @@ export const Footer: React.FC<FooterProps> = ({
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-xs sm:text-sm">
             <div className="flex items-start gap-4">
-              <div className="p-2.5 rounded-xl bg-white/5 text-[#00a896] shrink-0 border border-white/10">
+              <div className="p-2.5 rounded-xl bg-white/5 text-[#007A6E] shrink-0 border border-white/10">
                 <MapPin className="w-5 h-5" />
               </div>
               <div>
@@ -60,7 +60,7 @@ export const Footer: React.FC<FooterProps> = ({
             </div>
 
             <div className="flex items-start gap-4">
-              <div className="p-2.5 rounded-xl bg-white/5 text-[#00a896] shrink-0 border border-white/10">
+              <div className="p-2.5 rounded-xl bg-white/5 text-[#007A6E] shrink-0 border border-white/10">
                 <Phone className="w-5 h-5" />
               </div>
               <div>
@@ -70,7 +70,7 @@ export const Footer: React.FC<FooterProps> = ({
             </div>
 
             <div className="flex items-start gap-4">
-              <div className="p-2.5 rounded-xl bg-white/5 text-[#00a896] shrink-0 border border-white/10">
+              <div className="p-2.5 rounded-xl bg-white/5 text-[#007A6E] shrink-0 border border-white/10">
                 <Mail className="w-5 h-5" />
               </div>
               <div>
@@ -80,7 +80,7 @@ export const Footer: React.FC<FooterProps> = ({
             </div>
 
             <div className="flex items-start gap-4">
-              <div className="p-2.5 rounded-xl bg-white/5 text-[#00a896] shrink-0 border border-white/10">
+              <div className="p-2.5 rounded-xl bg-white/5 text-[#007A6E] shrink-0 border border-white/10">
                 <Clock className="w-5 h-5" />
               </div>
               <div>
@@ -132,21 +132,21 @@ export const Footer: React.FC<FooterProps> = ({
             <div className="flex items-center gap-3 pt-2">
               <a
                 href="#contact"
-                className="w-9 h-9 rounded-xl bg-white/10 hover:bg-[#00a896] text-white flex items-center justify-center transition-colors"
+                className="w-9 h-9 rounded-xl bg-white/10 hover:bg-[#007A6E] text-white flex items-center justify-center transition-colors"
                 title="Facebook"
               >
                 <Facebook className="w-4 h-4" />
               </a>
               <a
                 href="#contact"
-                className="w-9 h-9 rounded-xl bg-white/10 hover:bg-[#00a896] text-white flex items-center justify-center transition-colors"
+                className="w-9 h-9 rounded-xl bg-white/10 hover:bg-[#007A6E] text-white flex items-center justify-center transition-colors"
                 title="YouTube"
               >
                 <Youtube className="w-4 h-4" />
               </a>
               <a
                 href="#contact"
-                className="w-9 h-9 rounded-xl bg-white/10 hover:bg-[#00a896] text-white flex items-center justify-center transition-colors"
+                className="w-9 h-9 rounded-xl bg-white/10 hover:bg-[#007A6E] text-white flex items-center justify-center transition-colors"
                 title="LinkedIn"
               >
                 <Linkedin className="w-4 h-4" />
@@ -156,16 +156,16 @@ export const Footer: React.FC<FooterProps> = ({
 
           {/* Quick Links */}
           <div className="space-y-4">
-            <h4 className="font-display font-bold text-sm text-white uppercase tracking-wider">
+            <h2 className="font-display font-bold text-sm text-white uppercase tracking-wider">
               {language === 'en' ? 'Quick Access' : 'জরুরি লিংক'}
-            </h4>
+            </h2>
             <ul className="space-y-3 text-xs sm:text-sm text-slate-300">
               <li>
                 <button
                   onClick={onOpenAdmission}
                   className="hover:text-cyan-300 transition-colors flex items-center gap-2 cursor-pointer"
                 >
-                  <ChevronRight className="w-3.5 h-3.5 text-[#00a896]" />
+                  <ChevronRight className="w-3.5 h-3.5 text-[#007A6E]" />
                   <span>Online Admission 2025</span>
                 </button>
               </li>
@@ -174,7 +174,7 @@ export const Footer: React.FC<FooterProps> = ({
                   onClick={onOpenRoutine}
                   className="hover:text-cyan-300 transition-colors flex items-center gap-2 cursor-pointer"
                 >
-                  <ChevronRight className="w-3.5 h-3.5 text-[#00a896]" />
+                  <ChevronRight className="w-3.5 h-3.5 text-[#007A6E]" />
                   <span>Exam Routine (PDF)</span>
                 </button>
               </li>
@@ -183,7 +183,7 @@ export const Footer: React.FC<FooterProps> = ({
                   onClick={onOpenProspectus}
                   className="hover:text-cyan-300 transition-colors flex items-center gap-2 cursor-pointer"
                 >
-                  <ChevronRight className="w-3.5 h-3.5 text-[#00a896]" />
+                  <ChevronRight className="w-3.5 h-3.5 text-[#007A6E]" />
                   <span>Academic Prospectus</span>
                 </button>
               </li>
@@ -192,7 +192,7 @@ export const Footer: React.FC<FooterProps> = ({
                   onClick={onOpenPortal}
                   className="hover:text-cyan-300 transition-colors flex items-center gap-2 cursor-pointer"
                 >
-                  <ChevronRight className="w-3.5 h-3.5 text-[#00a896]" />
+                  <ChevronRight className="w-3.5 h-3.5 text-[#007A6E]" />
                   <span>Student ERP Portal</span>
                 </button>
               </li>
@@ -201,31 +201,31 @@ export const Footer: React.FC<FooterProps> = ({
 
           {/* Academic Sections */}
           <div className="space-y-4">
-            <h4 className="font-display font-bold text-sm text-white uppercase tracking-wider">
+            <h2 className="font-display font-bold text-sm text-white uppercase tracking-wider">
               {language === 'en' ? 'Academics' : 'শিক্ষা কার্যক্রম'}
-            </h4>
+            </h2>
             <ul className="space-y-3 text-xs sm:text-sm text-slate-300">
               <li>
                 <a href="#academics" className="hover:text-cyan-300 transition-colors flex items-center gap-2">
-                  <ChevronRight className="w-3.5 h-3.5 text-[#00a896]" />
+                  <ChevronRight className="w-3.5 h-3.5 text-[#007A6E]" />
                   <span>Pre-Primary &amp; Kindergarten</span>
                 </a>
               </li>
               <li>
                 <a href="#academics" className="hover:text-cyan-300 transition-colors flex items-center gap-2">
-                  <ChevronRight className="w-3.5 h-3.5 text-[#00a896]" />
+                  <ChevronRight className="w-3.5 h-3.5 text-[#007A6E]" />
                   <span>Primary Wing (Class 1–5)</span>
                 </a>
               </li>
               <li>
                 <a href="#academics" className="hover:text-cyan-300 transition-colors flex items-center gap-2">
-                  <ChevronRight className="w-3.5 h-3.5 text-[#00a896]" />
+                  <ChevronRight className="w-3.5 h-3.5 text-[#007A6E]" />
                   <span>Junior &amp; Secondary (Class 6–10)</span>
                 </a>
               </li>
               <li>
                 <a href="#academics" className="hover:text-cyan-300 transition-colors flex items-center gap-2">
-                  <ChevronRight className="w-3.5 h-3.5 text-[#00a896]" />
+                  <ChevronRight className="w-3.5 h-3.5 text-[#007A6E]" />
                   <span>Higher Secondary College (Class 11–12)</span>
                 </a>
               </li>
@@ -234,9 +234,9 @@ export const Footer: React.FC<FooterProps> = ({
 
           {/* Newsletter / Notifications */}
           <div className="space-y-4">
-            <h4 className="font-display font-bold text-sm text-white uppercase tracking-wider">
+            <h2 className="font-display font-bold text-sm text-white uppercase tracking-wider">
               {language === 'en' ? 'Circular Alerts' : 'বিজ্ঞপ্তি সাবস্ক্রিপশন'}
-            </h4>
+            </h2>
             <p className="text-xs text-slate-300 leading-relaxed">
               Get official announcements, exam updates, and holidays delivered to your inbox.
             </p>
@@ -253,11 +253,11 @@ export const Footer: React.FC<FooterProps> = ({
                   value={emailInput}
                   onChange={(e) => setEmailInput(e.target.value)}
                   placeholder="parent.email@example.com"
-                  className="w-full px-3.5 py-2.5 text-xs rounded-xl bg-white/10 border border-white/20 text-white placeholder-slate-400 focus:outline-none focus:border-[#00a896]"
+                  className="w-full px-3.5 py-2.5 text-xs rounded-xl bg-white/10 border border-white/20 text-white placeholder-slate-400 focus:outline-none focus:border-[#007A6E]"
                 />
                 <button
                   type="submit"
-                  className="w-full py-2.5 px-3.5 bg-[#00a896] hover:bg-[#008c7d] text-white text-xs font-bold rounded-xl transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-sm"
+                  className="w-full py-2.5 px-3.5 bg-[#007A6E] hover:bg-[#008c7d] text-white text-xs font-bold rounded-xl transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-sm"
                 >
                   <Send className="w-3.5 h-3.5" />
                   <span>Subscribe Alerts</span>

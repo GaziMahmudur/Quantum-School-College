@@ -39,10 +39,10 @@ export const Achievements: React.FC<AchievementsProps> = ({ language }) => {
   ];
 
   return (
-    <section id="results" className="py-24 sm:py-32 lg:py-36 bg-[#faf8ff] border-b border-slate-200/80">
+    <section id="results" className="py-16 sm:py-24 lg:py-36 bg-[#faf8ff] border-b border-slate-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16 lg:mb-20">
-          <span className="text-xs font-bold tracking-wider text-[#00a896] uppercase bg-teal-50 px-3.5 py-1.5 rounded-full border border-teal-200/60">
+          <span className="text-xs font-bold tracking-wider text-[#007A6E] uppercase bg-teal-50 px-3.5 py-1.5 rounded-full border border-teal-200/60">
             {language === 'en' ? 'Track Record of Excellence' : 'কৃতিত্ব ও গৌরবগাঁথা'}
           </span>
           <h2 className="font-display font-extrabold text-2xl sm:text-3xl lg:text-4xl text-[#0b2545] tracking-tight mt-4">
@@ -56,19 +56,19 @@ export const Achievements: React.FC<AchievementsProps> = ({ language }) => {
         </div>
 
         {/* 4 Stat Highlights */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-16 lg:mb-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 mb-12 sm:mb-16 lg:mb-20">
           {stats.map((stat, idx) => (
             <div
               key={idx}
-              className="bg-white rounded-2xl border border-slate-200/90 p-7 sm:p-8 text-center shadow-xs hover:border-[#00a896] hover:shadow-md transition-all"
+              className="bg-white rounded-2xl border border-slate-200/90 p-7 sm:p-8 text-center shadow-xs hover:border-[#007A6E] hover:shadow-md transition-all"
             >
               <div className="font-display font-extrabold text-3xl sm:text-4xl text-[#0b2545] tracking-tight">
                 {stat.value}
               </div>
-              <div className="text-xs sm:text-sm font-bold text-[#00a896] mt-2">
+              <div className="text-xs sm:text-sm font-bold text-[#007A6E] mt-2">
                 {stat.label}
               </div>
-              <p className="text-xs text-slate-500 mt-2 leading-relaxed">
+              <p className="text-xs text-slate-700 mt-2 leading-relaxed">
                 {stat.desc}
               </p>
             </div>
@@ -89,12 +89,12 @@ export const Achievements: React.FC<AchievementsProps> = ({ language }) => {
                     <span className="text-xs font-bold px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">
                       {item.badge}
                     </span>
-                    <span className="text-xs font-semibold text-slate-400 font-mono">
+                    <span className="text-xs font-semibold text-slate-600 font-mono">
                       {item.year}
                     </span>
                   </div>
 
-                  <div className="w-12 h-12 rounded-xl bg-teal-50 text-[#00a896] flex items-center justify-center mb-5">
+                  <div className="w-12 h-12 rounded-xl bg-teal-50 text-[#007A6E] flex items-center justify-center mb-5">
                     <Icon className="w-6 h-6" />
                   </div>
 
@@ -107,7 +107,7 @@ export const Achievements: React.FC<AchievementsProps> = ({ language }) => {
                   </p>
                 </div>
 
-                <div className="pt-6 mt-6 border-t border-slate-100 flex items-center gap-2 text-xs text-slate-500 font-medium">
+                <div className="pt-6 mt-6 border-t border-slate-100 flex items-center gap-2 text-xs text-slate-700 font-medium">
                   <CheckCircle className="w-3.5 h-3.5 text-emerald-600" />
                   <span>Verified by Academic Council</span>
                 </div>

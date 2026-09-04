@@ -12,9 +12,9 @@ export const PrincipalMessage: React.FC<PrincipalMessageProps> = ({ language }) 
   const [selectedTeacher, setSelectedTeacher] = useState<any>(null);
 
   return (
-    <section id="about" className="py-24 sm:py-32 lg:py-36 bg-[#faf8ff] border-b border-slate-200/80">
+    <section id="about" className="py-16 sm:py-24 lg:py-36 bg-[#faf8ff] border-b border-slate-200/80">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-white rounded-3xl border border-slate-200/90 shadow-sm p-8 sm:p-12 lg:p-16 relative overflow-hidden">
+        <div className="bg-white rounded-3xl border border-slate-200/90 shadow-sm p-6 sm:p-10 lg:p-16 relative overflow-hidden">
           {/* Subtle background decorative badge */}
           <div className="absolute -bottom-10 -right-10 opacity-5 pointer-events-none">
             <Quote className="w-80 h-80 text-[#0b2545]" />
@@ -37,10 +37,10 @@ export const PrincipalMessage: React.FC<PrincipalMessageProps> = ({ language }) 
                   <h3 className="font-display font-extrabold text-lg sm:text-xl text-[#0b2545] tracking-tight">
                     {PRINCIPAL_INFO.name}
                   </h3>
-                  <div className="text-xs font-semibold text-[#00a896] tracking-wide">
+                  <div className="text-xs font-semibold text-[#007A6E] tracking-wide">
                     {PRINCIPAL_INFO.title}
                   </div>
-                  <div className="text-xs text-slate-500 font-normal">
+                  <div className="text-xs text-slate-700 font-normal">
                     {PRINCIPAL_INFO.credentials}
                   </div>
                 </div>
@@ -50,9 +50,9 @@ export const PrincipalMessage: React.FC<PrincipalMessageProps> = ({ language }) 
             {/* Right: Message Content */}
             <div className="lg:col-span-8 space-y-6">
               {/* Header with Quote Icon */}
-              <div className="flex items-center gap-2 text-[#00a896]">
-                <Quote className="w-5 h-5 fill-[#00a896]/20" />
-                <span className="text-xs font-bold tracking-wider uppercase text-[#00a896]">
+              <div className="flex items-center gap-2 text-[#007A6E]">
+                <Quote className="w-5 h-5 fill-[#007A6E]/20" />
+                <span className="text-xs font-bold tracking-wider uppercase text-[#007A6E]">
                   {language === 'en' ? "Principal's Welcome Note" : 'অধ্যক্ষের শুভেচ্ছা বাণী'}
                 </span>
               </div>
@@ -97,7 +97,7 @@ export const PrincipalMessage: React.FC<PrincipalMessageProps> = ({ language }) 
                 </button>
 
                 <div className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-slate-100 border border-slate-200 text-slate-600 text-xs font-mono">
-                  <ShieldCheck className="w-4 h-4 text-[#00a896]" />
+                  <ShieldCheck className="w-4 h-4 text-[#007A6E]" />
                   <span>{PRINCIPAL_INFO.trustReg}</span>
                 </div>
               </div>
@@ -108,7 +108,7 @@ export const PrincipalMessage: React.FC<PrincipalMessageProps> = ({ language }) 
 
       {/* Teachers / Faculty Modal */}
       {facultyModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs animate-in fade-in">
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs animate-in fade-in">
           <div className="bg-white rounded-xl shadow-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto border border-slate-200">
             {/* Modal Header */}
             <div className="px-6 py-5 bg-[#0b2545] text-white flex items-center justify-between rounded-t-xl sticky top-0 z-10">
@@ -137,42 +137,42 @@ export const PrincipalMessage: React.FC<PrincipalMessageProps> = ({ language }) 
                 <div className="animate-in slide-in-from-right-4 fade-in duration-300">
                   <button 
                     onClick={() => setSelectedTeacher(null)}
-                    className="mb-6 text-sm font-semibold text-[#00a896] hover:text-[#008c7d] flex items-center gap-1 cursor-pointer"
+                    className="mb-6 text-sm font-semibold text-[#007A6E] hover:text-[#008c7d] flex items-center gap-1 cursor-pointer"
                   >
                     &larr; Back to Directory
                   </button>
-                  <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
+                  <div className="flex flex-col sm:flex-row gap-5 sm:gap-6 md:gap-8 items-center sm:items-start text-center sm:text-left w-full">
                     <img
                       src={selectedTeacher.photo}
                       alt={selectedTeacher.name}
                       className="w-32 h-32 md:w-48 md:h-48 rounded-2xl object-cover shadow-md border-4 border-slate-100 shrink-0"
                       referrerPolicy="no-referrer"
                     />
-                    <div>
-                      <h4 className="font-display font-extrabold text-2xl text-[#0b2545]">
+                    <div className="min-w-0 flex-1 w-full">
+                      <h3 className="font-display font-extrabold text-2xl text-[#0b2545] break-words">
                         {selectedTeacher.name}
-                      </h4>
-                      <div className="text-sm font-bold text-[#00a896] mt-1 uppercase tracking-wide">
+                      </h3>
+                      <div className="text-sm font-bold text-[#007A6E] mt-1 uppercase tracking-wide break-words">
                         {selectedTeacher.role}
                       </div>
-                      <div className="mt-4 flex flex-col gap-1.5 text-sm text-slate-600">
-                        <div className="flex items-center gap-2">
-                          <GraduationCap className="w-4 h-4 text-slate-400" />
-                          <span>{selectedTeacher.degrees}</span>
+                      <div className="mt-4 flex flex-col gap-2.5 text-sm text-slate-600">
+                        <div className="flex items-start sm:items-center gap-2 justify-center sm:justify-start text-left">
+                          <GraduationCap className="w-4 h-4 text-slate-600 shrink-0 mt-0.5 sm:mt-0" />
+                          <span className="break-words">{selectedTeacher.degrees}</span>
                         </div>
-                        <div className="flex items-center gap-2">
-                          <Award className="w-4 h-4 text-slate-400" />
-                          <span>{selectedTeacher.years}</span>
+                        <div className="flex items-start sm:items-center gap-2 justify-center sm:justify-start text-left">
+                          <Award className="w-4 h-4 text-slate-600 shrink-0 mt-0.5 sm:mt-0" />
+                          <span className="break-words">{selectedTeacher.years}</span>
                         </div>
                       </div>
                       <div className="mt-5 text-sm text-slate-700 leading-relaxed bg-slate-50 p-4 rounded-xl border border-slate-100">
                         {selectedTeacher.bio}
                       </div>
                       <div className="mt-6">
-                        <h5 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-3">
+                        <h4 className="text-xs font-bold text-slate-700 uppercase tracking-wider mb-3">
                           Subjects Taught
-                        </h5>
-                        <div className="flex flex-wrap gap-2">
+                        </h4>
+                        <div className="flex flex-wrap gap-2 justify-center sm:justify-start">
                           {selectedTeacher.subjects?.map((sub: string, idx: number) => (
                             <span key={idx} className="px-3 py-1.5 bg-blue-50 text-[#134074] rounded-lg text-xs font-semibold border border-blue-100/50">
                               {sub}
@@ -189,7 +189,7 @@ export const PrincipalMessage: React.FC<PrincipalMessageProps> = ({ language }) 
                     <div 
                       key={idx} 
                       onClick={() => setSelectedTeacher(faculty)}
-                      className="p-4 rounded-xl bg-white hover:bg-slate-50 border border-slate-200 hover:border-slate-300 hover:shadow-md transition-all flex items-center gap-4 cursor-pointer group"
+                      className="p-4 rounded-xl bg-white hover:bg-slate-50 border border-slate-200 hover:border-slate-300 hover:shadow-md transition-all flex flex-col min-[450px]:flex-row items-center min-[450px]:items-center gap-3 sm:gap-4 cursor-pointer group text-center min-[450px]:text-left"
                     >
                       <img
                         src={faculty.photo}
@@ -197,14 +197,14 @@ export const PrincipalMessage: React.FC<PrincipalMessageProps> = ({ language }) 
                         className="w-16 h-16 rounded-full object-cover border-2 border-slate-100 shadow-xs shrink-0 group-hover:scale-105 transition-transform"
                         referrerPolicy="no-referrer"
                       />
-                      <div>
-                        <h4 className="font-display font-bold text-sm text-[#0b2545] group-hover:text-[#00a896] transition-colors">
+                      <div className="min-w-0 shrink w-full">
+                        <h4 className="font-display font-bold text-sm text-[#0b2545] group-hover:text-[#007A6E] transition-colors truncate whitespace-normal min-[450px]:whitespace-nowrap break-words">
                           {faculty.name}
                         </h4>
-                        <div className="text-xs font-medium text-[#00a896] mt-0.5">
+                        <div className="text-xs font-medium text-[#007A6E] mt-0.5 min-[450px]:truncate">
                           {faculty.role}
                         </div>
-                        <div className="text-[11px] text-slate-600 mt-1 line-clamp-1 border-t border-slate-100 pt-1">
+                        <div className="text-[11px] text-slate-600 mt-1 line-clamp-2 min-[450px]:line-clamp-1 border-t border-slate-100 pt-1">
                           {faculty.degrees}
                         </div>
                       </div>

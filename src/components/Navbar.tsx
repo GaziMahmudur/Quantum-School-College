@@ -36,46 +36,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   };
 
   return (
-    <header className="sticky top-0 z-40 w-full bg-white shadow-xs">
-      {/* Top Notification Strip */}
-      <div className="bg-[#0b2545] text-white text-xs border-b border-white/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5 flex flex-col md:flex-row items-center justify-between gap-3">
-          {/* Notice pill & text */}
-          <div className="flex items-center gap-2.5 text-center md:text-left flex-wrap justify-center md:justify-start">
-            <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-[#e11d48] text-white tracking-wider uppercase">
-              Notice
-            </span>
-            <span className="text-slate-200 text-xs font-medium">
-              {language === 'en'
-                ? 'Admissions are open for Class 5 to Class 12 (2025–26) • Exam Routine & Model Test Schedule published.'
-                : '৫ম থেকে ১২শ শ্রেণীতে ভর্তি চলছে (২০২৫-২৬) • মডেল টেস্ট ও পরীক্ষার রুটিন প্রকাশিত হয়েছে।'}
-            </span>
-          </div>
-
-          {/* Right quick links */}
-          <div className="flex items-center gap-5 text-xs font-medium shrink-0">
-            <button
-              onClick={onOpenRoutineModal}
-              className="inline-flex items-center gap-1.5 text-cyan-300 hover:text-cyan-200 transition-colors underline-offset-4 hover:underline cursor-pointer"
-            >
-              <span>{language === 'en' ? 'Download Routine (PDF)' : 'রুটিন ডাউনলোড (PDF)'}</span>
-              <Download className="w-3.5 h-3.5" />
-            </button>
-            <span className="text-white/20 hidden sm:inline">|</span>
-            <span className="text-slate-300 hidden sm:inline-flex items-center gap-1.5">
-              <span className="text-slate-400">EIIN:</span> <strong className="text-white">138492</strong>
-            </span>
-            <span className="text-white/20 hidden sm:inline">|</span>
-            <a
-              href="tel:+88028951010"
-              className="hidden lg:inline-flex items-center gap-1.5 text-slate-300 hover:text-white transition-colors"
-            >
-              <PhoneCall className="w-3.5 h-3.5 text-cyan-400" />
-              <span>+880 2-8951010</span>
-            </a>
-          </div>
-        </div>
-      </div>
+    <header className="sticky top-0 z-[80] w-full bg-white shadow-xs">
 
       {/* Main Navigation Bar */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -83,23 +44,23 @@ export const Navbar: React.FC<NavbarProps> = ({
           {/* Logo and Crest */}
           <button
             onClick={() => handleNavClick('home')}
-            className="flex items-center gap-3.5 text-left group cursor-pointer focus:outline-none"
+            className="flex items-center gap-2 sm:gap-3.5 text-left group cursor-pointer focus:outline-none shrink min-w-0 pr-1"
           >
             {/* Geometric academic emblem */}
-            <div className="w-11 h-11 rounded-xl bg-[#0b2545] text-white flex items-center justify-center shadow-md relative overflow-hidden border border-cyan-500/30 group-hover:bg-[#134074] transition-colors shrink-0">
+            <div className="w-8 h-8 sm:w-11 sm:h-11 rounded-xl bg-[#0b2545] text-white flex items-center justify-center shadow-md relative overflow-hidden border border-cyan-500/30 group-hover:bg-[#134074] transition-colors shrink-0">
               <div className="absolute inset-0 bg-gradient-to-tr from-cyan-600/30 to-transparent"></div>
-              <div className="relative font-display font-extrabold text-xl tracking-tight text-white flex items-center">
+              <div className="relative font-display font-extrabold text-sm sm:text-xl tracking-tight text-white flex items-center">
                 <span className="text-cyan-400">Q</span>
-                <span className="text-xs text-amber-300 font-bold ml-0.5">SC</span>
+                <span className="text-[9px] sm:text-xs text-amber-300 font-bold ml-0.5 hidden sm:inline">SC</span>
               </div>
             </div>
 
-            <div>
-              <div className="font-display font-extrabold text-lg tracking-tight text-[#0b2545] leading-tight">
+            <div className="min-w-0 shrink">
+              <div className="font-display font-extrabold text-sm sm:text-lg tracking-tight text-[#0b2545] leading-tight truncate">
                 QUANTUM
               </div>
-              <div className="text-[10px] font-semibold text-[#00a896] tracking-wider uppercase leading-none mt-0.5">
-                School &amp; College
+              <div className="text-[8px] sm:text-[10px] font-semibold text-[#007A6E] tracking-wider uppercase leading-none mt-0.5 truncate">
+                School <span className="hidden min-[360px]:inline">&amp; College</span>
               </div>
             </div>
           </button>
@@ -118,35 +79,37 @@ export const Navbar: React.FC<NavbarProps> = ({
           </nav>
 
           {/* Right Action Buttons */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
             {/* Language Switcher */}
             <button
               onClick={onToggleLanguage}
-              className="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-semibold text-slate-700 hover:text-[#0b2545] hover:bg-slate-100 rounded-lg border border-slate-200 transition-colors cursor-pointer"
-              title="Toggle Language / ভাষা পরিবর্তন"
+              className="inline-flex items-center gap-1 sm:gap-1.5 px-1.5 sm:px-3 py-1.5 sm:py-2 text-[10px] sm:text-xs font-semibold text-slate-700 hover:text-[#0b2545] hover:bg-slate-100 rounded-lg border border-slate-200 transition-colors cursor-pointer shrink-0"
+              title="Toggle Language"
             >
-              <Globe className="w-3.5 h-3.5 text-slate-500" />
+              <Globe className="w-3.5 h-3.5 text-slate-500 hidden min-[370px]:block" />
               <span className={language === 'en' ? 'font-bold text-[#0b2545]' : 'text-slate-500'}>EN</span>
-              <span className="text-slate-300">/</span>
-              <span className={language === 'bn' ? 'font-bold text-[#00a896]' : 'text-slate-500'}>বাংলা</span>
+              <span className="text-slate-300 mx-0.5">/</span>
+              <span className={language === 'bn' ? 'font-bold text-[#007A6E]' : 'text-slate-500'}>বাংলা</span>
             </button>
 
             {/* Portal Login Button */}
             <button
               onClick={onOpenPortal}
-              className="inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold text-[#0b2545] bg-[#e6f7f5] hover:bg-[#d0f1ed] text-[#006359] rounded-lg border border-[#99e3db] shadow-2xs transition-all cursor-pointer"
+              className="inline-flex items-center gap-1 sm:gap-2 px-2 sm:px-4 py-1.5 sm:py-2 text-[10px] sm:text-xs font-semibold text-[#0b2545] bg-[#e6f7f5] hover:bg-[#d0f1ed] text-[#006359] rounded-lg border border-[#99e3db] shadow-2xs transition-all cursor-pointer shrink-0"
             >
-              <LogIn className="w-3.5 h-3.5 text-[#008c7d]" />
-              <span>{language === 'en' ? 'Portal Login' : 'পোর্টাল লগইন'}</span>
+              <LogIn className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#008c7d] hidden min-[320px]:block" />
+              <span>
+                {language === 'en' ? 'Portal' : 'পোর্টাল'}
+              </span>
             </button>
 
             {/* Mobile menu toggle */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="xl:hidden p-2 text-slate-700 hover:text-[#0b2545] hover:bg-slate-100 rounded-lg"
+              className="xl:hidden p-1.5 sm:p-2 text-slate-700 hover:text-[#0b2545] hover:bg-slate-100 rounded-lg shrink-0"
               aria-label="Toggle Menu"
             >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {mobileMenuOpen ? <X className="w-5 h-5 sm:w-6 sm:h-6" /> : <Menu className="w-5 h-5 sm:w-6 sm:h-6" />}
             </button>
           </div>
         </div>
@@ -164,18 +127,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               {item.label}
             </button>
           ))}
-          <div className="pt-3 border-t border-slate-100 flex flex-col gap-2">
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenRoutineModal();
-              }}
-              className="flex items-center justify-between px-3 py-2 text-sm font-medium text-slate-700 bg-slate-50 rounded-md"
-            >
-              <span>{language === 'en' ? 'Download Exam Routine (PDF)' : 'পরীক্ষার রুটিন (PDF)'}</span>
-              <Download className="w-4 h-4 text-slate-500" />
-            </button>
-          </div>
+
         </div>
       )}
     </header>

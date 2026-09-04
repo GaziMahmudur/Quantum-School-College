@@ -29,18 +29,18 @@ export const DocumentModal: React.FC<DocumentModalProps> = ({
   ];
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-900/70 backdrop-blur-xs animate-in fade-in">
+    <div className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-4 bg-slate-900/70 backdrop-blur-xs animate-in fade-in">
       <div className="bg-white rounded-2xl shadow-2xl max-w-3xl w-full max-h-[92vh] flex flex-col border border-slate-200 overflow-hidden">
         {/* Header */}
         <div className="px-6 py-4 bg-[#0b2545] text-white flex items-center justify-between shrink-0">
           <div className="flex items-center gap-2.5">
             <FileText className="w-5 h-5 text-cyan-300" />
-            <h3 className="font-display font-bold text-base sm:text-lg text-white">
+            <h2 className="font-display font-bold text-base sm:text-lg text-white">
               {documentType === 'routine' && 'Official Board Model Test Examination Routine 2025'}
               {documentType === 'prospectus' && 'Quantum School & College Academic Prospectus 2025–26'}
               {documentType === 'admit_slip' && 'Official Online Admission Application Slip'}
               {documentType === 'notice' && (noticeData ? noticeData.title : 'Official Circular Notice')}
-            </h3>
+            </h2>
           </div>
 
           <button
@@ -56,7 +56,7 @@ export const DocumentModal: React.FC<DocumentModalProps> = ({
           <div className="bg-white p-6 sm:p-10 rounded-xl shadow-xs border border-slate-200 text-slate-800 space-y-6">
             {/* Institution Letterhead */}
             <div className="text-center border-b-2 border-slate-800 pb-5">
-              <div className="text-[10px] font-bold tracking-widest text-[#00a896] uppercase">
+              <div className="text-[10px] font-bold tracking-widest text-[#007A6E] uppercase">
                 Government Approved • BISE Dhaka Board Reg: 138492
               </div>
               <h2 className="font-display font-extrabold text-2xl sm:text-3xl text-[#0b2545] mt-1">
@@ -72,17 +72,17 @@ export const DocumentModal: React.FC<DocumentModalProps> = ({
               <div className="space-y-4">
                 <div className="flex items-center justify-between text-xs bg-slate-50 p-3 rounded-lg border border-slate-200">
                   <div>
-                    <span className="text-slate-500">Program:</span> <strong>Class 11 &amp; 12 HSC Model Test</strong>
+                    <span className="text-slate-700">Program:</span> <strong>Class 11 &amp; 12 HSC Model Test</strong>
                   </div>
                   <div>
-                    <span className="text-slate-500">Session:</span> <strong>2025–2026</strong>
+                    <span className="text-slate-700">Session:</span> <strong>2025–2026</strong>
                   </div>
                   <div>
-                    <span className="text-slate-500">Controller of Exams:</span> <strong>Dr. T. Rahman</strong>
+                    <span className="text-slate-700">Controller of Exams:</span> <strong>Dr. T. Rahman</strong>
                   </div>
                 </div>
 
-                <div className="border border-slate-200 rounded-lg overflow-hidden text-xs">
+                <div className="border border-slate-200 rounded-lg overflow-x-auto text-xs whitespace-nowrap min-[600px]:whitespace-normal">
                   <table className="w-full text-left">
                     <thead className="bg-[#0b2545] text-white font-semibold">
                       <tr>
@@ -96,7 +96,7 @@ export const DocumentModal: React.FC<DocumentModalProps> = ({
                     <tbody className="divide-y divide-slate-200">
                       {routineItems.map((item, idx) => (
                         <tr key={idx} className={idx % 2 === 0 ? 'bg-white' : 'bg-slate-50/50'}>
-                          <td className="p-2.5 font-semibold text-slate-800">{item.date} <span className="text-slate-500 font-normal">({item.day})</span></td>
+                          <td className="p-2.5 font-semibold text-slate-800">{item.date} <span className="text-slate-700 font-normal">({item.day})</span></td>
                           <td className="p-2.5 font-mono text-slate-600">{item.code}</td>
                           <td className="p-2.5 font-medium text-[#0b2545]">{item.subject}</td>
                           <td className="p-2.5 text-slate-700">{item.time}</td>
@@ -118,9 +118,9 @@ export const DocumentModal: React.FC<DocumentModalProps> = ({
 
             {documentType === 'prospectus' && (
               <div className="space-y-4 text-xs sm:text-sm text-slate-700 leading-relaxed">
-                <h4 className="font-display font-bold text-base text-[#0b2545]">
+                <h3 className="font-display font-bold text-base text-[#0b2545]">
                   Comprehensive Prospectus &amp; Academic Charter 2025–26
-                </h4>
+                </h3>
                 <p>
                   Quantum School &amp; College provides high-standard education integrating the National Curriculum with modern STEM robotics, English fluency, and human character building.
                 </p>
@@ -141,28 +141,28 @@ export const DocumentModal: React.FC<DocumentModalProps> = ({
               <div className="space-y-4">
                 <div className="bg-emerald-50 border border-emerald-200 p-4 rounded-lg flex items-center justify-between text-xs">
                   <div>
-                    <span className="text-slate-500">Tracking Code:</span> <strong className="text-base text-emerald-800 block font-mono">QSC-2025-84920</strong>
+                    <span className="text-slate-700">Tracking Code:</span> <strong className="text-base text-emerald-800 block font-mono">QSC-2025-84920</strong>
                   </div>
                   <div className="text-right">
-                    <span className="text-slate-500">Status:</span> <strong className="text-emerald-700 block">PROVISIONALLY REGISTERED</strong>
+                    <span className="text-slate-700">Status:</span> <strong className="text-emerald-700 block">PROVISIONALLY REGISTERED</strong>
                   </div>
                 </div>
 
                 <div className="grid grid-cols-2 gap-3 text-xs">
                   <div className="p-3 bg-slate-50 rounded border border-slate-200">
-                    <span className="text-slate-400 block">Student:</span>
+                    <span className="text-slate-600 block">Student:</span>
                     <strong>Zubair Al Mahfuz</strong>
                   </div>
                   <div className="p-3 bg-slate-50 rounded border border-slate-200">
-                    <span className="text-slate-400 block">Class &amp; Stream:</span>
+                    <span className="text-slate-600 block">Class &amp; Stream:</span>
                     <strong>Class 11 (Science - English Version)</strong>
                   </div>
                   <div className="p-3 bg-slate-50 rounded border border-slate-200">
-                    <span className="text-slate-400 block">Admission Assessment:</span>
+                    <span className="text-slate-600 block">Admission Assessment:</span>
                     <strong>Nov 22, 2025 at 09:30 AM</strong>
                   </div>
                   <div className="p-3 bg-slate-50 rounded border border-slate-200">
-                    <span className="text-slate-400 block">Exam Room:</span>
+                    <span className="text-slate-600 block">Exam Room:</span>
                     <strong>Room 304 (Academic Building)</strong>
                   </div>
                 </div>
@@ -175,7 +175,7 @@ export const DocumentModal: React.FC<DocumentModalProps> = ({
                   <span className={`text-[11px] font-bold px-2 py-0.5 rounded uppercase ${noticeData.badgeColor}`}>
                     {noticeData.badge}
                   </span>
-                  <span className="text-xs text-slate-500">Date of Release: {noticeData.date} {noticeData.month}, 2025</span>
+                  <span className="text-xs text-slate-700">Date of Release: {noticeData.date} {noticeData.month}, 2025</span>
                 </div>
                 <h3 className="font-display font-bold text-xl text-[#0b2545]">
                   {noticeData.title}
@@ -190,7 +190,7 @@ export const DocumentModal: React.FC<DocumentModalProps> = ({
             )}
 
             {/* Signature stamp */}
-            <div className="pt-6 border-t border-slate-200 flex items-center justify-between text-xs text-slate-500">
+            <div className="pt-6 border-t border-slate-200 flex items-center justify-between text-xs text-slate-700">
               <div>
                 <div className="font-bold text-[#0b2545]">Quantum Academic Council</div>
                 <div className="text-[11px]">Uttara, Dhaka • Bangladesh</div>
@@ -225,7 +225,7 @@ export const DocumentModal: React.FC<DocumentModalProps> = ({
               onClick={() => {
                 alert('Document download initiated. PDF file generated.');
               }}
-              className="inline-flex items-center gap-1.5 px-5 py-2 rounded-lg text-xs font-semibold text-white bg-[#00a896] hover:bg-[#008c7d] shadow-xs transition-colors cursor-pointer"
+              className="inline-flex items-center gap-1.5 px-5 py-2 rounded-lg text-xs font-semibold text-white bg-[#007A6E] hover:bg-[#008c7d] shadow-xs transition-colors cursor-pointer"
             >
               <Download className="w-4 h-4 text-white" />
               <span>Download PDF</span>

@@ -51,15 +51,15 @@ export const CampusTourModal: React.FC<CampusTourModalProps> = ({
   ];
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-900/75 backdrop-blur-xs animate-in fade-in">
+    <div className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-4 bg-slate-900/75 backdrop-blur-xs animate-in fade-in">
       <div className="bg-white rounded-2xl shadow-2xl max-w-4xl w-full max-h-[92vh] flex flex-col border border-slate-200 overflow-hidden">
         {/* Header */}
         <div className="px-6 py-4 bg-[#0b2545] text-white flex items-center justify-between shrink-0">
           <div className="flex items-center gap-2">
             <Compass className="w-5 h-5 text-cyan-300" />
-            <h3 className="font-display font-bold text-base sm:text-lg text-white">
-              {language === 'en' ? 'Interactive 360° Campus Virtual Tour' : 'ভার্চুয়াল ক্যাম্পাস ট্যুর ও পরিদর্শন'}
-            </h3>
+            <h2 className="font-display font-bold text-base sm:text-lg text-white">
+              {language === 'en' ? 'Campus Virtual Tour' : 'ক্যাম্পাস ভার্চুয়াল ট্যুর'}
+            </h2>
           </div>
 
           <button
@@ -82,15 +82,15 @@ export const CampusTourModal: React.FC<CampusTourModalProps> = ({
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20"></div>
 
             <div className="absolute top-4 left-4">
-              <span className="px-3 py-1 rounded-full text-xs font-bold bg-[#00a896] text-white uppercase tracking-wider shadow-sm">
+              <span className="px-3 py-1 rounded-full text-xs font-bold bg-[#007A6E] text-white uppercase tracking-wider shadow-sm">
                 {tourSpots[activeSpot].category}
               </span>
             </div>
 
             <div className="absolute bottom-6 left-6 right-6 text-white space-y-2">
-              <h4 className="font-display font-extrabold text-xl sm:text-2xl text-white drop-shadow-md">
+              <h3 className="font-display font-extrabold text-xl sm:text-2xl text-white drop-shadow-md">
                 {tourSpots[activeSpot].title}
-              </h4>
+              </h3>
               <p className="text-xs sm:text-sm text-slate-200 drop-shadow max-w-2xl">
                 {tourSpots[activeSpot].description}
               </p>
@@ -99,9 +99,9 @@ export const CampusTourModal: React.FC<CampusTourModalProps> = ({
 
           {/* Location Spot Thumbnails */}
           <div>
-            <h5 className="font-display font-bold text-sm text-[#0b2545] mb-3">
-              Select Campus Zone to Explore:
-            </h5>
+            <h4 className="font-display font-bold text-sm text-[#0b2545] mb-3">
+              {language === 'en' ? 'Explore by Zone' : 'জোন অনুযায়ী দেখুন'}
+            </h4>
             <div className="grid grid-cols-2 sm:grid-cols-5 gap-3">
               {tourSpots.map((spot, index) => (
                 <button
@@ -109,7 +109,7 @@ export const CampusTourModal: React.FC<CampusTourModalProps> = ({
                   onClick={() => setActiveSpot(index)}
                   className={`p-2 rounded-xl border text-left transition-all cursor-pointer ${
                     activeSpot === index
-                      ? 'border-[#00a896] bg-teal-50/50 ring-2 ring-[#00a896]/30'
+                      ? 'border-[#007A6E] bg-teal-50/50 ring-2 ring-[#007A6E]/30'
                       : 'border-slate-200 bg-white hover:border-slate-300'
                   }`}
                 >
@@ -136,7 +136,7 @@ export const CampusTourModal: React.FC<CampusTourModalProps> = ({
         {/* Footer */}
         <div className="px-6 py-4 bg-slate-50 border-t border-slate-200 flex items-center justify-between shrink-0">
           <div className="flex items-center gap-2 text-xs text-slate-600">
-            <MapPin className="w-4 h-4 text-[#00a896]" />
+            <MapPin className="w-4 h-4 text-[#007A6E]" />
             <span>Plot 18, Road 7, Sector 4, Uttara, Dhaka-1230</span>
           </div>
           <button

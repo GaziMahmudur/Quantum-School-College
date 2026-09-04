@@ -30,20 +30,20 @@ export const AdmissionWizard: React.FC<AdmissionWizardProps> = ({
 }) => {
   const [currentStep, setCurrentStep] = useState(1);
   const [formData, setFormData] = useState<AdmissionFormData>({
-    selectedClass: preSelectedClass || 'Class 11 (HSC College)',
-    selectedGroup: 'Science',
-    medium: 'English',
-    studentName: 'Zubair Al Mahfuz',
-    gender: 'Male',
-    dob: '2008-04-12',
-    guardianName: 'Engr. Mahfuzur Rahman',
-    guardianPhone: '+880 1712-345678',
-    guardianEmail: 'mahfuz.engr@gmail.com',
-    address: 'House 24, Road 7, Sector 4, Uttara, Dhaka-1230',
-    prevSchool: 'Uttara High School & College',
-    prevGpa: '5.00',
-    birthCertUploaded: true,
-    photoUploaded: true,
+    selectedClass: preSelectedClass || '',
+    selectedGroup: '',
+    medium: '',
+    studentName: '',
+    gender: '',
+    dob: '',
+    guardianName: '',
+    guardianPhone: '',
+    guardianEmail: '',
+    address: '',
+    prevSchool: '',
+    prevGpa: '',
+    birthCertUploaded: false,
+    photoUploaded: false,
   });
 
   const [generatedAppId, setGeneratedAppId] = useState<string>('QSC-2025-84920');
@@ -99,7 +99,7 @@ export const AdmissionWizard: React.FC<AdmissionWizardProps> = ({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 lg:mb-20">
-          <span className="text-xs font-bold tracking-wider text-[#00a896] uppercase bg-teal-50 px-3.5 py-1.5 rounded-full border border-teal-200/60">
+          <span className="text-xs font-bold tracking-wider text-[#007A6E] uppercase bg-teal-50 px-3.5 py-1.5 rounded-full border border-teal-200/60">
             {language === 'en' ? 'Admissions Open (2025–26)' : 'ভর্তি চলছে (২০২৫-২৬)'}
           </span>
           <h2 className="font-display font-extrabold text-2xl sm:text-3xl lg:text-4xl text-[#0b2545] tracking-tight mt-4">
@@ -131,7 +131,7 @@ export const AdmissionWizard: React.FC<AdmissionWizardProps> = ({
                 }}
                 className={`p-4 sm:p-5 rounded-2xl border text-left transition-all cursor-pointer ${
                   isCurrent
-                    ? 'bg-white border-[#00a896] shadow-sm ring-2 ring-[#00a896]/20'
+                    ? 'bg-white border-[#007A6E] shadow-sm ring-2 ring-[#007A6E]/20'
                     : isCompleted
                     ? 'bg-white/80 border-slate-300 text-slate-700'
                     : 'bg-white/50 border-slate-200/70 opacity-75'
@@ -141,10 +141,10 @@ export const AdmissionWizard: React.FC<AdmissionWizardProps> = ({
                   <span
                     className={`font-display font-extrabold text-lg sm:text-xl ${
                       isCurrent
-                        ? 'text-[#00a896]'
+                        ? 'text-[#007A6E]'
                         : isCompleted
                         ? 'text-emerald-600'
-                        : 'text-slate-400'
+                        : 'text-slate-600'
                     }`}
                   >
                     {step.num}
@@ -153,10 +153,10 @@ export const AdmissionWizard: React.FC<AdmissionWizardProps> = ({
                     <CheckCircle2 className="w-4 h-4 text-emerald-600" />
                   )}
                 </div>
-                <h4 className="font-display font-bold text-xs sm:text-sm text-[#0b2545] leading-snug">
+                <h3 className="font-display font-bold text-xs sm:text-sm text-[#0b2545] leading-snug">
                   {step.title}
-                </h4>
-                <p className="text-[11px] text-slate-500 leading-normal mt-1.5 line-clamp-2">
+                </h3>
+                <p className="text-[11px] text-slate-700 leading-normal mt-1.5 line-clamp-2">
                   {step.desc}
                 </p>
               </div>
@@ -181,7 +181,7 @@ export const AdmissionWizard: React.FC<AdmissionWizardProps> = ({
             <div className="flex items-center gap-3 w-full sm:w-56">
               <div className="w-full bg-slate-200 h-2.5 rounded-full overflow-hidden">
                 <div
-                  className="bg-[#00a896] h-full transition-all duration-300 rounded-full"
+                  className="bg-[#007A6E] h-full transition-all duration-300 rounded-full"
                   style={{ width: `${progressPercentage}%` }}
                 ></div>
               </div>
@@ -205,7 +205,7 @@ export const AdmissionWizard: React.FC<AdmissionWizardProps> = ({
                   </p>
                 </div>
 
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3.5 pt-2">
+                <div className="grid grid-cols-1 min-[450px]:grid-cols-2 sm:grid-cols-4 gap-3.5 pt-2">
                   {classesList.map((cls) => {
                     const isSelected = formData.selectedClass === cls;
                     return (
@@ -217,7 +217,7 @@ export const AdmissionWizard: React.FC<AdmissionWizardProps> = ({
                         }
                         className={`py-3.5 px-3 rounded-xl text-xs sm:text-sm font-semibold border transition-all text-center cursor-pointer ${
                           isSelected
-                            ? 'bg-emerald-50/50 border-[#00a896] text-[#006359] ring-2 ring-[#00a896]/30 shadow-xs'
+                            ? 'bg-emerald-50/50 border-[#007A6E] text-[#006359] ring-2 ring-[#007A6E]/30 shadow-xs'
                             : 'bg-white border-slate-200 text-slate-700 hover:border-slate-300 hover:bg-slate-50'
                         }`}
                       >
@@ -230,7 +230,7 @@ export const AdmissionWizard: React.FC<AdmissionWizardProps> = ({
                 <div className="pt-4 flex justify-end">
                   <button
                     onClick={handleNextStep}
-                    className="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-sm font-semibold text-white bg-[#00a896] hover:bg-[#008c7d] shadow-sm transition-all cursor-pointer"
+                    className="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-sm font-semibold text-white bg-[#007A6E] hover:bg-[#008c7d] shadow-sm transition-all cursor-pointer"
                   >
                     <span>Continue to Step 2</span>
                     <ArrowRight className="w-4 h-4" />
@@ -266,14 +266,14 @@ export const AdmissionWizard: React.FC<AdmissionWizardProps> = ({
                             }
                             className={`p-4 rounded-xl border cursor-pointer transition-all ${
                               formData.selectedGroup === group
-                                ? 'border-[#00a896] bg-teal-50/50 ring-2 ring-[#00a896]/20'
+                                ? 'border-[#007A6E] bg-teal-50/50 ring-2 ring-[#007A6E]/20'
                                 : 'border-slate-200 hover:border-slate-300'
                             }`}
                           >
                             <div className="font-bold text-sm text-[#0b2545]">
                               {group}
                             </div>
-                            <div className="text-xs text-slate-500 mt-1">
+                            <div className="text-xs text-slate-700 mt-1">
                               {group === 'Science'
                                 ? 'Physics, Chemistry, Higher Math, Biology'
                                 : group === 'Business Studies'
@@ -290,21 +290,21 @@ export const AdmissionWizard: React.FC<AdmissionWizardProps> = ({
                     <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
                       Instruction Medium
                     </label>
-                    <div className="grid grid-cols-2 gap-3">
+                    <div className="grid grid-cols-1 min-[450px]:grid-cols-2 gap-3">
                       {(['English', 'Bangla'] as const).map((med) => (
                         <div
                           key={med}
                           onClick={() => setFormData({ ...formData, medium: med })}
                           className={`p-4 rounded-xl border cursor-pointer transition-all ${
                             formData.medium === med
-                              ? 'border-[#00a896] bg-teal-50/50 ring-2 ring-[#00a896]/20'
+                              ? 'border-[#007A6E] bg-teal-50/50 ring-2 ring-[#007A6E]/20'
                               : 'border-slate-200 hover:border-slate-300'
                           }`}
                         >
                           <div className="font-bold text-sm text-[#0b2545]">
                             {med} {med === 'English' ? 'Version' : 'Medium'}
                           </div>
-                          <div className="text-xs text-slate-500 mt-1">
+                          <div className="text-xs text-slate-700 mt-1">
                             {med === 'English'
                               ? 'NCTB Curriculum translated into English'
                               : 'Standard NCTB National Curriculum'}
@@ -325,7 +325,7 @@ export const AdmissionWizard: React.FC<AdmissionWizardProps> = ({
                   </button>
                   <button
                     onClick={handleNextStep}
-                    className="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-sm font-semibold text-white bg-[#00a896] hover:bg-[#008c7d]"
+                    className="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-sm font-semibold text-white bg-[#007A6E] hover:bg-[#008c7d]"
                   >
                     <span>Continue to Step 3</span>
                     <ArrowRight className="w-4 h-4" />
@@ -361,7 +361,7 @@ export const AdmissionWizard: React.FC<AdmissionWizardProps> = ({
                         className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-sm focus:outline-none focus:border-[#134074] focus:ring-2 focus:ring-blue-100"
                         placeholder="Enter full name"
                       />
-                      <User className="w-4 h-4 text-slate-400 absolute right-3 top-3" />
+                      <User className="w-4 h-4 text-slate-600 absolute right-3 top-3" />
                     </div>
                   </div>
 
@@ -378,7 +378,7 @@ export const AdmissionWizard: React.FC<AdmissionWizardProps> = ({
                         }
                         className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-sm focus:outline-none focus:border-[#134074] focus:ring-2 focus:ring-blue-100"
                       />
-                      <Calendar className="w-4 h-4 text-slate-400 absolute right-3 top-3 pointer-events-none" />
+                      <Calendar className="w-4 h-4 text-slate-600 absolute right-3 top-3 pointer-events-none" />
                     </div>
                   </div>
 
@@ -412,7 +412,7 @@ export const AdmissionWizard: React.FC<AdmissionWizardProps> = ({
                         }
                         className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-sm focus:outline-none focus:border-[#134074]"
                       />
-                      <Phone className="w-4 h-4 text-slate-400 absolute right-3 top-3" />
+                      <Phone className="w-4 h-4 text-slate-600 absolute right-3 top-3" />
                     </div>
                   </div>
 
@@ -469,7 +469,7 @@ export const AdmissionWizard: React.FC<AdmissionWizardProps> = ({
                   </button>
                   <button
                     onClick={handleNextStep}
-                    className="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-sm font-semibold text-white bg-[#00a896] hover:bg-[#008c7d]"
+                    className="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-sm font-semibold text-white bg-[#007A6E] hover:bg-[#008c7d]"
                   >
                     <span>Continue to Step 4</span>
                     <ArrowRight className="w-4 h-4" />
@@ -492,14 +492,14 @@ export const AdmissionWizard: React.FC<AdmissionWizardProps> = ({
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {/* Document 1: Student Photo */}
-                  <div className="border-2 border-dashed border-slate-300 rounded-xl p-6 text-center hover:border-[#00a896] transition-colors bg-slate-50/50">
-                    <div className="w-12 h-12 rounded-full bg-teal-50 text-[#00a896] flex items-center justify-center mx-auto mb-3">
+                  <div className="border-2 border-dashed border-slate-300 rounded-xl p-6 text-center hover:border-[#007A6E] transition-colors bg-slate-50/50">
+                    <div className="w-12 h-12 rounded-full bg-teal-50 text-[#007A6E] flex items-center justify-center mx-auto mb-3">
                       <Upload className="w-6 h-6" />
                     </div>
                     <div className="font-bold text-sm text-[#0b2545]">
                       Passport Size Photo *
                     </div>
-                    <p className="text-xs text-slate-500 mt-1 mb-4">
+                    <p className="text-xs text-slate-700 mt-1 mb-4">
                       Formal student portrait with light background.
                     </p>
                     <button
@@ -507,21 +507,21 @@ export const AdmissionWizard: React.FC<AdmissionWizardProps> = ({
                       onClick={() =>
                         setFormData({ ...formData, photoUploaded: true })
                       }
-                      className="px-3.5 py-1.5 rounded-md text-xs font-semibold bg-white border border-slate-200 text-[#00a896] shadow-2xs hover:bg-teal-50"
+                      className="px-3.5 py-1.5 rounded-md text-xs font-semibold bg-white border border-slate-200 text-[#007A6E] shadow-2xs hover:bg-teal-50"
                     >
                       {formData.photoUploaded ? '✓ photo_zubair.jpg (Uploaded)' : 'Select Photo'}
                     </button>
                   </div>
 
                   {/* Document 2: Birth Certificate / SSC Transcript */}
-                  <div className="border-2 border-dashed border-slate-300 rounded-xl p-6 text-center hover:border-[#00a896] transition-colors bg-slate-50/50">
+                  <div className="border-2 border-dashed border-slate-300 rounded-xl p-6 text-center hover:border-[#007A6E] transition-colors bg-slate-50/50">
                     <div className="w-12 h-12 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center mx-auto mb-3">
                       <FileCheck className="w-6 h-6" />
                     </div>
                     <div className="font-bold text-sm text-[#0b2545]">
                       Birth Certificate / Transcript *
                     </div>
-                    <p className="text-xs text-slate-500 mt-1 mb-4">
+                    <p className="text-xs text-slate-700 mt-1 mb-4">
                       Official government birth certificate or board marksheet.
                     </p>
                     <button
@@ -546,7 +546,7 @@ export const AdmissionWizard: React.FC<AdmissionWizardProps> = ({
                   </button>
                   <button
                     onClick={handleNextStep}
-                    className="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-sm font-semibold text-white bg-[#00a896] hover:bg-[#008c7d]"
+                    className="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-sm font-semibold text-white bg-[#007A6E] hover:bg-[#008c7d]"
                   >
                     <span>Continue to Step 5 (Review)</span>
                     <ArrowRight className="w-4 h-4" />
@@ -569,27 +569,27 @@ export const AdmissionWizard: React.FC<AdmissionWizardProps> = ({
 
                 {/* Summary Card */}
                 <div className="bg-slate-50 rounded-xl p-5 border border-slate-200 space-y-4 text-xs">
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pb-4 border-b border-slate-200">
+                  <div className="grid grid-cols-1 min-[450px]:grid-cols-2 sm:grid-cols-4 gap-4 pb-4 border-b border-slate-200">
                     <div>
-                      <span className="text-slate-400 block">Class Applied:</span>
+                      <span className="text-slate-600 block">Class Applied:</span>
                       <strong className="text-sm text-[#0b2545]">
                         {formData.selectedClass}
                       </strong>
                     </div>
                     <div>
-                      <span className="text-slate-400 block">Stream &amp; Medium:</span>
+                      <span className="text-slate-600 block">Stream &amp; Medium:</span>
                       <strong className="text-sm text-[#0b2545]">
                         {formData.selectedGroup} ({formData.medium})
                       </strong>
                     </div>
                     <div>
-                      <span className="text-slate-400 block">Previous School:</span>
+                      <span className="text-slate-600 block">Previous School:</span>
                       <strong className="text-sm text-[#0b2545]">
                         {formData.prevSchool}
                       </strong>
                     </div>
                     <div>
-                      <span className="text-slate-400 block">Previous GPA:</span>
+                      <span className="text-slate-600 block">Previous GPA:</span>
                       <strong className="text-sm text-emerald-700">
                         {formData.prevGpa} (GPA-5.00)
                       </strong>
@@ -598,19 +598,19 @@ export const AdmissionWizard: React.FC<AdmissionWizardProps> = ({
 
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                     <div>
-                      <span className="text-slate-400 block">Student Name:</span>
+                      <span className="text-slate-600 block">Student Name:</span>
                       <span className="font-semibold text-slate-800">
                         {formData.studentName}
                       </span>
                     </div>
                     <div>
-                      <span className="text-slate-400 block">Guardian Contact:</span>
+                      <span className="text-slate-600 block">Guardian Contact:</span>
                       <span className="font-semibold text-slate-800">
                         {formData.guardianPhone}
                       </span>
                     </div>
                     <div>
-                      <span className="text-slate-400 block">Birth Date:</span>
+                      <span className="text-slate-600 block">Birth Date:</span>
                       <span className="font-semibold text-slate-800">
                         {formData.dob}
                       </span>
@@ -618,7 +618,7 @@ export const AdmissionWizard: React.FC<AdmissionWizardProps> = ({
                   </div>
 
                   <div className="pt-2">
-                    <span className="text-slate-400 block">Present Address:</span>
+                    <span className="text-slate-600 block">Present Address:</span>
                     <span className="font-medium text-slate-700">
                       {formData.address}
                     </span>
@@ -671,14 +671,14 @@ export const AdmissionWizard: React.FC<AdmissionWizardProps> = ({
                 </div>
 
                 {/* Big ID Badge Box */}
-                <div className="max-w-md mx-auto bg-[#faf8ff] p-5 rounded-xl border-2 border-dashed border-[#00a896] text-center">
-                  <div className="text-[11px] font-bold uppercase tracking-widest text-[#00a896]">
+                <div className="max-w-md mx-auto bg-[#faf8ff] p-5 rounded-xl border-2 border-dashed border-[#007A6E] text-center">
+                  <div className="text-[11px] font-bold uppercase tracking-widest text-[#007A6E]">
                     Official Application Tracking ID
                   </div>
                   <div className="font-mono font-extrabold text-3xl text-[#0b2545] tracking-wider my-1">
                     {generatedAppId}
                   </div>
-                  <div className="text-xs text-slate-500">
+                  <div className="text-xs text-slate-700">
                     Session 2025–26 • {formData.selectedClass} ({formData.selectedGroup})
                   </div>
                 </div>
@@ -697,13 +697,13 @@ export const AdmissionWizard: React.FC<AdmissionWizardProps> = ({
                     onClick={() => window.print()}
                     className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg text-xs sm:text-sm font-semibold text-slate-700 bg-white hover:bg-slate-50 border border-slate-300 cursor-pointer"
                   >
-                    <Printer className="w-4 h-4 text-slate-500" />
+                    <Printer className="w-4 h-4 text-slate-700" />
                     <span>Print Slip</span>
                   </button>
 
                   <button
                     onClick={() => setCurrentStep(1)}
-                    className="px-4 py-2.5 text-xs font-semibold text-slate-500 hover:text-slate-800"
+                    className="px-4 py-2.5 text-xs font-semibold text-slate-700 hover:text-slate-800"
                   >
                     Submit Another Application
                   </button>

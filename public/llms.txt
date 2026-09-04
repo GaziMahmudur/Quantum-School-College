@@ -1,0 +1,13 @@
+# Quantum School & College
+
+> The Official Web Portal of Quantum School & College. We believe that every child is naturally curious, creative, and capable of greatness. 
+
+This site offers a digital platform for admissions, academic program overviews, and faculty profiles. It is designed to assist parents, students, and educators.
+
+## Contact Information
+- Website: https://quantumschoolcollege.edu.bd
+- Location: Uttara Sector 4, Dhaka, Bangladesh
+
+## Optional
+
+More details can be found on our main website.

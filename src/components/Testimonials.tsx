@@ -12,7 +12,7 @@ export const Testimonials: React.FC<TestimonialsProps> = ({ language }) => {
     <section className="py-24 sm:py-32 lg:py-36 bg-white border-b border-slate-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16 lg:mb-20">
-          <span className="text-xs font-bold tracking-wider text-[#00a896] uppercase bg-teal-50 px-3.5 py-1.5 rounded-full border border-teal-200/60">
+          <span className="text-xs font-bold tracking-wider text-[#007A6E] uppercase bg-teal-50 px-3.5 py-1.5 rounded-full border border-teal-200/60">
             {language === 'en' ? 'Community Voices' : 'অভিভাবকদের মতামত'}
           </span>
           <h2 className="font-display font-extrabold text-2xl sm:text-3xl lg:text-4xl text-[#0b2545] tracking-tight mt-4">
@@ -29,7 +29,7 @@ export const Testimonials: React.FC<TestimonialsProps> = ({ language }) => {
           {TESTIMONIALS.map((item) => (
             <div
               key={item.id}
-              className="bg-[#faf8ff] rounded-3xl border border-slate-200/90 p-8 sm:p-10 flex flex-col justify-between shadow-sm hover:border-[#00a896]/60 hover:shadow-lg transition-all"
+              className="bg-[#faf8ff] rounded-3xl border border-slate-200/90 p-8 sm:p-10 flex flex-col justify-between shadow-sm hover:border-[#007A6E]/60 hover:shadow-lg transition-all"
             >
               <div>
                 <div className="flex items-center gap-1.5 mb-6 text-amber-400">

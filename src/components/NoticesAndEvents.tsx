@@ -39,12 +39,12 @@ export const NoticesAndEvents: React.FC<NoticesAndEventsProps> = ({
   };
 
   return (
-    <section id="notices" className="py-24 sm:py-32 lg:py-36 bg-white border-b border-slate-200/80">
+    <section id="notices" className="py-16 sm:py-24 lg:py-36 bg-white border-b border-slate-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header with Title and Filter Segmented Control */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-16 lg:mb-20">
           <div>
-            <span className="text-xs font-bold tracking-wider text-[#00a896] uppercase bg-teal-50 px-3 py-1 rounded-full border border-teal-200/60">
+            <span className="text-xs font-bold tracking-wider text-[#007A6E] uppercase bg-teal-50 px-3 py-1 rounded-full border border-teal-200/60">
               {language === 'en' ? 'Stay Updated' : 'সর্বশেষ তথ্য'}
             </span>
             <h2 className="font-display font-extrabold text-2xl sm:text-3xl lg:text-4xl text-[#0b2545] tracking-tight mt-4">
@@ -53,7 +53,7 @@ export const NoticesAndEvents: React.FC<NoticesAndEventsProps> = ({
           </div>
 
           {/* Filter Pills */}
-          <div className="inline-flex p-1.5 bg-slate-100 rounded-xl border border-slate-200 self-start sm:self-auto gap-1">
+          <div className="flex flex-wrap sm:inline-flex p-1.5 bg-slate-100 rounded-xl border border-slate-200 self-start sm:self-auto gap-1">
             <button
               onClick={() => setFilter('all')}
               className={`px-3.5 py-2 text-xs font-semibold rounded-lg transition-all cursor-pointer ${
@@ -95,7 +95,7 @@ export const NoticesAndEvents: React.FC<NoticesAndEventsProps> = ({
               {/* Card Title */}
               <div className="flex items-center justify-between pb-6 border-b border-slate-200">
                 <div className="flex items-center gap-3">
-                  <div className="p-2.5 rounded-xl bg-teal-50 text-[#00a896] border border-teal-200/60">
+                  <div className="p-2.5 rounded-xl bg-teal-50 text-[#007A6E] border border-teal-200/60">
                     <Bell className="w-5 h-5" />
                   </div>
                   <h3 className="font-display font-bold text-xl text-[#0b2545]">
@@ -105,7 +105,7 @@ export const NoticesAndEvents: React.FC<NoticesAndEventsProps> = ({
 
                 <button
                   onClick={() => onViewNotice(CIRCULAR_NOTICES[0])}
-                  className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-[#00a896] hover:text-[#008c7d] cursor-pointer"
+                  className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-[#007A6E] hover:text-[#008c7d] cursor-pointer"
                 >
                   <span>{language === 'en' ? 'See All Notices' : 'সব নোটিশ দেখুন'}</span>
                   <ArrowRight className="w-4 h-4" />
@@ -139,7 +139,7 @@ export const NoticesAndEvents: React.FC<NoticesAndEventsProps> = ({
                           {notice.badge}
                         </span>
                       </div>
-                      <h4 className="font-display font-bold text-sm text-[#0b2545] leading-snug group-hover:text-[#00a896] transition-colors">
+                      <h4 className="font-display font-bold text-sm text-[#0b2545] leading-snug group-hover:text-[#007A6E] transition-colors">
                         {notice.title}
                       </h4>
                       <p className="text-xs text-slate-600 line-clamp-2 mt-1 font-normal">
@@ -148,7 +148,7 @@ export const NoticesAndEvents: React.FC<NoticesAndEventsProps> = ({
                     </div>
 
                     {/* Action Icon */}
-                    <div className="p-2 rounded-md text-slate-400 group-hover:text-[#00a896] group-hover:bg-teal-50 transition-colors shrink-0">
+                    <div className="p-2 rounded-md text-slate-600 group-hover:text-[#007A6E] group-hover:bg-teal-50 transition-colors shrink-0">
                       <Download className="w-4 h-4" />
                     </div>
                   </div>
@@ -156,7 +156,7 @@ export const NoticesAndEvents: React.FC<NoticesAndEventsProps> = ({
               </div>
             </div>
 
-            <div className="pt-6 border-t border-slate-200/80 text-xs text-slate-500 text-center">
+            <div className="pt-6 border-t border-slate-200/80 text-xs text-slate-700 text-center">
               Official BISE Dhaka Board verified circulars and institutional publications.
             </div>
           </div>
@@ -186,19 +186,19 @@ export const NoticesAndEvents: React.FC<NoticesAndEventsProps> = ({
                   <div
                     key={event.id}
                     onClick={() => setSelectedEvent(event)}
-                    className="p-5 sm:p-6 rounded-2xl bg-white border border-slate-200/90 hover:border-[#00a896]/50 hover:shadow-md transition-all cursor-pointer group"
+                    className="p-5 sm:p-6 rounded-2xl bg-white border border-slate-200/90 hover:border-[#007A6E]/50 hover:shadow-md transition-all cursor-pointer group"
                   >
                     <div className="flex items-center justify-between gap-2 mb-3">
                       <span className="text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider bg-emerald-50 text-emerald-700 border border-emerald-200">
                         {event.tag}
                       </span>
-                      <div className="flex items-center gap-1.5 text-xs font-medium text-slate-500">
-                        <Clock className="w-4 h-4 text-slate-400" />
+                      <div className="flex items-center gap-1.5 text-xs font-medium text-slate-700">
+                        <Clock className="w-4 h-4 text-slate-600" />
                         <span>{event.time}</span>
                       </div>
                     </div>
 
-                    <h4 className="font-display font-bold text-base sm:text-lg text-[#0b2545] group-hover:text-[#00a896] transition-colors leading-snug">
+                    <h4 className="font-display font-bold text-base sm:text-lg text-[#0b2545] group-hover:text-[#007A6E] transition-colors leading-snug">
                       {event.title}
                     </h4>
 
@@ -206,9 +206,9 @@ export const NoticesAndEvents: React.FC<NoticesAndEventsProps> = ({
                       {event.description}
                     </p>
 
-                    <div className="mt-4 pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+                    <div className="mt-4 pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-700">
                       <div className="flex items-center gap-2">
-                        <MapPin className="w-4 h-4 text-[#00a896]" />
+                        <MapPin className="w-4 h-4 text-[#007A6E]" />
                         <span>{event.location}</span>
                       </div>
                       <span className="font-semibold text-[#0b2545] bg-slate-50 px-2.5 py-1 rounded-md border border-slate-200/60">
@@ -220,7 +220,7 @@ export const NoticesAndEvents: React.FC<NoticesAndEventsProps> = ({
               </div>
             </div>
 
-            <div className="pt-6 border-t border-slate-200/80 text-xs text-slate-500 text-center">
+            <div className="pt-6 border-t border-slate-200/80 text-xs text-slate-700 text-center">
               Parents, alumni, and guardians are warmly welcomed to all school gatherings.
             </div>
           </div>
@@ -229,7 +229,7 @@ export const NoticesAndEvents: React.FC<NoticesAndEventsProps> = ({
 
       {/* Event Details & RSVP Modal */}
       {selectedEvent && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs animate-in fade-in">
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs animate-in fade-in">
           <div className="bg-white rounded-xl shadow-2xl max-w-lg w-full border border-slate-200 overflow-hidden">
             <div className="px-6 py-4 bg-[#0b2545] text-white flex items-center justify-between">
               <div>
@@ -255,15 +255,15 @@ export const NoticesAndEvents: React.FC<NoticesAndEventsProps> = ({
 
               <div className="bg-slate-50 p-4 rounded-lg border border-slate-200 space-y-2 text-xs text-slate-700">
                 <div className="flex items-center gap-2">
-                  <Clock className="w-4 h-4 text-[#00a896]" />
+                  <Clock className="w-4 h-4 text-[#007A6E]" />
                   <span>Time: <strong>{selectedEvent.time}</strong></span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Calendar className="w-4 h-4 text-[#00a896]" />
+                  <Calendar className="w-4 h-4 text-[#007A6E]" />
                   <span>Date: <strong>{selectedEvent.dateStr}</strong></span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <MapPin className="w-4 h-4 text-[#00a896]" />
+                  <MapPin className="w-4 h-4 text-[#007A6E]" />
                   <span>Venue: <strong>{selectedEvent.location}</strong></span>
                 </div>
               </div>
@@ -283,7 +283,7 @@ export const NoticesAndEvents: React.FC<NoticesAndEventsProps> = ({
                   </button>
                   <button
                     onClick={handleRsvp}
-                    className="px-5 py-2.5 text-xs font-semibold text-white bg-[#00a896] hover:bg-[#008c7d] rounded-lg shadow-xs"
+                    className="px-5 py-2.5 text-xs font-semibold text-white bg-[#007A6E] hover:bg-[#008c7d] rounded-lg shadow-xs"
                   >
                     Confirm Parent Attendance
                   </button>

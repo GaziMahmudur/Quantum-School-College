@@ -52,35 +52,35 @@ export const Hero: React.FC<HeroProps> = ({
           <div className="lg:col-span-7 space-y-8">
             {/* Top pill tags */}
             <div className="flex flex-wrap items-center gap-2.5">
-              <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-[#0b2545] border border-cyan-500/30 text-cyan-300 shadow-2xs">
-                <CheckCircle2 className="w-3.5 h-3.5 text-cyan-400" />
-                <span>{language === 'en' ? 'BISE Dhaka Board Approved' : 'ঢাকা শিক্ষা বোর্ড অনুমোদিত'}</span>
+              <span className="inline-flex items-center gap-1.5 px-3 sm:px-3.5 py-1.5 rounded-full text-xs font-semibold bg-[#0b2545] border border-cyan-500/30 text-cyan-300 shadow-2xs max-w-full">
+                <CheckCircle2 className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
+                <span className="truncate">{language === 'en' ? 'BISE Dhaka Board Approved' : 'ঢাকা শিক্ষা বোর্ড অনুমোদিত'}</span>
               </span>
 
-              <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-[#0b2545] border border-white/15 text-slate-200">
-                <Tag className="w-3.5 h-3.5 text-amber-400" />
-                <span>{language === 'en' ? 'From Class 5 to Class 12' : '৫ম থেকে ১২শ শ্রেণী পর্যন্ত'}</span>
+              <span className="inline-flex items-center gap-1.5 px-3 sm:px-3.5 py-1.5 rounded-full text-xs font-semibold bg-[#0b2545] border border-white/15 text-slate-200 max-w-full">
+                <Tag className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+                <span className="truncate">{language === 'en' ? 'From Class 5 to Class 12' : '৫ম থেকে ১২শ শ্রেণী পর্যন্ত'}</span>
               </span>
 
-              <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-[#0b2545] border border-white/15 text-slate-200">
-                <Star className="w-3.5 h-3.5 text-yellow-400 fill-yellow-400" />
-                <span>{language === 'en' ? 'English & Bangla Medium' : 'ইংরেজি ও বাংলা ভার্সন'}</span>
+              <span className="inline-flex items-center gap-1.5 px-3 sm:px-3.5 py-1.5 rounded-full text-xs font-semibold bg-[#0b2545] border border-white/15 text-slate-200 max-w-full">
+                <Star className="w-3.5 h-3.5 text-yellow-400 fill-yellow-400 shrink-0" />
+                <span className="truncate">{language === 'en' ? 'English & Bangla Medium' : 'ইংরেজি ও বাংলা ভার্সন'}</span>
               </span>
             </div>
 
             {/* Main Headline */}
-            <h1 className="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl tracking-tight leading-[1.2] text-white">
+            <h1 className="font-display font-extrabold text-2xl min-[400px]:text-3xl sm:text-4xl lg:text-5xl tracking-tight leading-[1.25] text-white">
               {language === 'en' ? (
                 <>
                   Welcome to Quantum School &amp; College:{' '}
-                  <span className="text-[#00a896] underline decoration-cyan-400 decoration-2 underline-offset-8">
+                  <span className="text-[#007A6E] underline decoration-cyan-400 decoration-2 underline-offset-8">
                     Where Learning is Inspiring &amp; Fun!
                   </span>
                 </>
               ) : (
                 <>
                   কোয়ান্টাম স্কুল অ্যান্ড কলেজে স্বাগতম:{' '}
-                  <span className="text-[#00a896] underline decoration-cyan-400 decoration-2 underline-offset-8">
+                  <span className="text-[#007A6E] underline decoration-cyan-400 decoration-2 underline-offset-8">
                     আনন্দ ও অনুপ্রেরণায় শেখার আধুনিক ঠিকানা!
                   </span>
                 </>
@@ -95,28 +95,28 @@ export const Hero: React.FC<HeroProps> = ({
             </p>
 
             {/* Action Buttons */}
-            <div className="pt-2 flex flex-wrap items-center gap-4">
+            <div className="pt-2 flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 sm:gap-4">
               <button
                 onClick={onApplyClick}
-                className="inline-flex items-center gap-2.5 px-7 py-4 rounded-xl font-semibold text-sm sm:text-base text-white bg-[#00a896] hover:bg-[#008c7d] shadow-lg shadow-teal-900/40 transition-all hover:scale-[1.02] cursor-pointer"
+                className="w-full sm:w-auto inline-flex justify-center items-center gap-2.5 px-6 sm:px-7 py-3.5 sm:py-4 rounded-xl font-semibold text-sm sm:text-base text-white bg-[#007A6E] hover:bg-[#008c7d] shadow-lg shadow-teal-900/40 transition-all hover:scale-[1.02] cursor-pointer text-center"
               >
                 <span>{language === 'en' ? 'Apply Now (Simple 6 Steps)' : 'অনলাইন ভর্তি আবেদন (৬ ধাপ)'}</span>
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-4 h-4 shrink-0" />
               </button>
 
               <button
                 onClick={onTourClick}
-                className="inline-flex items-center gap-2 px-6 py-4 rounded-xl font-semibold text-sm sm:text-base text-white bg-[#0b2545] hover:bg-[#134074] border border-slate-700/80 transition-colors cursor-pointer"
+                className="w-full sm:w-auto inline-flex justify-center items-center gap-2 px-5 sm:px-6 py-3.5 sm:py-4 rounded-xl font-semibold text-sm sm:text-base text-white bg-[#0b2545] hover:bg-[#134074] border border-slate-700/80 transition-colors cursor-pointer text-center"
               >
-                <PlayCircle className="w-4 h-4 text-cyan-400" />
+                <PlayCircle className="w-4 h-4 text-cyan-400 shrink-0" />
                 <span>{language === 'en' ? 'Take Campus Tour' : 'ক্যাম্পাস ভিডিও ট্যুর'}</span>
               </button>
 
               <button
                 onClick={onProspectusClick}
-                className="inline-flex items-center gap-2 px-5 py-4 rounded-xl font-medium text-xs sm:text-sm text-slate-300 hover:text-white hover:bg-white/5 transition-colors cursor-pointer"
+                className="w-full sm:w-auto inline-flex justify-center items-center gap-2 px-5 py-3.5 sm:py-4 rounded-xl font-medium text-xs sm:text-sm text-slate-300 hover:text-white hover:bg-white/5 transition-colors cursor-pointer text-center"
               >
-                <FileDown className="w-4 h-4 text-slate-400" />
+                <FileDown className="w-4 h-4 text-slate-400 shrink-0" />
                 <span>{language === 'en' ? 'See Prospectus' : 'প্রসপেক্টাস দেখুন'}</span>
               </button>
             </div>
@@ -124,7 +124,7 @@ export const Hero: React.FC<HeroProps> = ({
 
           {/* Right Column: 2x2 Metric Cards Grid */}
           <div className="lg:col-span-5 pb-4 lg:pb-0">
-            <div className="grid grid-cols-2 gap-4 sm:gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
               {/* Metric Card 1: BOARD RESULT */}
               <div className="bg-[#0b2545]/90 backdrop-blur-md rounded-2xl p-5 sm:p-7 border border-white/10 hover:border-cyan-500/40 transition-all">
                 <div className="flex items-center justify-between mb-3">
@@ -133,7 +133,7 @@ export const Hero: React.FC<HeroProps> = ({
                   </span>
                   <Target className="w-4 h-4 text-cyan-400" />
                 </div>
-                <div className="font-display font-extrabold text-3xl sm:text-4xl text-white tracking-tight">
+                <div className="font-display font-extrabold text-3xl sm:text-4xl text-white tracking-tight break-words">
                   99.8%
                 </div>
                 <p className="text-xs text-slate-300 mt-2.5 leading-relaxed">
@@ -198,7 +198,7 @@ export const Hero: React.FC<HeroProps> = ({
       {/* Hero Bottom Feature Strip */}
       <div className="mt-16 sm:mt-24 bg-[#00221e] border-t border-teal-900/60 text-teal-100 text-xs sm:text-sm font-medium py-6 sm:py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 items-center text-center sm:text-left">
+          <div className="grid grid-cols-1 min-[450px]:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 items-start sm:items-center text-left">
             <div className="flex items-center justify-center sm:justify-start gap-3">
               <ShieldCheck className="w-5 h-5 text-teal-400 shrink-0" />
               <span>Safe &amp; Caring Environment</span>
