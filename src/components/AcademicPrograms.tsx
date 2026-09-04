@@ -13,6 +13,8 @@ export const AcademicPrograms: React.FC<AcademicProgramsProps> = ({ language, on
 
   const getIcon = (name: string) => {
     switch (name) {
+      case 'BookOpen':
+        return <BookOpen className="w-4 h-4 text-orange-600" />;
       case 'Smile':
         return <Smile className="w-4 h-4 text-blue-600" />;
       case 'FlaskConical':
@@ -38,13 +40,13 @@ export const AcademicPrograms: React.FC<AcademicProgramsProps> = ({ language, on
           </div>
           <p className="text-sm sm:text-base text-slate-600 max-w-xl leading-relaxed sm:leading-loose">
             {language === 'en'
-              ? 'From Class 5 to Class 12, our teachers guide every student patiently so they can learn concepts with joy and score high marks in board exams.'
-              : '৫ম থেকে ১২শ শ্রেণী পর্যন্ত অভিজ্ঞ শিক্ষকগণ শিক্ষার্থীদের আনন্দ ও যত্নসহকারে পাঠদান করেন যেন তারা বোর্ড পরীক্ষায় অনন্য ফলাফল অর্জন করতে পারে।'}
+              ? 'From Play to Class 12, our teachers guide every student patiently so they can learn concepts with joy and score high marks in board exams.'
+              : 'প্লে-গ্রুপ থেকে ১২শ শ্রেণী পর্যন্ত অভিজ্ঞ শিক্ষকগণ শিক্ষার্থীদের আনন্দ ও যত্নসহকারে পাঠদান করেন যেন তারা বোর্ড পরীক্ষায় অনন্য ফলাফল অর্জন করতে পারে।'}
           </p>
         </div>
 
-        {/* 3-Column Program Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
+        {/* 4-Column Program Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8 lg:gap-10">
           {ACADEMIC_PROGRAMS.map((program) => (
             <div
               key={program.id}
@@ -93,7 +95,7 @@ export const AcademicPrograms: React.FC<AcademicProgramsProps> = ({ language, on
                 </button>
 
                 <button
-                  onClick={() => onApplyForClass(program.id === 'junior' ? 'Class 5' : program.id === 'secondary' ? 'Class 9 (SSC)' : 'Class 11 (HSC College)')}
+                  onClick={() => onApplyForClass(program.id === 'primary' ? 'Play & Nursery' : program.id === 'junior' ? 'Class 6' : program.id === 'secondary' ? 'Class 9 (SSC)' : 'Class 11 (HSC College)')}
                   className="text-xs font-semibold text-[#0b2545] hover:bg-slate-200/70 px-3.5 py-1.5 rounded-lg transition-colors cursor-pointer"
                 >
                   {language === 'en' ? 'Apply Now' : 'আবেদন'}
@@ -208,7 +210,7 @@ export const AcademicPrograms: React.FC<AcademicProgramsProps> = ({ language, on
               </button>
               <button
                 onClick={() => {
-                  const targetClass = selectedProgram.id === 'junior' ? 'Class 5' : selectedProgram.id === 'secondary' ? 'Class 9 (SSC)' : 'Class 11 (HSC College)';
+                  const targetClass = selectedProgram.id === 'primary' ? 'Play & Nursery' : selectedProgram.id === 'junior' ? 'Class 6' : selectedProgram.id === 'secondary' ? 'Class 9 (SSC)' : 'Class 11 (HSC College)';
                   setSelectedProgram(null);
                   onApplyForClass(targetClass);
                 }}
