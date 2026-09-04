@@ -9,6 +9,7 @@ interface PrincipalMessageProps {
 
 export const PrincipalMessage: React.FC<PrincipalMessageProps> = ({ language }) => {
   const [facultyModalOpen, setFacultyModalOpen] = useState(false);
+  const [selectedTeacher, setSelectedTeacher] = useState<any>(null);
 
   return (
     <section id="about" className="py-24 sm:py-32 lg:py-36 bg-[#faf8ff] border-b border-slate-200/80">
@@ -120,7 +121,10 @@ export const PrincipalMessage: React.FC<PrincipalMessageProps> = ({ language }) 
                 </p>
               </div>
               <button
-                onClick={() => setFacultyModalOpen(false)}
+                onClick={() => {
+                  setFacultyModalOpen(false);
+                  setSelectedTeacher(null);
+                }}
                 className="p-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
               >
                 <X className="w-5 h-5" />
@@ -128,36 +132,94 @@ export const PrincipalMessage: React.FC<PrincipalMessageProps> = ({ language }) 
             </div>
 
             {/* Modal Body */}
-            <div className="p-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {FACULTY_MEMBERS.map((faculty, idx) => (
-                <div key={idx} className="p-4 rounded-lg bg-slate-50 border border-slate-200 flex items-center gap-4">
-                  <img
-                    src={faculty.photo}
-                    alt={faculty.name}
-                    className="w-16 h-16 rounded-full object-cover border-2 border-white shadow-xs shrink-0"
-                    referrerPolicy="no-referrer"
-                  />
-                  <div>
-                    <h4 className="font-display font-bold text-sm text-[#0b2545]">
-                      {faculty.name}
-                    </h4>
-                    <div className="text-xs font-medium text-[#00a896] mt-0.5">
-                      {faculty.role}
-                    </div>
-                    <div className="text-[11px] text-slate-600 mt-1">
-                      {faculty.degrees}
-                    </div>
-                    <div className="text-[10px] text-slate-400 font-medium mt-0.5">
-                      {faculty.years}
+            <div className="p-6">
+              {selectedTeacher ? (
+                <div className="animate-in slide-in-from-right-4 fade-in duration-300">
+                  <button 
+                    onClick={() => setSelectedTeacher(null)}
+                    className="mb-6 text-sm font-semibold text-[#00a896] hover:text-[#008c7d] flex items-center gap-1 cursor-pointer"
+                  >
+                    &larr; Back to Directory
+                  </button>
+                  <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
+                    <img
+                      src={selectedTeacher.photo}
+                      alt={selectedTeacher.name}
+                      className="w-32 h-32 md:w-48 md:h-48 rounded-2xl object-cover shadow-md border-4 border-slate-100 shrink-0"
+                      referrerPolicy="no-referrer"
+                    />
+                    <div>
+                      <h4 className="font-display font-extrabold text-2xl text-[#0b2545]">
+                        {selectedTeacher.name}
+                      </h4>
+                      <div className="text-sm font-bold text-[#00a896] mt-1 uppercase tracking-wide">
+                        {selectedTeacher.role}
+                      </div>
+                      <div className="mt-4 flex flex-col gap-1.5 text-sm text-slate-600">
+                        <div className="flex items-center gap-2">
+                          <GraduationCap className="w-4 h-4 text-slate-400" />
+                          <span>{selectedTeacher.degrees}</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <Award className="w-4 h-4 text-slate-400" />
+                          <span>{selectedTeacher.years}</span>
+                        </div>
+                      </div>
+                      <div className="mt-5 text-sm text-slate-700 leading-relaxed bg-slate-50 p-4 rounded-xl border border-slate-100">
+                        {selectedTeacher.bio}
+                      </div>
+                      <div className="mt-6">
+                        <h5 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-3">
+                          Subjects Taught
+                        </h5>
+                        <div className="flex flex-wrap gap-2">
+                          {selectedTeacher.subjects?.map((sub: string, idx: number) => (
+                            <span key={idx} className="px-3 py-1.5 bg-blue-50 text-[#134074] rounded-lg text-xs font-semibold border border-blue-100/50">
+                              {sub}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
-              ))}
+              ) : (
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {FACULTY_MEMBERS.map((faculty, idx) => (
+                    <div 
+                      key={idx} 
+                      onClick={() => setSelectedTeacher(faculty)}
+                      className="p-4 rounded-xl bg-white hover:bg-slate-50 border border-slate-200 hover:border-slate-300 hover:shadow-md transition-all flex items-center gap-4 cursor-pointer group"
+                    >
+                      <img
+                        src={faculty.photo}
+                        alt={faculty.name}
+                        className="w-16 h-16 rounded-full object-cover border-2 border-slate-100 shadow-xs shrink-0 group-hover:scale-105 transition-transform"
+                        referrerPolicy="no-referrer"
+                      />
+                      <div>
+                        <h4 className="font-display font-bold text-sm text-[#0b2545] group-hover:text-[#00a896] transition-colors">
+                          {faculty.name}
+                        </h4>
+                        <div className="text-xs font-medium text-[#00a896] mt-0.5">
+                          {faculty.role}
+                        </div>
+                        <div className="text-[11px] text-slate-600 mt-1 line-clamp-1 border-t border-slate-100 pt-1">
+                          {faculty.degrees}
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
 
             <div className="px-6 py-4 bg-slate-50 border-t border-slate-200 flex justify-end">
               <button
-                onClick={() => setFacultyModalOpen(false)}
+                onClick={() => {
+                  setFacultyModalOpen(false);
+                  setSelectedTeacher(null);
+                }}
                 className="px-4 py-2 text-xs font-semibold text-white bg-[#0b2545] rounded-md hover:bg-[#134074]"
               >
                 Close Directory

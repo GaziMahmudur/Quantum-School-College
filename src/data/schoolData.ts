@@ -481,31 +481,71 @@ export const FACULTY_MEMBERS = [
     role: "Vice Principal & Senior Physics Lecturer",
     degrees: "M.Sc. (DU), Ph.D. (BUET)",
     years: "18 Years Experience",
-    photo:
-      "https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=400&q=80",
+    photo: "https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=400&q=80",
+    bio: "Dr. Ahmed brings nearly two decades of academic excellence to our institution. His research in quantum mechanics and innovative teaching methods make complex physics concepts easy and enjoyable for students.",
+    subjects: ["HSC Physics 1st Paper", "HSC Physics 2nd Paper", "Olympiad Level Mechanics"]
   },
   {
     name: "Ms. Fahmida Sultana",
     role: "Head of Mathematics & Olympiad Coach",
     degrees: "B.Sc. & M.Sc. Applied Mathematics (DU)",
     years: "12 Years Experience",
-    photo:
-      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80",
+    photo: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80",
+    bio: "A passionate educator dedicated to making mathematics intuitive. Ms. Fahmida has successfully mentored over 50 students who secured medals in National Math Olympiads.",
+    subjects: ["Higher Mathematics", "Calculus", "Mental Math & Logic"]
   },
   {
     name: "Engr. Kazi Minhazur Rahman",
     role: "Lead Robotics & ICT Instructor",
     degrees: "B.Sc. in CSE (BUET), IEEE Member",
     years: "8 Years Experience",
-    photo:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80",
+    photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80",
+    bio: "With a background in computer engineering, Kazi transforms the ICT lab into a hub of innovation. He leads our robotics club and guides students in developing real-world software applications.",
+    subjects: ["ICT Digital Systems", "Python Programming", "Arduino Robotics"]
   },
   {
     name: "Mrs. Rokeya Begum",
     role: "Senior English Literature Faculty",
     degrees: "M.A. in English (JNU), Cambridge CELTA Certified",
     years: "15 Years Experience",
-    photo:
-      "https://images.unsplash.com/photo-1580894732444-8ecded7900cd?auto=format&fit=crop&w=400&q=80",
+    photo: "https://images.unsplash.com/photo-1580894732444-8ecded7900cd?auto=format&fit=crop&w=400&q=80",
+    bio: "Mrs. Rokeya inspires students to explore global literature and develop exceptional communication skills. She directs the annual Shakespeare drama and the debate club.",
+    subjects: ["English Literature", "Creative Writing", "Spoken English"]
   },
+  {
+    name: "Mr. Hasanul Banna",
+    role: "Senior Chemistry Teacher",
+    degrees: "M.Sc. in Chemistry (JU)",
+    years: "10 Years Experience",
+    photo: "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?auto=format&fit=crop&w=400&q=80",
+    bio: "Known for his spectacular laboratory demonstrations, Mr. Hasanul brings chemistry to life. He focuses on practical experiments and emphasizes safety in the science wing.",
+    subjects: ["Organic Chemistry", "Inorganic Chemistry", "Lab Practicals"]
+  },
+  {
+    name: "Mrs. Samira Huda",
+    role: "Primary Section Coordinator",
+    degrees: "B.Ed, Early Childhood Education (BRACU)",
+    years: "7 Years Experience",
+    photo: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=400&q=80",
+    bio: "Mrs. Samira is dedicated to creating a nurturing and joyful environment for our youngest learners. She specializes in play-based learning and early cognitive development.",
+    subjects: ["Play-based Learning", "Basic English", "Child Psychology"]
+  },
+  {
+    name: "Mr. Tariqul Islam",
+    role: "Head of Business Studies",
+    degrees: "MBA in Finance (IBA, DU)",
+    years: "14 Years Experience",
+    photo: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=400&q=80",
+    bio: "An expert in financial markets and accounting, Mr. Tariqul teaches students not just textbook theories, but practical business entrepreneurship and financial literacy.",
+    subjects: ["Accounting", "Finance & Banking", "Business Entrepreneurship"]
+  },
+  {
+    name: "Dr. Nuzhat Zahan",
+    role: "Senior Biology Faculty",
+    degrees: "MBBS (DMC), M.Phil in Genetics",
+    years: "11 Years Experience",
+    photo: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=400&q=80",
+    bio: "Dr. Nuzhat guides future medical professionals through rigorous biology curricula. She oversees biological specimen dissections and organizes pre-medical mentorship workshops.",
+    subjects: ["Human Anatomy", "Genetics", "Botany"]
+  }
 ];
