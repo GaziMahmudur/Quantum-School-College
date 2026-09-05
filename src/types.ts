@@ -53,9 +53,9 @@ export interface Testimonial {
 export interface AdmissionFormData {
   selectedClass: string;
   selectedGroup: string;
-  medium: 'English' | 'Bangla';
+  medium: 'English' | 'Bangla' | '';
   studentName: string;
-  gender: 'Male' | 'Female' | 'Other';
+  gender: 'Male' | 'Female' | 'Other' | '';
   dob: string;
   guardianName: string;
   guardianPhone: string;
