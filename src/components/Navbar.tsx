@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { Download, Globe, LogIn, Menu, X, ShieldCheck, PhoneCall, ChevronDown, Play, Pause } from 'lucide-react';
+import { Download, Globe, LogIn, Menu, X, ShieldCheck, PhoneCall, ChevronDown, Play, Pause, Settings } from 'lucide-react';
 import { Language } from '../types';
 import { AnimationContext } from '../AnimationContext';
 
@@ -19,6 +19,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onScrollToSection,
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [settingsMenuOpen, setSettingsMenuOpen] = useState(false);
   const { animationsEnabled, setAnimationsEnabled } = useContext(AnimationContext);
 
   const navItems = [
@@ -110,44 +111,60 @@ export const Navbar: React.FC<NavbarProps> = ({
 
           {/* Right Action Buttons */}
           <div className="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
-            {/* Animation Toggle */}
-            <button
-              onClick={() => setAnimationsEnabled(!animationsEnabled)}
-              className={`p-1.5 sm:p-2 sm:px-2.5 rounded-lg border transition-all cursor-pointer flex items-center gap-1.5 shrink-0 ${
-                animationsEnabled 
-                  ? 'bg-amber-50 border-amber-200 text-amber-600 hover:bg-amber-100 hover:border-amber-300' 
-                  : 'bg-slate-100 border-slate-200 text-slate-500 hover:bg-slate-200'
-              }`}
-              title={animationsEnabled ? 'Disable Animations' : 'Enable Animations'}
-            >
-              {animationsEnabled ? <Pause className="w-3.5 h-3.5" /> : <Play className="w-3.5 h-3.5" />}
-              <span className="text-[10px] sm:text-xs font-bold hidden min-[400px]:block">
-                {animationsEnabled ? 'Motion' : 'Static'}
-              </span>
-            </button>
+            {/* Quick Actions Dropdown */}
+            <div className="relative">
+              <button
+                onClick={() => setSettingsMenuOpen(!settingsMenuOpen)}
+                className="flex items-center gap-1.5 p-2 sm:px-3 rounded-lg border border-slate-200 bg-slate-50 text-slate-700 hover:bg-slate-100 hover:text-[#0b2545] transition-all cursor-pointer shadow-xs"
+              >
+                <Settings className="w-5 h-5 sm:w-5 sm:h-5 text-slate-600" />
+                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${settingsMenuOpen ? 'rotate-180' : ''}`} />
+              </button>
 
-            {/* Language Switcher */}
-            <button
-              onClick={onToggleLanguage}
-              className="inline-flex items-center gap-1 sm:gap-1.5 px-1.5 sm:px-3 py-1.5 sm:py-2 text-[10px] sm:text-xs font-semibold text-slate-700 hover:text-[#0b2545] hover:bg-slate-100 rounded-lg border border-slate-200 transition-colors cursor-pointer shrink-0"
-              title="Toggle Language"
-            >
-              <Globe className="w-3.5 h-3.5 text-slate-500 hidden min-[370px]:block" />
-              <span className={language === 'en' ? 'font-bold text-[#0b2545]' : 'text-slate-500'}>EN</span>
-              <span className="text-slate-300 mx-0.5">/</span>
-              <span className={language === 'bn' ? 'font-bold text-[#007A6E]' : 'text-slate-500'}>বাংলা</span>
-            </button>
+              {settingsMenuOpen && (
+                <div 
+                  className="absolute right-0 top-full mt-2 w-[220px] bg-white rounded-xl shadow-[0_10px_40px_-5px_rgba(0,0,0,0.15)] border border-slate-200 overflow-hidden flex flex-col p-2 space-y-1 z-50 animate-in fade-in zoom-in-95 origin-top-right"
+                  onMouseLeave={() => setSettingsMenuOpen(false)}
+                >
+                  {/* Portal */}
+                  <button
+                    onClick={() => { onOpenPortal(); setSettingsMenuOpen(false); }}
+                    className="flex justify-between items-center w-full px-3 py-2.5 bg-[#e6f7f5] hover:bg-[#d0f1ed] text-[#006359] rounded-lg transition-colors text-sm font-semibold border border-[#99e3db] group cursor-pointer"
+                  >
+                    <span>{language === 'en' ? 'Portal Login' : 'পোর্টাল লগইন'}</span>
+                    <LogIn className="w-4 h-4 text-[#008c7d] group-hover:translate-x-0.5 transition-transform" />
+                  </button>
 
-            {/* Portal Login Button */}
-            <button
-              onClick={onOpenPortal}
-              className="inline-flex items-center gap-1 sm:gap-2 px-2 sm:px-4 py-1.5 sm:py-2 text-[10px] sm:text-xs font-semibold text-[#0b2545] bg-[#e6f7f5] hover:bg-[#d0f1ed] text-[#006359] rounded-lg border border-[#99e3db] shadow-2xs transition-all cursor-pointer shrink-0"
-            >
-              <LogIn className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#008c7d] hidden min-[320px]:block" />
-              <span>
-                {language === 'en' ? 'Portal' : 'পোর্টাল'}
-              </span>
-            </button>
+                  <div className="h-px bg-slate-100 my-1 w-full"></div>
+
+                  {/* Language */}
+                  <button
+                    onClick={onToggleLanguage}
+                    className="flex items-center justify-between w-full px-3 py-2 hover:bg-slate-50 text-slate-700 rounded-lg transition-colors text-sm font-medium border border-transparent hover:border-slate-200 cursor-pointer"
+                  >
+                    <span>Language</span>
+                    <div className="flex items-center gap-1 text-xs bg-white px-2 py-1 rounded shadow-xs border border-slate-200">
+                      <span className={language === 'en' ? 'font-bold text-[#0b2545]' : 'text-slate-400'}>EN</span>
+                      <span className="text-slate-300">/</span>
+                      <span className={language === 'bn' ? 'font-bold text-[#007A6E]' : 'text-slate-400'}>বাংলা</span>
+                      <Globe className="w-3 h-3 ml-0.5 text-slate-400" />
+                    </div>
+                  </button>
+
+                  {/* Animation */}
+                  <button
+                    onClick={() => setAnimationsEnabled(!animationsEnabled)}
+                    className="flex justify-between items-center w-full px-3 py-2 hover:bg-slate-50 text-slate-700 rounded-lg transition-colors text-sm font-medium border border-transparent hover:border-slate-200 cursor-pointer"
+                  >
+                    <span>Animations</span>
+                    <div className={`text-xs font-semibold px-2 py-1 rounded shadow-xs flex items-center gap-1 transition-colors ${animationsEnabled ? 'bg-amber-50 text-amber-700 border border-amber-200' : 'bg-white text-slate-500 border border-slate-200'}`}>
+                      {animationsEnabled ? <Pause className="w-3 h-3" /> : <Play className="w-3 h-3" />}
+                      {animationsEnabled ? 'Motion' : 'Static'}
+                    </div>
+                  </button>
+                </div>
+              )}
+            </div>
 
             {/* Mobile menu toggle */}
             <button
