@@ -92,7 +92,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#faf8ff] text-[#131b2e] flex flex-col selection:bg-[#007A6E] selection:text-white">
+    <div className="min-h-screen bg-[#faf8ff] text-[#131b2e] flex flex-col selection:bg-[#007A6E] selection:text-white overflow-x-hidden max-w-full relative">
       {/* Top Navbar */}
       <Navbar
         language={language}
