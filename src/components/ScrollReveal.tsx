@@ -15,36 +15,33 @@ export const ScrollReveal: React.FC<ScrollRevealProps> = ({ children, className 
   const { animationsEnabled } = useContext(AnimationContext);
 
   useEffect(() => {
+    const el = domRef.current;
+    if (!el) return;
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsVisible(true);
-            // If once is true, unobserve after it becomes visible
-            if (once && domRef.current) {
-              observer.unobserve(domRef.current);
+          // Defer state write to next paint frame to avoid forced reflow
+          requestAnimationFrame(() => {
+            if (entry.isIntersecting) {
+              setIsVisible(true);
+              if (once) observer.unobserve(el);
+            } else if (!once) {
+              setIsVisible(false);
             }
-          } else if (!once) {
-            // If once is false, hide it when it leaves the viewport so it can animate again
-            setIsVisible(false);
-          }
+          });
         });
       },
       {
-        rootMargin: '0px 0px -10% 0px', // Wait until it's slightly inside the viewport bottom
-        threshold: 0.1, // Trigger when 10% of the element is visible
+        rootMargin: '0px 0px -10% 0px',
+        threshold: 0.1,
       }
     );
 
-    if (domRef.current) {
-      observer.observe(domRef.current);
-    }
+    observer.observe(el);
 
-    return () => {
-      if (domRef.current) {
-        observer.unobserve(domRef.current);
-      }
-    };
+    // Use disconnect() to fully clean up the observer instance
+    return () => observer.disconnect();
   }, [once, animationsEnabled]);
 
   if (!animationsEnabled) {

@@ -14,7 +14,6 @@ import {
   Calendar,
   AlertCircle,
 } from 'lucide-react';
-import confetti from 'canvas-confetti';
 import { AdmissionFormData, Language } from '../types';
 import { ScrollReveal } from './ScrollReveal';
 
@@ -77,13 +76,19 @@ export const AdmissionWizard: React.FC<AdmissionWizardProps> = ({
 
   const handleNextStep = () => {
     if (currentStep === 5) {
-      // Generate ID and fire confetti
+      // Generate ID and move to next step first
       const randomId = `QSC-2025-${Math.floor(10000 + Math.random() * 90000)}`;
       setGeneratedAppId(randomId);
-      confetti({
-        particleCount: 80,
-        spread: 70,
-        origin: { y: 0.6 },
+      // Dynamically import confetti only when needed (excluded from initial bundle)
+      // and fire it after the browser paints the new step to avoid forced reflow
+      requestAnimationFrame(() => {
+        import('canvas-confetti').then(({ default: confetti }) => {
+          confetti({
+            particleCount: 80,
+            spread: 70,
+            origin: { y: 0.6 },
+          });
+        });
       });
     }
     setCurrentStep((prev) => Math.min(prev + 1, 6));

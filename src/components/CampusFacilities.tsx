@@ -44,6 +44,8 @@ export const CampusFacilities: React.FC<CampusFacilitiesProps> = ({ language }) 
                 alt={CAMPUS_FACILITIES[0].title}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 referrerPolicy="no-referrer"
+                loading="lazy"
+                decoding="async"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0b2545] via-[#0b2545]/40 to-transparent"></div>
               <span className="absolute top-6 left-6 px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#007A6E] text-white uppercase tracking-wider shadow-sm">
@@ -80,6 +82,8 @@ export const CampusFacilities: React.FC<CampusFacilitiesProps> = ({ language }) 
                     alt={CAMPUS_FACILITIES[1].title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     referrerPolicy="no-referrer"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
                 <div className="space-y-1.5">
@@ -113,6 +117,8 @@ export const CampusFacilities: React.FC<CampusFacilitiesProps> = ({ language }) 
                       alt={fac.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform"
                       referrerPolicy="no-referrer"
+                      loading="lazy"
+                      decoding="async"
                     />
                   </div>
                   <h3 className="font-display font-bold text-xs sm:text-sm text-[#0b2545] truncate">

@@ -193,7 +193,8 @@ export const StudentPortalModal: React.FC<StudentPortalModalProps> = ({
           </div>
           <button
             onClick={onClose}
-            className="p-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
+            className="p-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-white/10 transition-colors cursor-pointer min-w-[48px] min-h-[48px] flex items-center justify-center"
+            aria-label="Close modal"
           >
             <X className="w-5 h-5" />
           </button>
@@ -284,7 +285,8 @@ export const StudentPortalModal: React.FC<StudentPortalModalProps> = ({
                     <button
                       type="button"
                       onClick={() => setShowPassword(!showPassword)}
-                      className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-600 hover:text-slate-600 cursor-pointer"
+                      className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-600 hover:text-slate-600 cursor-pointer min-w-[48px] min-h-[48px] flex items-center justify-center"
+                      aria-label={showPassword ? "Hide password" : "Show password"}
                     >
                       {showPassword ? (
                         <EyeOff className="w-4 h-4" />
@@ -349,6 +351,8 @@ export const StudentPortalModal: React.FC<StudentPortalModalProps> = ({
                   alt={DEMO_STUDENT.name}
                   className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl object-cover border-2 border-white/30 shadow shrink-0"
                   referrerPolicy="no-referrer"
+                  loading="lazy"
+                  decoding="async"
                 />
                 <div>
                   <div className="flex items-center gap-2 flex-wrap">
@@ -387,8 +391,9 @@ export const StudentPortalModal: React.FC<StudentPortalModalProps> = ({
                 <button
                   id="portal-logout-btn"
                   onClick={handleLogout}
-                  className="p-2.5 text-slate-300 hover:text-rose-400 hover:bg-white/10 rounded-xl transition-colors cursor-pointer"
+                  className="p-2.5 text-slate-300 hover:text-rose-400 hover:bg-white/10 rounded-xl transition-colors cursor-pointer min-w-[48px] min-h-[48px] flex items-center justify-center"
                   title="Log out"
+                  aria-label="Log out of portal"
                 >
                   <LogOut className="w-5 h-5" />
                 </button>
@@ -853,6 +858,8 @@ export const StudentPortalModal: React.FC<StudentPortalModalProps> = ({
                       alt={DEMO_STUDENT.name}
                       className="w-20 h-24 rounded-lg object-cover border-2 border-white/40 shadow"
                       referrerPolicy="no-referrer"
+                      loading="lazy"
+                      decoding="async"
                     />
                     <div className="space-y-1 text-xs">
                       <div className="font-bold text-base text-white">

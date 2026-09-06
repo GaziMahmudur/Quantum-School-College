@@ -9,9 +9,31 @@
     <meta property="og:description" content="Official portal and website for Quantum School & College, Uttara, Dhaka with online admissions, academic programs, notices, and ERP student portal." />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
+    <!-- DNS prefetch fallback for Google Fonts & Unsplash Images -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://images.unsplash.com">
+    
+    <!-- Preconnect: start TCP/TLS handshake early -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+    <!--
+      Load Google Fonts NON-BLOCKING:
+      media="print" makes the browser download it without blocking render.
+      onload switches it to "all" so it applies once loaded.
+      This removes the render-blocking font request from the critical path.
+    -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap"
+      media="print"
+      onload="this.media='all'"
+    >
+    <!-- Noscript fallback: load fonts normally if JS is disabled -->
+    <noscript>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+    </noscript>
   </head>
   <body class="bg-[#faf8ff] text-[#131b2e] antialiased">
     <div id="root"></div>

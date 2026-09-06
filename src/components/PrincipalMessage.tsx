@@ -31,6 +31,8 @@ export const PrincipalMessage: React.FC<PrincipalMessageProps> = ({ language }) 
                     alt={PRINCIPAL_INFO.name}
                     className="w-full h-full object-cover object-top"
                     referrerPolicy="no-referrer"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
                 {/* Institutional verification chip */}
@@ -126,7 +128,8 @@ export const PrincipalMessage: React.FC<PrincipalMessageProps> = ({ language }) 
                   setFacultyModalOpen(false);
                   setSelectedTeacher(null);
                 }}
-                className="p-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
+                className="p-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-white/10 transition-colors cursor-pointer min-w-[48px] min-h-[48px] flex items-center justify-center"
+                aria-label="Close modal"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -148,6 +151,8 @@ export const PrincipalMessage: React.FC<PrincipalMessageProps> = ({ language }) 
                       alt={selectedTeacher.name}
                       className="w-32 h-32 md:w-48 md:h-48 rounded-2xl object-cover shadow-md border-4 border-slate-100 shrink-0"
                       referrerPolicy="no-referrer"
+                      loading="lazy"
+                      decoding="async"
                     />
                     <div className="min-w-0 flex-1 w-full">
                       <h3 className="font-display font-extrabold text-2xl text-[#0b2545] break-words">
@@ -197,6 +202,8 @@ export const PrincipalMessage: React.FC<PrincipalMessageProps> = ({ language }) 
                         alt={faculty.name}
                         className="w-16 h-16 rounded-full object-cover border-2 border-slate-100 shadow-xs shrink-0 group-hover:scale-105 transition-transform"
                         referrerPolicy="no-referrer"
+                        loading="lazy"
+                        decoding="async"
                       />
                       <div className="min-w-0 shrink w-full">
                         <h4 className="font-display font-bold text-sm text-[#0b2545] group-hover:text-[#007A6E] transition-colors truncate whitespace-normal min-[450px]:whitespace-nowrap break-words">

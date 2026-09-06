@@ -64,7 +64,8 @@ export const CampusTourModal: React.FC<CampusTourModalProps> = ({
 
           <button
             onClick={onClose}
-            className="p-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
+            className="p-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-white/10 transition-colors cursor-pointer min-w-[48px] min-h-[48px] flex items-center justify-center"
+            aria-label="Close modal"
           >
             <X className="w-5 h-5" />
           </button>
@@ -78,6 +79,8 @@ export const CampusTourModal: React.FC<CampusTourModalProps> = ({
               alt={tourSpots[activeSpot].title}
               className="w-full h-full object-cover transition-all duration-700"
               referrerPolicy="no-referrer"
+              loading="lazy"
+              decoding="async"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20"></div>
 
@@ -119,6 +122,8 @@ export const CampusTourModal: React.FC<CampusTourModalProps> = ({
                       alt={spot.title}
                       className="w-full h-full object-cover"
                       referrerPolicy="no-referrer"
+                      loading="lazy"
+                      decoding="async"
                     />
                   </div>
                   <div className="text-[11px] font-bold text-[#0b2545] truncate">

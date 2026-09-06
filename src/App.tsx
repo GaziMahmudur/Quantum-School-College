@@ -4,22 +4,25 @@
  */
 
 import React, { useState } from 'react';
-import { Download, PhoneCall, X } from 'lucide-react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
-import { PrincipalMessage } from './components/PrincipalMessage';
-import { AcademicPrograms } from './components/AcademicPrograms';
-import { CampusFacilities } from './components/CampusFacilities';
-import { Achievements } from './components/Achievements';
-import { AdmissionWizard } from './components/AdmissionWizard';
-import { NoticesAndEvents } from './components/NoticesAndEvents';
-import { Testimonials } from './components/Testimonials';
-import { Footer } from './components/Footer';
-import { AdmissionProcessTimeline } from './components/AdmissionProcessTimeline';
-import { StudentPortalModal } from './components/StudentPortalModal';
-import { CampusTourModal } from './components/CampusTourModal';
-import { DocumentModal } from './components/DocumentModal';
 import { CircularNotice, Language } from './types';
+
+// Lazy Load Below-the-fold Sections to vastly reduce initial main JS bundle
+const PrincipalMessage = React.lazy(() => import('./components/PrincipalMessage').then(m => ({ default: m.PrincipalMessage })));
+const AcademicPrograms = React.lazy(() => import('./components/AcademicPrograms').then(m => ({ default: m.AcademicPrograms })));
+const CampusFacilities = React.lazy(() => import('./components/CampusFacilities').then(m => ({ default: m.CampusFacilities })));
+const Achievements = React.lazy(() => import('./components/Achievements').then(m => ({ default: m.Achievements })));
+const AdmissionWizard = React.lazy(() => import('./components/AdmissionWizard').then(m => ({ default: m.AdmissionWizard })));
+const NoticesAndEvents = React.lazy(() => import('./components/NoticesAndEvents').then(m => ({ default: m.NoticesAndEvents })));
+const Testimonials = React.lazy(() => import('./components/Testimonials').then(m => ({ default: m.Testimonials })));
+const Footer = React.lazy(() => import('./components/Footer').then(m => ({ default: m.Footer })));
+const AdmissionProcessTimeline = React.lazy(() => import('./components/AdmissionProcessTimeline').then(m => ({ default: m.AdmissionProcessTimeline })));
+
+// Lazy load Modals to remove their JS bundle from the Critical Request Path (LCP optimization)
+const StudentPortalModal = React.lazy(() => import('./components/StudentPortalModal').then(m => ({ default: m.StudentPortalModal })));
+const CampusTourModal = React.lazy(() => import('./components/CampusTourModal').then(m => ({ default: m.CampusTourModal })));
+const DocumentModal = React.lazy(() => import('./components/DocumentModal').then(m => ({ default: m.DocumentModal })));
 
 export default function App() {
   const [language, setLanguage] = useState<Language>('en');
@@ -42,10 +45,13 @@ export default function App() {
   };
 
   const scrollToSection = (id: string) => {
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+    // Defer geometry read (scrollIntoView) until after React's DOM commit
+    requestAnimationFrame(() => {
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
   };
 
   const handleApplyForClass = (className: string) => {
@@ -103,7 +109,7 @@ export default function App() {
       />
 
       {/* Main Page Sections */}
-      <main className="flex-1">
+      <main className="flex-1 pt-20">
         {/* Hero Section */}
         <Hero
           language={language}
@@ -112,72 +118,84 @@ export default function App() {
           onProspectusClick={handleOpenProspectus}
         />
 
-        {/* Principal's Note & Governance */}
-        <PrincipalMessage language={language} />
+        {/* Below the Fold Deferred Content */}
+        <React.Suspense fallback={<div className="h-96 w-full flex items-center justify-center"><div className="w-8 h-8 border-4 border-[#007A6E]/20 border-t-[#007A6E] rounded-full animate-spin"></div></div>}>
+          {/* Principal's Note & Governance */}
+          <PrincipalMessage language={language} />
 
-        {/* Academic Offerings & Programs */}
-        <AcademicPrograms
-          language={language}
-          onApplyForClass={handleApplyForClass}
-        />
+          {/* Academic Offerings & Programs */}
+          <AcademicPrograms
+            language={language}
+            onApplyForClass={handleApplyForClass}
+          />
 
-        {/* The New Staggered Timeline Animation component */}
-        <AdmissionProcessTimeline language={language} />
+          {/* The New Staggered Timeline Animation component */}
+          <AdmissionProcessTimeline language={language} />
 
-        {/* Interactive 6-Step Admission Wizard */}
-        <AdmissionWizard
-          language={language}
-          preSelectedClass={preSelectedClass}
-          onOpenDocumentModal={handleOpenDocByType}
-        />
+          {/* Interactive 6-Step Admission Wizard */}
+          <AdmissionWizard
+            language={language}
+            preSelectedClass={preSelectedClass}
+            onOpenDocumentModal={handleOpenDocByType}
+          />
 
-        {/* Notices & Upcoming Events */}
-        <NoticesAndEvents
-          language={language}
-          onViewNotice={handleViewNotice}
-        />
+          {/* Notices & Upcoming Events */}
+          <NoticesAndEvents
+            language={language}
+            onViewNotice={handleViewNotice}
+          />
 
-        {/* Campus Facilities & Laboratories */}
-        <CampusFacilities language={language} />
+          {/* Campus Facilities & Laboratories */}
+          <CampusFacilities language={language} />
 
-        {/* Board Results & Honors */}
-        <Achievements language={language} />
+          {/* Board Results & Honors */}
+          <Achievements language={language} />
 
-        {/* Testimonials & Community Voices */}
-        <Testimonials language={language} />
+          {/* Testimonials & Community Voices */}
+          <Testimonials language={language} />
+        </React.Suspense>
       </main>
 
       {/* Comprehensive Footer */}
-      <Footer
-        language={language}
-        onOpenAdmission={() => scrollToSection('admissions')}
-        onOpenRoutine={handleOpenRoutine}
-        onOpenProspectus={handleOpenProspectus}
-        onOpenPortal={() => setIsPortalOpen(true)}
-      />
+      <React.Suspense fallback={<div className="h-64 bg-[#0b2545]"></div>}>
+        <Footer
+          language={language}
+          onOpenAdmission={() => scrollToSection('admissions')}
+          onOpenRoutine={handleOpenRoutine}
+          onOpenProspectus={handleOpenProspectus}
+          onOpenPortal={() => setIsPortalOpen(true)}
+        />
+      </React.Suspense>
 
-      {/* Student ERP Portal Modal */}
-      <StudentPortalModal
-        isOpen={isPortalOpen}
-        onClose={() => setIsPortalOpen(false)}
-        language={language}
-      />
-
-      {/* 360° Virtual Campus Tour Modal */}
-      <CampusTourModal
-        isOpen={isTourOpen}
-        onClose={() => setIsTourOpen(false)}
-        language={language}
-      />
-
-      {/* Official PDF Document & Routine Viewer Modal */}
-      <DocumentModal
-        isOpen={docModal.isOpen}
-        onClose={() => setDocModal((prev) => ({ ...prev, isOpen: false }))}
-        documentType={docModal.type}
-        noticeData={docModal.noticeData}
-        language={language}
-      />
+      {/* Lazy Suspense Boundary for Heavy Modals */}
+      <React.Suspense fallback={null}>
+        {/* Modals placed outside main flow, only loaded when state variables trigger their mount */}
+        {isPortalOpen && (
+          <StudentPortalModal 
+            isOpen={isPortalOpen} 
+            onClose={() => setIsPortalOpen(false)} 
+            language={language} 
+          />
+        )}
+        
+        {isTourOpen && (
+          <CampusTourModal 
+            isOpen={isTourOpen} 
+            onClose={() => setIsTourOpen(false)} 
+            language={language} 
+          />
+        )}
+        
+        {docModal.isOpen && (
+          <DocumentModal
+            isOpen={docModal.isOpen}
+            onClose={() => setDocModal({ ...docModal, isOpen: false, noticeData: null })}
+            documentType={docModal.type}
+            language={language}
+            noticeData={docModal.noticeData}
+          />
+        )}
+      </React.Suspense>
     </div>
   );
 }

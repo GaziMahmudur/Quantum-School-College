@@ -46,7 +46,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   };
 
   return (
-    <header className="sticky top-0 z-[80] w-full bg-white shadow-xs">
+    <header className="fixed top-0 left-0 right-0 z-[80] w-full bg-white/95 backdrop-blur-sm shadow-xs">
 
       {/* Main Navigation Bar */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -169,7 +169,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             {/* Mobile menu toggle */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="xl:hidden p-1.5 sm:p-2 text-slate-700 hover:text-[#0b2545] hover:bg-slate-100 rounded-lg shrink-0"
+              className="xl:hidden p-1.5 sm:p-2 text-slate-700 hover:text-[#0b2545] hover:bg-slate-100 rounded-lg shrink-0 min-w-[48px] min-h-[48px] flex items-center justify-center"
               aria-label="Toggle Menu"
             >
               {mobileMenuOpen ? <X className="w-5 h-5 sm:w-6 sm:h-6" /> : <Menu className="w-5 h-5 sm:w-6 sm:h-6" />}
