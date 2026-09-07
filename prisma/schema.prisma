@@ -1,0 +1,235 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+
+
+model User {
+  id             String    @id @default(uuid())
+  email          String    @unique
+  passwordHash   String
+  role           String    @default("STUDENT") // Enum Role string representation due to sqlite limits natively
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+  isActive       Boolean   @default(true)
+
+  studentProfile StudentProfile?
+  teacherProfile TeacherProfile?
+  staffProfile   StaffProfile?
+}
+
+model Institution {
+  id              String   @id @default(uuid())
+  name            String
+  logoUrl         String?
+  address         String?
+  contactEmail    String?
+  contactPhone    String?
+  principalName   String?
+  about           String?
+  mission         String?
+  vision          String?
+  setupComplete   Boolean  @default(false)
+  updatedAt       DateTime @updatedAt
+}
+
+model AcademicYear {
+  id        String   @id @default(uuid())
+  year      String   @unique
+  startDate DateTime
+  endDate   DateTime
+  isCurrent Boolean  @default(false)
+}
+
+model Class {
+  id          String    @id @default(uuid())
+  name        String
+  numerical   Int
+  sections    Section[]
+  subjects    Subject[]
+  students    StudentProfile[]
+}
+
+model Section {
+  id          String    @id @default(uuid())
+  name        String
+  classId     String
+  class       Class     @relation(fields: [classId], references: [id])
+  students    StudentProfile[]
+}
+
+model Department {
+  id          String   @id @default(uuid())
+  name        String   @unique
+  teachers    TeacherProfile[]
+}
+
+model Subject {
+  id          String    @id @default(uuid())
+  name        String
+  code        String
+  classId     String
+  class       Class     @relation(fields: [classId], references: [id])
+  teacherId   String?
+  teacher     TeacherProfile? @relation(fields: [teacherId], references: [id])
+  results     Result[]
+}
+
+model StudentProfile {
+  id              String   @id @default(uuid())
+  userId          String   @unique
+  user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  studentId       String   @unique
+  firstName       String
+  lastName        String
+  dateOfBirth     DateTime?
+  gender          String?
+  bloodGroup      String?
+  religion        String?
+  profileImage    String?
+  
+  classId         String?
+  class           Class?   @relation(fields: [classId], references: [id])
+  sectionId       String?
+  section         Section? @relation(fields: [sectionId], references: [id])
+  rollNumber      String?
+  
+  guardianName    String?
+  guardianPhone   String?
+  guardianRelation String?
+  address         String?
+  
+  status          String   @default("ACTIVE") // ACTIVE, GRADUATED, SUSPENDED, LEFT
+  admissionDate   DateTime @default(now())
+  
+  results         Result[]
+  attendance      Attendance[]
+}
+
+model TeacherProfile {
+  id              String   @id @default(uuid())
+  userId          String   @unique
+  user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  employeeId      String   @unique
+  firstName       String
+  lastName        String
+  profileImage    String?
+  phone           String?
+  
+  departmentId    String?
+  department      Department? @relation(fields: [departmentId], references: [id])
+  designation     String?
+  joiningDate     DateTime @default(now())
+  status          String   @default("ACTIVE")
+  
+  subjects        Subject[]
+  notices         Notice[]
+  attendance      Attendance[]
+}
+
+model StaffProfile {
+  id              String   @id @default(uuid())
+  userId          String   @unique
+  user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  employeeId      String   @unique
+  firstName       String
+  lastName        String
+  profileImage    String?
+  role            String   // E.g., LIBRARIAN, ACCOUNTANT, CLEANER
+  phone           String?
+  status          String   @default("ACTIVE")
+}
+
+model Notice {
+  id              String   @id @default(uuid())
+  title           String
+  content         String
+  category        String   @default("GENERAL") // ACADEMIC, EXAM, HOLIDAY, GENERAL
+  targetAudience  String   @default("ALL") // ALL, STUDENTS, TEACHERS, STAFF
+  isPinned        Boolean  @default(false)
+  attachmentUrl   String?
+  publishedAt     DateTime @default(now())
+  
+  authorId        String?
+  author          TeacherProfile? @relation(fields: [authorId], references: [id])
+}
+
+model EventNews {
+  id              String   @id @default(uuid())
+  title           String
+  description     String
+  type            String   // NEWS, EVENT, ACHIEVEMENT, GALLERY
+  date            DateTime?
+  imageUrl        String?
+  isPublished     Boolean  @default(true)
+  createdAt       DateTime @default(now())
+}
+
+model Exam {
+  id              String   @id @default(uuid())
+  name            String   // Half-Yearly, Final
+  startDate       DateTime?
+  endDate         DateTime?
+  academicYear    String
+  results         Result[]
+}
+
+model Result {
+  id              String   @id @default(uuid())
+  studentId       String
+  student         StudentProfile @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  examId          String
+  exam            Exam     @relation(fields: [examId], references: [id], onDelete: Cascade)
+  subjectId       String
+  subject         Subject   @relation(fields: [subjectId], references: [id])
+  
+  marksObtained   Float
+  totalMarks      Float
+  grade           String?
+  gpa             Float?
+  remarks         String?
+  
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@unique([studentId, examId, subjectId])
+}
+
+model Attendance {
+  id              String   @id @default(uuid())
+  date            DateTime
+  status          String   // PRESENT, ABSENT, LATE, LEAVE
+  
+  studentId       String?
+  student         StudentProfile? @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  
+  teacherId       String?
+  teacher         TeacherProfile? @relation(fields: [teacherId], references: [id], onDelete: Cascade)
+  
+  recordedBy      String?
+  createdAt       DateTime @default(now())
+
+  @@unique([date, studentId, teacherId])
+}
+
+model FileStorage {
+  id              String   @id @default(uuid())
+  filename        String
+  originalName    String
+  mimeType        String
+  size            Int
+  url             String
+  provider        String   @default("LOCAL") // LOCAL, S3, CLOUDINARY
+  uploadedAt      DateTime @default(now())
+}

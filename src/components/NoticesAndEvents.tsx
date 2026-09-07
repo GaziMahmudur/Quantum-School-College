@@ -26,8 +26,51 @@ export const NoticesAndEvents: React.FC<NoticesAndEventsProps> = ({
   const [filter, setFilter] = useState<'all' | 'school' | 'college'>('all');
   const [selectedEvent, setSelectedEvent] = useState<SchoolEvent | null>(null);
   const [rsvpSuccess, setRsvpSuccess] = useState(false);
+  const [notices, setNotices] = useState<CircularNotice[]>([]);
+  const [events, setEvents] = useState<SchoolEvent[]>([]);
 
-  const filteredNotices = CIRCULAR_NOTICES.filter(
+  React.useEffect(() => {
+    // Fetch live notices
+    fetch('/api/notices')
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success) {
+           const mappedNotices = data.data.map((n: any) => ({
+             id: n.id,
+             title: n.title,
+             description: n.content,
+             date: new Date(n.publishedAt).getDate().toString(),
+             month: new Date(n.publishedAt).toLocaleString('default', { month: 'short' }),
+             section: n.targetAudience.toLowerCase() === 'all' ? 'all' : (n.targetAudience.includes('SCHOOL') ? 'school' : 'college'),
+             badge: n.category,
+             badgeColor: 'bg-indigo-50 text-indigo-700 border-indigo-200'
+           }));
+           setNotices(mappedNotices);
+        }
+      })
+      .catch((err) => console.error(err));
+
+    // Fetch live events
+    fetch('/api/events')
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success) {
+           const mappedEvents = data.data.map((e: any) => ({
+             id: e.id,
+             title: e.title,
+             description: e.description,
+             tag: e.type,
+             time: new Date(e.date).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+             dateStr: new Date(e.date).toDateString(),
+             location: 'Main Auditorium' // fallback if not in model
+           }));
+           setEvents(mappedEvents);
+        }
+      })
+      .catch((err) => console.error(err));
+  }, []);
+
+  const filteredNotices = notices.filter(
     (n) => filter === 'all' || n.section === filter || n.section === 'all'
   );
 
@@ -115,7 +158,7 @@ export const NoticesAndEvents: React.FC<NoticesAndEventsProps> = ({
 
               {/* Notice Items List */}
               <div className="divide-y divide-slate-200/80">
-                {filteredNotices.map((notice) => (
+                {(filteredNotices.length > 0 ? filteredNotices : CIRCULAR_NOTICES).map((notice) => (
                   <div
                     key={notice.id}
                     onClick={() => onViewNotice(notice)}
@@ -183,7 +226,7 @@ export const NoticesAndEvents: React.FC<NoticesAndEventsProps> = ({
 
               {/* Event Items List */}
               <div className="space-y-5 pt-6">
-                {SCHOOL_EVENTS.map((event) => (
+                {(events.length > 0 ? events : SCHOOL_EVENTS).map((event) => (
                   <div
                     key={event.id}
                     onClick={() => setSelectedEvent(event)}
